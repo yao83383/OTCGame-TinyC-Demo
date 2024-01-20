@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EC06774A-3810-4D1D-02D5-6371295ECD0B}</ProjectGuid>
+    <ProjectGuid>{D1B93CFD-8DD6-A846-82BD-73341EA0F178}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -670,27 +670,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Services.Core.Analytics.Player.csproj">
-      <Project>{06A08934-D0F8-DA16-5802-A0DC2CAAC667}</Project>
+      <Project>{8DBE48AE-1DFD-35FA-7A69-FB041843B2D7}</Project>
       <Name>Unity.Services.Core.Analytics.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Environments.Player.csproj">
-      <Project>{14DAB2BD-F028-661A-898E-B87D729C2235}</Project>
+      <Project>{8CF74D1E-070E-4334-F301-4D5D848189ED}</Project>
       <Name>Unity.Services.Core.Environments.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Player.csproj">
-      <Project>{1FC99379-4492-0BB4-60EE-E37EBE917703}</Project>
+      <Project>{DAED754B-1044-D620-3EF1-EC2F61B8885E}</Project>
       <Name>Unity.Timeline.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
-      <Project>{9FB28A45-B9C9-0E17-87DC-FD1516ECDB8C}</Project>
+      <Project>{930DE8DB-6439-27AD-8D1F-5B81218AE822}</Project>
       <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
-      <Project>{6F19B52E-9594-01DB-A277-AAF2495F3BB2}</Project>
+      <Project>{3D870FB4-F47F-5035-8B2B-3B4C945BE81B}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Services.Core.Player.csproj">
-      <Project>{5C051219-C8EF-120A-5A02-BFA8B101D8E7}</Project>
+      <Project>{691314FB-2A73-10DC-E361-A88B3FCB8440}</Project>
       <Name>Unity.Services.Core.Player</Name>
     </ProjectReference>
   </ItemGroup>
