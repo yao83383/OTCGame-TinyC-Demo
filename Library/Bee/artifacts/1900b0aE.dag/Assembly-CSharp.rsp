@@ -356,6 +356,7 @@
 "Assets/scripts/HeroShow.cs"
 "Assets/scripts/Icon.cs"
 "Assets/scripts/ImportJson.cs"
+"Assets/scripts/ImportJsonTest.cs"
 "Assets/scripts/KuanRange.cs"
 "Assets/scripts/MainMenu.cs"
 "Assets/scripts/MenuData.cs"

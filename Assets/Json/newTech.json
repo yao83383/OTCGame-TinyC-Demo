@@ -1,9 +1,18 @@
-{
-	"name":"",
-	"number":"",
-	"culture":"",
-	"discription":"",
-	"age":"",
-	"englishName":"",
-	"englishDis":""
-}
+[
+	{"name":"1",
+	"number":"1",
+	"culture":"1",
+	"discription":"1",
+	"age":"1",
+	"englishName":"1",
+	"englishDis":"1"
+	},
+	{"name":"1",
+	"number":"1",
+	"culture":"1",
+	"discription":"1",
+	"age":"1",
+	"englishName":"1",
+	"englishDis":"1"
+	}
+]

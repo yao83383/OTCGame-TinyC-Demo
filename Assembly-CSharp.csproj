@@ -83,6 +83,7 @@
     <Compile Include="Assets\scripts\Boom.cs" />
     <Compile Include="Assets\scripts\Vectory.cs" />
     <Compile Include="Assets\scripts\NewTechJson.cs" />
+    <Compile Include="Assets\scripts\ImportJsonTest.cs" />
     <Compile Include="Assets\scripts\SaveCell.cs" />
     <Compile Include="Assets\scripts\HeroJson.cs" />
     <Compile Include="Assets\scripts\Skill.cs" />

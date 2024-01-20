@@ -33,6 +33,7 @@ public class ImportJson : MonoBehaviour
 		world.datas.skilljsons = JsonConvert.DeserializeObject<List<SkillJson>>(value);
 	}
 
+
 	private void ImportAgeJson()
 	{
 		world.datas.ages.Clear();
