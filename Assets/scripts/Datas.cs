@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Datas : MonoBehaviour
 {
+	//limits
 	public List<int> limits = new List<int>();
 
 	public List<int> lows = new List<int>();
