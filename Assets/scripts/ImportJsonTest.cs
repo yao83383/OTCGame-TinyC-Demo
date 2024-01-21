@@ -61,4 +61,41 @@ public class ImportJsonTest : MonoBehaviour
 		string value = File.ReadAllText(Application.dataPath + "/Json/hero.json");
 		heroJsons = JsonConvert.DeserializeObject<List<HeroJson>>(value);
 	}
+
+	private void CSVLoad()
+	{ 
+		// TODO - loadFile 
+
+		// TODO - deserialize to TechJson or agetJson type etc.
+	}
+
+	private void ImportTechCSV()
+	{ 
+		// TODO - read from csv file
+
+		// TODO - write to TechJson
+	}
+
+	private void ImportSkillCSV()
+	{ 
+		// TODO - read from csv file
+
+		// TODO - write to skillJsons
+	}
+
+	private void ImportAgeCSV()
+    {
+		// TODO - read from csv file
+
+		// TODO - write to ageJsons
+    }
+
+	private void ImportHeroCSV()
+	{ 
+		// TODO - read from csv file
+
+		// TODO - write to heroJsons
+	}
+
+
 }
