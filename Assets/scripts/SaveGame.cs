@@ -209,7 +209,9 @@ public class SaveGame : MonoBehaviour
 
 	public void AllLoad()
 	{
-		string path = Application.persistentDataPath + "/save.json";
+		//string path = Application.persistentDataPath + "/save.json";
+		//suit for multy platform path;
+		string path = Path.Combine(Application.persistentDataPath, "save.json");
 		if (File.Exists(path))
 		{
 			StreamReader streamReader = new StreamReader(path);

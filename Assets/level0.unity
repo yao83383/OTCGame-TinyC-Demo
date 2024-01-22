@@ -1737,13 +1737,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speakers: []
-  moveSounds: []
+  moveSounds:
+  - {fileID: 8300000, guid: 4cc78c4f0eb6f924f922e7ea3d4bbe40, type: 3}
   skillSounds: []
   otherSounds: []
-  selection: {fileID: 0}
-  newTech: {fileID: 0}
-  delect: {fileID: 0}
-  openMenu: {fileID: 0}
+  selection: {fileID: 8300000, guid: dce2c9ab0b3ac94458ce06e4814ddb66, type: 3}
+  newTech: {fileID: 8300000, guid: 751a74c73f2d8a448a63ecfd3e770b45, type: 3}
+  delect: {fileID: 8300000, guid: 86c06b8bc7d59214ca1ac50df7e5c1d4, type: 3}
+  openMenu: {fileID: 8300000, guid: 292697bd18b442b4ca76e8102a0d13c6, type: 3}
 --- !u!1 &251695258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,7 +2389,7 @@ GameObject:
   - component: {fileID: 391891333}
   - component: {fileID: 391891332}
   m_Layer: 5
-  m_Name: ecs
+  m_Name: esc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5090,7 +5091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -15814,7 +15814,7 @@ MonoBehaviour:
   showingSaveCell: {fileID: 759040269}
   save: 0
   world: {fileID: 1811480345}
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 1984104348}
   sure: {fileID: 1462470971}
 --- !u!114 &1811480345
 MonoBehaviour:
@@ -15859,7 +15859,7 @@ MonoBehaviour:
   heroShow: {fileID: 1811480349}
   chooseHero: {fileID: 1811480348}
   changeEnglish: {fileID: 1811480347}
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 1984104348}
   kuanRange: {fileID: 1811480346}
   appearBlocks: []
   movingBlocks: []
@@ -15898,7 +15898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1ec9fb9d156b64c8cc9262bb5c17df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   skill: 0
   hero: 0
   number: 0
@@ -15930,8 +15930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0c46df2f33aca45b7424a752aef64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 0}
-  datas: {fileID: 0}
+  world: {fileID: 1811480345}
+  datas: {fileID: 1811480358}
   canPickHeros: 
   showedHeros: 
   heroSelections: []
@@ -15957,7 +15957,7 @@ MonoBehaviour:
   x: 0
   y: 0
   image: {fileID: 0}
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
 --- !u!114 &1811480350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15982,7 +15982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b973cd62291811429a10e285e6d9cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   menuData: {fileID: 0}
   inMenu: 0
   menuSelection: {fileID: 0}
@@ -16002,7 +16002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c446879601198694f83a91e2466f2195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 5d8ef7ca46a8c0548ac35932080249ba, type: 2}
   sliderMusic: {fileID: 0}
   sliderSound: {fileID: 0}
   world: {fileID: 0}
@@ -16012,7 +16012,7 @@ MonoBehaviour:
   screen: {fileID: 0}
   full: {fileID: 0}
   language: {fileID: 0}
-  menuData: {fileID: 0}
+  menuData: {fileID: 11400000, guid: e8eb6f26956bb4a4596cf2bc9909af2e, type: 2}
   screens: []
   screenNumber: 0
   title: {fileID: 0}
@@ -16044,7 +16044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de0be0d586527f45aad418462498f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   rockets: []
   rocket: {fileID: 0}
   report: {fileID: 0}
@@ -16068,7 +16068,7 @@ MonoBehaviour:
   image1: {fileID: 0}
   image2: {fileID: 0}
   disAppear: 0
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   stay: 0
 --- !u!114 &1811480355
 MonoBehaviour:
@@ -16082,7 +16082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0f3b021e94ebf4a99c257876998f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   title: {fileID: 0}
   texts: []
   hardTexts: []
@@ -16146,7 +16146,7 @@ MonoBehaviour:
   gailv: 
   pool: 
   poolNumber: 0
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   newTechjsons: []
   skilljsons: []
   blockGuides: []
@@ -16201,7 +16201,7 @@ MonoBehaviour:
   text: {fileID: 0}
   number: 0
   cost: 0
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   holding: 0
 --- !u!114 &1811480361
 MonoBehaviour:
@@ -16217,7 +16217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   number: 0
   image: {fileID: 0}
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   holding: 0
 --- !u!114 &1811480362
 MonoBehaviour:
@@ -16234,7 +16234,7 @@ MonoBehaviour:
   food: {fileID: 0}
   rock: {fileID: 0}
   culture: {fileID: 0}
-  world: {fileID: 0}
+  world: {fileID: 1811480345}
   skills: []
   skillNumbers: 
   heroes: []
