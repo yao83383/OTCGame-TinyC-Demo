@@ -180,7 +180,7 @@ public class TimeScore : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetMouseButtonDown(0) && world.newAgeing > 120)
+		if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && world.newAgeing > 120)
 		{
 			Time.timeScale = 1f;
 			agePage.SetBool("disAppear", value: true);

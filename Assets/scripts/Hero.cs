@@ -17,12 +17,12 @@ public class Hero : MonoBehaviour
 
 	private void Update()
 	{
-		if (world.showingHero == this && Input.GetMouseButtonDown(0))
+		if (world.showingHero == this && (Input.GetMouseButtonDown(0) || Input.touchCount > 0))
 		{
 			StartDrag();
 			holding = true;
 		}
-		if (holding && Input.GetMouseButtonUp(0))
+		if (holding && (Input.GetMouseButtonUp(0) || Input.touchCount == 0))
 		{
 			EndDrag();
 			holding = false;

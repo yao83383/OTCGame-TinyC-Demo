@@ -36,7 +36,7 @@ public class NewTech : MonoBehaviour
 
 	private void Update()
 	{
-		if (newAge && Input.GetMouseButtonDown(0))
+		if (newAge && (Input.GetMouseButtonDown(0) || Input.touchCount > 0))
 		{
 			newAge = false;
 			animator.enabled = true;

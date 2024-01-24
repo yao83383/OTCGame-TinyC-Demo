@@ -26,7 +26,7 @@ public class Skill : MonoBehaviour
 			StartDrag();
 			holding = true;
 		}
-		if (holding && Input.GetMouseButtonUp(0))
+		if (holding && (Input.GetMouseButtonUp(0) || Input.touchCount > 0))
 		{
 			EndDrag();
 			holding = false;

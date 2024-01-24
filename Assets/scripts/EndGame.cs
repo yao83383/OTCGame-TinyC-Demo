@@ -34,7 +34,7 @@ public class EndGame : MonoBehaviour
 			endAmount++;
 			EndSound();
 		}
-		if (Input.GetMouseButton(0))
+		if (Input.GetMouseButton(0) || Input.touchCount > 0)
 		{
 			fillAmount += 0.01f;
 			fill.fillAmount = fillAmount;
