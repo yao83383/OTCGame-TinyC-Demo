@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 24371172}
   - component: {fileID: 24371174}
   - component: {fileID: 24371173}
+  - component: {fileID: 24371175}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -420,6 +421,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24371171}
   m_CullTransparentMesh: 0
+--- !u!114 &24371175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24371171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81a09ba384613e4fa7c7d5bef9f8525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &42666954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4568,7 +4581,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1203894149}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.81333333
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7865,7 +7878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
