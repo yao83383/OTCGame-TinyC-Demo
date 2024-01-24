@@ -21,7 +21,7 @@ public class Skill : MonoBehaviour
 
 	private void Update()
 	{
-		if (world.showingSkill == this && Input.GetMouseButtonDown(0))
+		if (world.showingSkill == this && (Input.GetMouseButtonDown(0) || Input.touchCount > 0))
 		{
 			StartDrag();
 			holding = true;
