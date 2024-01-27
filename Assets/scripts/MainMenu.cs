@@ -112,7 +112,85 @@ public class MainMenu : MonoBehaviour
 		selection = 100;
 	}
 
-	public void Click()
+	public void ClickEasyMode()
+	{
+		eazySelect.SetActive(value: true);
+	}
+
+    public void ClickSaveGame()
+    {
+		saveGame.Open(ifsave: false);
+		ClickEmptySpace();
+	}
+
+    public void ClickHardMode()
+    {
+		hardSelect.SetActive(value: true);
+	}
+
+    public void ClickEsc()
+    {
+		esc.SetActive(value: true);
+		ClickEmptySpace();
+	}
+
+    public void ClickCredit()
+    {
+        credit.SetActive(value: true);
+        UpdateCredit();
+		ClickEmptySpace();
+	}
+
+    public void ClickQuit()
+    {
+		Application.Quit();
+		ClickEmptySpace();
+	}
+
+    public void Clickdifficulty1()
+    {
+        menuData.hard = 0;
+        menuData.difficulty = 1;
+        SceneManager.LoadScene("SampleScene");
+		ClickEmptySpace();
+	}
+
+    public void Clickdifficulty2()
+    {
+        menuData.hard = 0;
+        menuData.difficulty = 2;
+        SceneManager.LoadScene("SampleScene");
+		ClickEmptySpace();
+	}
+
+    public void Clickdifficulty3()
+    {
+        menuData.hard = 1;
+        menuData.difficulty = 3;
+        SceneManager.LoadScene("SampleScene");
+		ClickEmptySpace();
+	}
+
+	public void ClickEmptySpace()
+    {
+		//if (selection != 0)
+		{
+			eazySelect.SetActive(value: false);
+		}
+		//if (selection != 2)
+		{
+		    hardSelect.SetActive(value: false);
+		}
+	}
+
+    public void Clickdifficulty4()
+    {
+        menuData.hard = 1;
+        menuData.difficulty = 4;
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void Click()
 	{
 		if (selection == 100)
 		{
