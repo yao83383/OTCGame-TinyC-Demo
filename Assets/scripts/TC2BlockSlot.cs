@@ -5,21 +5,21 @@ using UnityEngine.UI;
 public class TC2BlockSlot : MonoBehaviour
 {
 	public enum NearDirect
-	{ 
-		Left	= 1,
-		Right	= 2,
-		Up		= 3,
-		Down	= 4
+	{
+		Left = 1,
+		Right = 2,
+		Up = 3,
+		Down = 4
 	}
 	//Check NearBlock
 	[HideInInspector]
 	private bool LeftAvailable;
-    [HideInInspector]
-    private bool RightAvailable;
-    [HideInInspector]
-    private bool UpAvailable;
-    [HideInInspector]
-    private bool DownAvailable;
+	[HideInInspector]
+	private bool RightAvailable;
+	[HideInInspector]
+	private bool UpAvailable;
+	[HideInInspector]
+	private bool DownAvailable;
 	//Edge
 	public Image LeftEdge;
 	public Image RightEdge;
@@ -27,133 +27,128 @@ public class TC2BlockSlot : MonoBehaviour
 	public Image DownEdge;
 	public Image BackGround;
 
-	public World WorldRef;
+	public TC2World WorldRef;
 	//地块坐标
 	[HideInInspector]
-	public Vector2 BlockLocation;
+	public Vector2Int BlockLocation;
 
-	TC2BlockSlot(int InX, int InY)
-	{
-		BlockLocation = new Vector2(InX, InY);
-	}
+    //代表地块是否已放置物品
+	[HideInInspector]
+    public TC2Block BlockInst;
 
-	~TC2BlockSlot()
+    //代表地块是否可放置物品
+    [HideInInspector]
+	public bool IsAvailable;
+	
+	private void OnDestroy()
 	{
 		WorldRef.BlockSlots.Remove(BlockLocation);
-		RefreshNearSlotsState();
+		RefreshSlotEdgeStateOnDestory();
 	}
 
     public void Awake()
     {
+        BlockLocation.x = transform.GetSiblingIndex() / 10;
+        BlockLocation.y = transform.GetSiblingIndex() % 10;
+		WorldRef = transform.parent.GetComponent<TC2World>();
 		WorldRef.BlockSlots.Add(BlockLocation, this);
+
+		BlockInst = null;
+		IsAvailable = true;
+
+		RefreshSlotEdgeStateOnCreate();
 	}
 
-	//在创建新地块时需要刷新周边BlockSlot
-	public void RefreshSlotState()
+	public TC2BlockSlot GetSlotByDirect(Vector2Int InBlockLocation, NearDirect InDirectEnum)
 	{
-		CheckEdge();
-	}
-	//删除地块时 周边4个地块都需要各自刷新一次
-	public void RefreshNearSlotsState()
-	{
-		if (LeftAvailable)
-		{
-			TC2BlockSlot TempSlot;
-			WorldRef.BlockSlots.TryGetValue(new Vector2(BlockLocation.x - 1, BlockLocation.y), out TempSlot);
-			TempSlot.RefreshSlotState();
-		}
-        if (RightAvailable)
+        TC2BlockSlot TempSlot;
+        switch (InDirectEnum)
         {
-            TC2BlockSlot TempSlot;
-            WorldRef.BlockSlots.TryGetValue(new Vector2(BlockLocation.x + 1, BlockLocation.y), out TempSlot);
-            TempSlot.RefreshSlotState();
-        }
-        if (UpAvailable)
-        {
-            TC2BlockSlot TempSlot;
-            WorldRef.BlockSlots.TryGetValue(new Vector2(BlockLocation.x, BlockLocation.y + 1), out TempSlot);
-            TempSlot.RefreshSlotState();
-        }
-        if (DownAvailable)
-        {
-            TC2BlockSlot TempSlot;
-            WorldRef.BlockSlots.TryGetValue(new Vector2(BlockLocation.x, BlockLocation.y - 1), out TempSlot);
-            TempSlot.RefreshSlotState();
-        }
-    }
-
-	public void CheckEdge()
-	{
-		if (CheckNearExist(NearDirect.Left))
-		{
-			LeftEdge.color = new Color(LeftEdge.color.r, LeftEdge.color.g, LeftEdge.color.b, 1);
-			LeftAvailable = true;
-		}
-		else 
-		{
-            LeftEdge.color = new Color(LeftEdge.color.r, LeftEdge.color.g, LeftEdge.color.b, 0);
-            LeftAvailable = false;
-        }
-
-        if (CheckNearExist(NearDirect.Right))
-        {
-			RightEdge.color = new Color(RightEdge.color.r, RightEdge.color.g, RightEdge.color.b, 1);
-			RightAvailable = true;
-        }
-        {
-            RightEdge.color = new Color(RightEdge.color.r, RightEdge.color.g, RightEdge.color.b, 0);
-			RightAvailable = false;
-        }
-
-        if (CheckNearExist(NearDirect.Up))
-        {
-			UpEdge.color = new Color(UpEdge.color.r, UpEdge.color.g, UpEdge.color.b, 1);
-			UpAvailable = true;
-        }
-		else
-		{
-			UpEdge.color = new Color(UpEdge.color.r, UpEdge.color.g, UpEdge.color.b, 0);
-			UpAvailable = false;
-		}
-
-		if (CheckNearExist(NearDirect.Down))
-		{
-			DownEdge.color = new Color(DownEdge.color.r, DownEdge.color.g, DownEdge.color.b, 1);
-			DownAvailable = true;
-		}
-		else
-        {
-            DownEdge.color = new Color(DownEdge.color.r, DownEdge.color.g, DownEdge.color.b, 0);
-			DownAvailable = false;
-        }
-    }
-
-    public bool CheckNearExist(NearDirect InDirectEnum)
-	{
-		bool SearchResult = false;
-		switch (InDirectEnum)
-		{
-			case NearDirect.Left:
-				{
-					SearchResult = WorldRef.BlockSlots.ContainsKey(new Vector2(BlockLocation.x - 1, BlockLocation.y));
-					break;
-				}
+            case NearDirect.Left:
+                {
+                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x, InBlockLocation.y - 1), out TempSlot);
+                    break;
+                }
             case NearDirect.Right:
                 {
-					SearchResult = WorldRef.BlockSlots.ContainsKey(new Vector2(BlockLocation.x + 1, BlockLocation.y));
-					break;
+                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x + 1, InBlockLocation.y), out TempSlot);
+                    break;
                 }
             case NearDirect.Up:
                 {
-					SearchResult = WorldRef.BlockSlots.ContainsKey(new Vector2(BlockLocation.x, BlockLocation.y + 1));
-					break;
+
+                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x, InBlockLocation.y + 1), out TempSlot);
+                    break;
                 }
-            case NearDirect.Down:
+            default:
                 {
-					SearchResult = WorldRef.BlockSlots.ContainsKey(new Vector2(BlockLocation.x, BlockLocation.y - 1));
-					break;
+                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x, InBlockLocation.y - 1), out TempSlot);
+                    break;
                 }
         }
-		return SearchResult;
+		return TempSlot;
+    }
+
+
+    //删除Slot时 周边4个Slots都需要各自刷新一次
+    public void RefreshSlotEdgeStateOnDestory()
+	{
+		if (LeftAvailable)
+		{
+			RefreshSingleDirect(NearDirect.Left, ref LeftAvailable, LeftEdge);
+		}
+        if (RightAvailable)
+        {
+			RefreshSingleDirect(NearDirect.Down, ref DownAvailable, DownEdge);
+		}
+        if (UpAvailable)
+        {
+			RefreshSingleDirect(NearDirect.Up, ref UpAvailable, UpEdge);
+		}
+        if (DownAvailable)
+        {
+			RefreshSingleDirect(NearDirect.Right, ref RightAvailable, RightEdge);
+		}
+    }
+
+    //创建Slot时 周边4个Slots都需要各自刷新一次
+    public void RefreshSlotEdgeStateOnCreate()
+    {
+		RefreshSlotEdgesState();
+	}
+
+    //在创建新Slot时需要刷新周边Slot
+    public void RefreshSlotEdgesState()
+    {
+		RefreshSingleDirect(NearDirect.Up,		ref UpAvailable,	UpEdge);
+		RefreshSingleDirect(NearDirect.Left,	ref LeftAvailable,	LeftEdge);
+		RefreshSingleDirect(NearDirect.Down,	ref DownAvailable,	DownEdge);
+		RefreshSingleDirect(NearDirect.Right,	ref RightAvailable,	RightEdge);
+    }
+
+	private void RefreshSingleDirect(NearDirect InDirectEnum, ref bool IsAvailable, Image InImage)
+	{
+        if (CheckAvailableByDirect(InDirectEnum))
+        {
+            DownEdge.color = new Color(InImage.color.r, InImage.color.g, InImage.color.b, 1);
+			IsAvailable = true;
+		}
+        else
+        {
+            DownEdge.color = new Color(InImage.color.r, InImage.color.g, InImage.color.b, 0);
+			IsAvailable = false;
+        }
+    }
+
+    private bool CheckAvailableByDirect(NearDirect InDirectEnum)
+	{
+		bool IsAvaiable = false;
+		TC2BlockSlot TempSlot;
+		TempSlot = GetSlotByDirect(BlockLocation, InDirectEnum);
+		if (TempSlot)
+        {
+			IsAvaiable = TempSlot.IsAvailable;
+        }
+        return IsAvaiable;
 	}
 }
