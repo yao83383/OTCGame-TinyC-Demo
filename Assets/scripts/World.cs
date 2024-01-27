@@ -104,7 +104,9 @@ public class World : MonoBehaviour
 	public List<Boom> booms = new List<Boom>();
 	[HideInInspector]
 	public List<Transform> rockets = new List<Transform>();
-
+	//TC2
+    [HideInInspector]
+    public Dictionary<Vector2, TC2BlockSlot> BlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
 	private int appearCount;
 
 	private int checkDead;

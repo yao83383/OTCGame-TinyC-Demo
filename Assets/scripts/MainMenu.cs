@@ -112,28 +112,39 @@ public class MainMenu : MonoBehaviour
 		selection = 100;
 	}
 
+	//Hover 播放声音
+	public void HoverHightLight()
+	{
+		world.sound.PlaySound(world.sound.selection);
+	}
+
+	//开始游戏按钮
 	public void ClickEasyMode()
 	{
 		eazySelect.SetActive(value: true);
 	}
 
+	//保存、读取
     public void ClickSaveGame()
     {
 		saveGame.Open(ifsave: false);
 		ClickEmptySpace();
 	}
 
+	//英雄模式按钮
     public void ClickHardMode()
     {
 		hardSelect.SetActive(value: true);
 	}
 
+	//退出
     public void ClickEsc()
     {
 		esc.SetActive(value: true);
 		ClickEmptySpace();
 	}
 
+	//制作人员
     public void ClickCredit()
     {
         credit.SetActive(value: true);
@@ -141,12 +152,14 @@ public class MainMenu : MonoBehaviour
 		ClickEmptySpace();
 	}
 
+	//确定退出
     public void ClickQuit()
     {
 		Application.Quit();
 		ClickEmptySpace();
 	}
 
+	//简单 按钮
     public void Clickdifficulty1()
     {
         menuData.hard = 0;
@@ -154,7 +167,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
 		ClickEmptySpace();
 	}
-
+	//普通 按钮
     public void Clickdifficulty2()
     {
         menuData.hard = 0;
@@ -163,6 +176,7 @@ public class MainMenu : MonoBehaviour
 		ClickEmptySpace();
 	}
 
+	//英雄 简单
     public void Clickdifficulty3()
     {
         menuData.hard = 1;
@@ -170,6 +184,14 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
 		ClickEmptySpace();
 	}
+
+	//英雄 困难
+    public void Clickdifficulty4()
+    {
+        menuData.hard = 1;
+        menuData.difficulty = 4;
+        SceneManager.LoadScene("SampleScene");
+    }
 
 	public void ClickEmptySpace()
     {
@@ -183,73 +205,67 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
-    public void Clickdifficulty4()
-    {
-        menuData.hard = 1;
-        menuData.difficulty = 4;
-        SceneManager.LoadScene("SampleScene");
-    }
 
-    public void Click()
-	{
-		if (selection == 100)
-		{
-			eazySelect.SetActive(value: false);
-			hardSelect.SetActive(value: false);
-			return;
-		}
-		saveGame.world.sound.PlaySound(saveGame.world.sound.openMenu);
-		switch (selection)
-		{
-		case 0:
-			eazySelect.SetActive(value: true);
-			break;
-		case 1:
-			saveGame.Open(ifsave: false);
-			break;
-		case 2:
-			hardSelect.SetActive(value: true);
-			break;
-		case 3:
-			esc.SetActive(value: true);
-			break;
-		case 4:
-			credit.SetActive(value: true);
-			UpdateCredit();
-			break;
-		case 5:
-			Application.Quit();
-			break;
-		case 11:
-			menuData.hard = 0;
-			menuData.difficulty = 1;
-			SceneManager.LoadScene("SampleScene");
-			break;
-		case 12:
-			menuData.hard = 0;
-			menuData.difficulty = 2;
-			SceneManager.LoadScene("SampleScene");
-			break;
-		case 13:
-			menuData.hard = 1;
-			menuData.difficulty = 3;
-			SceneManager.LoadScene("SampleScene");
-			break;
-		case 14:
-			menuData.hard = 1;
-			menuData.difficulty = 4;
-			SceneManager.LoadScene("SampleScene");
-			break;
-		}
-		if (selection != 0)
-		{
-			eazySelect.SetActive(value: false);
-		}
-		if (selection != 2)
-		{
-			hardSelect.SetActive(value: false);
-		}
-	}
+    //public void Click()
+	//{
+	//	if (selection == 100)
+	//	{
+	//		eazySelect.SetActive(value: false);
+	//		hardSelect.SetActive(value: false);
+	//		return;
+	//	}
+	//	saveGame.world.sound.PlaySound(saveGame.world.sound.openMenu);
+	//	switch (selection)
+	//	{
+	//	case 0:
+	//		eazySelect.SetActive(value: true);
+	//		break;
+	//	case 1:
+	//		saveGame.Open(ifsave: false);
+	//		break;
+	//	case 2:
+	//		hardSelect.SetActive(value: true);
+	//		break;
+	//	case 3:
+	//		esc.SetActive(value: true);
+	//		break;
+	//	case 4:
+	//		credit.SetActive(value: true);
+	//		UpdateCredit();
+	//		break;
+	//	case 5:
+	//		Application.Quit();
+	//		break;
+	//	case 11:
+	//		menuData.hard = 0;
+	//		menuData.difficulty = 1;
+	//		SceneManager.LoadScene("SampleScene");
+	//		break;
+	//	case 12:
+	//		menuData.hard = 0;
+	//		menuData.difficulty = 2;
+	//		SceneManager.LoadScene("SampleScene");
+	//		break;
+	//	case 13:
+	//		menuData.hard = 1;
+	//		menuData.difficulty = 3;
+	//		SceneManager.LoadScene("SampleScene");
+	//		break;
+	//	case 14:
+	//		menuData.hard = 1;
+	//		menuData.difficulty = 4;
+	//		SceneManager.LoadScene("SampleScene");
+	//		break;
+	//	}
+	//	if (selection != 0)
+	//	{
+	//		eazySelect.SetActive(value: false);
+	//	}
+	//	if (selection != 2)
+	//	{
+	//		hardSelect.SetActive(value: false);
+	//	}
+	//}
 
 	public void UpdateCredit()
 	{
