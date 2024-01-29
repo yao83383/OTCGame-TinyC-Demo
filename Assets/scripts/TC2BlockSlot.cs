@@ -35,7 +35,7 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 	public Vector2Int BlockLocation;
 
     //代表地块是否已放置物品
-	[HideInInspector]
+	//[HideInInspector]
     public TC2Block BlockInst;
 
     //代表地块是否可放置物品
@@ -165,21 +165,35 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 
 	public void SwitchBlockByBlock(ref TC2Block InDragItem, ref TC2Block InTargetItem)
 	{
-		//交换场景中位置
-		DragableItem draggableItem = InDragItem.GetComponent<DragableItem>();
-		this.BlockInst.transform.SetParent(draggableItem.parentBeforeDrag);
-		draggableItem.parentBeforeDrag = BackGround.transform;
+		DragableItem TempdraggableItem = InDragItem.GetComponent<DragableItem>();
+		if (InTargetItem == null)
+		{
+			TempdraggableItem.parentBeforeDrag = BackGround.transform;
+			InDragItem.BlockSlotInst.BlockInst = null;
+			InDragItem.BlockSlotInst = this;
 
+		}
+		else
+		{
+            if (InDragItem == InTargetItem)
+            {
+                Debug.Log("Same slot no need to switch");
+                return;
+            }
+            //交换场景中位置
+            DragableItem draggableItem = InDragItem.GetComponent<DragableItem>();
+            this.BlockInst.transform.SetParent(draggableItem.parentBeforeDrag);
+            draggableItem.parentBeforeDrag = BackGround.transform;
 
-		//交换Block存储的所属Slot实例
-		TC2BlockSlot TempSlot = InTargetItem.BlockSlotInst;
-		InTargetItem.BlockSlotInst = InDragItem.BlockSlotInst;
-		InDragItem.BlockSlotInst = TempSlot;
-
+            //交换Block存储的所属Slot实例
+            TC2BlockSlot TempSlot = InTargetItem.BlockSlotInst;
+            InTargetItem.BlockSlotInst = InDragItem.BlockSlotInst;
+            InDragItem.BlockSlotInst = TempSlot;
+        }
+		
         //交换Slot所拥有的Block实例
         TC2Block TempBlock = InDragItem;
 		InDragItem = InTargetItem;
 		InTargetItem = TempBlock;
-
 	}
 }

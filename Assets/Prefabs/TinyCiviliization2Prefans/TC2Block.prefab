@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177e66a1b824ae54984dc5e0c53a4a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 5958475266801031597}
+  parentBeforeDrag: {fileID: 0}
 --- !u!223 &2748531131786996391
 Canvas:
   m_ObjectHideFlags: 0
