@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class TC2BlockSlot : MonoBehaviour
+public class TC2BlockSlot : MonoBehaviour, IDropHandler
 {
+	
 	public enum NearDirect
 	{
 		Left = 1,
@@ -53,8 +55,8 @@ public class TC2BlockSlot : MonoBehaviour
 		WorldRef = transform.parent.GetComponent<TC2World>();
 		WorldRef.BlockSlots.Add(BlockLocation, this);
 
-		BlockInst = null;
-		IsAvailable = true;
+		//BlockInst = null;
+		//IsAvailable = true;
 
 		RefreshSlotEdgeStateOnCreate();
 	}
@@ -150,5 +152,34 @@ public class TC2BlockSlot : MonoBehaviour
 			IsAvaiable = TempSlot.IsAvailable;
         }
         return IsAvaiable;
+	}
+
+    public void OnDrop(PointerEventData eventData)
+    {
+		GameObject dropped = eventData.pointerDrag;
+
+		TC2Block DropedBlock = dropped.GetComponent<TC2Block>();
+
+		SwitchBlockByBlock(ref DropedBlock, ref this.BlockInst);
+	}
+
+	public void SwitchBlockByBlock(ref TC2Block InDragItem, ref TC2Block InTargetItem)
+	{
+		//交换场景中位置
+		DragableItem draggableItem = InDragItem.GetComponent<DragableItem>();
+		this.BlockInst.transform.SetParent(draggableItem.parentBeforeDrag);
+		draggableItem.parentBeforeDrag = BackGround.transform;
+
+
+		//交换Block存储的所属Slot实例
+		TC2BlockSlot TempSlot = InTargetItem.BlockSlotInst;
+		InTargetItem.BlockSlotInst = InDragItem.BlockSlotInst;
+		InDragItem.BlockSlotInst = TempSlot;
+
+        //交换Slot所拥有的Block实例
+        TC2Block TempBlock = InDragItem;
+		InDragItem = InTargetItem;
+		InTargetItem = TempBlock;
+
 	}
 }

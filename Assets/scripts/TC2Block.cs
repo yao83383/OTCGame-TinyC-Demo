@@ -52,12 +52,20 @@ public class TC2Block : MonoBehaviour
 	public Outline outline2;
 
 	public bool holding;
-	/*
 	private void Awake()
 	{
-		outline2 = outline1.transform.GetComponents<Outline>()[1];
+		RegisterToSlot();
 	}
 
+	public void RegisterToSlot()
+	{
+        Transform SlotTrans = transform.parent.parent;
+        TC2BlockSlot SlotInst = SlotTrans.GetComponent<TC2BlockSlot>();
+        BlockSlotInst = SlotInst;
+        SlotInst.BlockInst = this;
+    }
+
+	/*
 	private void Start()
 	{
 		moveSpeed = Vector3.zero;

@@ -5,17 +5,13 @@ using UnityEngine.EventSystems;
 
 public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private Vector3 endPosition;
-    private Vector3 startPosition;
-
-    Transform parentAfterDrag;
+    [HideInInspector] 
+    public Transform parentBeforeDrag;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //startPosition = transform.position;
-
-        parentAfterDrag = transform.parent;
+        parentBeforeDrag = transform.parent;
         transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
+        //transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -26,8 +22,7 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //endPosition = transform.position;
-        transform.SetParent(parentAfterDrag);
+        transform.SetParent(parentBeforeDrag);
+        transform.SetAsLastSibling();
     }
-
 }
