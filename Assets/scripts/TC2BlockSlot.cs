@@ -3,9 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(TC2Sound))]
 public class TC2BlockSlot : MonoBehaviour, IDropHandler
 {
-	
+
 	public enum NearDirect
 	{
 		Left = 1,
@@ -30,8 +31,11 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 	public Image BackGround;
 
 	public TC2World WorldRef;
-	//地块坐标
+
 	[HideInInspector]
+	public List<TC2Block> sameBlocks = new List<TC2Block>();
+	//地块坐标
+	//[HideInInspector]
 	public Vector2Int BlockLocation;
 
     //代表地块是否已放置物品
@@ -160,10 +164,14 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 
 		TC2Block DropedBlock = dropped.GetComponent<TC2Block>();
 
-		SwitchBlockByBlock(ref DropedBlock, ref this.BlockInst);
+		if (SwitchBlockByBlock(ref DropedBlock, ref this.BlockInst))
+		{ 
+			DropedBlock.BlockSlotInst.CheckMatch();
+			CheckMatch();
+		}
 	}
 
-	public void SwitchBlockByBlock(ref TC2Block InDragItem, ref TC2Block InTargetItem)
+	public bool SwitchBlockByBlock(ref TC2Block InDragItem, ref TC2Block InTargetItem)
 	{
 		DragableItem TempdraggableItem = InDragItem.GetComponent<DragableItem>();
 		if (InTargetItem == null)
@@ -171,14 +179,14 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 			TempdraggableItem.parentBeforeDrag = BackGround.transform;
 			InDragItem.BlockSlotInst.BlockInst = null;
 			InDragItem.BlockSlotInst = this;
-
+			return true;
 		}
 		else
 		{
             if (InDragItem == InTargetItem)
             {
                 Debug.Log("Same slot no need to switch");
-                return;
+                return false;
             }
             //交换场景中位置
             DragableItem draggableItem = InDragItem.GetComponent<DragableItem>();
@@ -195,5 +203,83 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
         TC2Block TempBlock = InDragItem;
 		InDragItem = InTargetItem;
 		InTargetItem = TempBlock;
+
+		return true;
+	}
+
+	public int CheckMatch()
+	{
+		if (!this.BlockInst) return 0;
+		sameBlocks.Clear();
+		sameBlocks.Add(this.BlockInst);
+		if (sameBlocks[0].IsMatchable)
+		{
+			Vector2Int StartLeftLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
+			StartLeftLocation = new Vector2Int(StartLeftLocation.x, StartLeftLocation.y - 1);
+			while (CheckToEndByDirect(StartLeftLocation, NearDirect.Left))
+			{
+				StartLeftLocation = new Vector2Int(StartLeftLocation.x, StartLeftLocation.y - 1);
+			}
+
+            Vector2Int StartRightLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
+			StartRightLocation = new Vector2Int(StartRightLocation.x, StartRightLocation.y + 1);
+            while (CheckToEndByDirect(StartRightLocation, NearDirect.Right))
+            {
+				StartRightLocation = new Vector2Int(StartRightLocation.x, StartRightLocation.y + 1);
+            }
+
+			for(int blockIndex = sameBlocks.Count - 1; blockIndex >= 0; --blockIndex)
+			{
+                Vector2Int StartUpLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
+				StartUpLocation = new Vector2Int(StartUpLocation.x + 1, StartUpLocation.y);
+                while (CheckToEndByDirect(StartUpLocation, NearDirect.Up))
+                {
+					StartUpLocation = new Vector2Int(StartUpLocation.x + 1, StartUpLocation.y);
+                }
+
+                Vector2Int StartDownLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
+				StartDownLocation = new Vector2Int(StartUpLocation.x - 1, StartUpLocation.y);
+                while (CheckToEndByDirect(StartDownLocation, NearDirect.Down))
+                {
+					StartDownLocation = new Vector2Int(StartDownLocation.x - 1, StartDownLocation.y);
+                }
+            }
+
+			if (sameBlocks.Count > 3)
+			{
+				Debug.Log("Match success, number is " + sameBlocks.Count);
+			}
+			else 
+			{
+				Debug.Log("Match failed, number is " + sameBlocks.Count);
+			}
+        }
+		return sameBlocks.Count;
+	}
+	private bool CheckToEndByDirect(Vector2Int InBlockLoc, NearDirect InDirectEnum)
+	{
+		if (sameBlocks[0].IsMatchable)
+		{
+			TC2BlockSlot TempSlot = GetSlotByDirect(InBlockLoc, InDirectEnum);
+			if (!TempSlot || !TempSlot.BlockInst) return false;
+			if (TempSlot.BlockInst.kind == sameBlocks[0].kind)
+			{
+				if (!sameBlocks.Contains(TempSlot.BlockInst))
+				{
+					TempSlot.BlockInst.aimBlock = sameBlocks[0];
+					sameBlocks.Add(TempSlot.BlockInst);
+				}
+				else
+				{
+					Debug.Log("ssssssssssssssssss");
+				}
+				return true;
+			}
+			return false;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

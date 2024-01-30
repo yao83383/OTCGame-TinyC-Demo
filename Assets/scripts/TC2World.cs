@@ -65,7 +65,7 @@ public class TC2World : MonoBehaviour
 
 	public EndGame endGame;
 
-	public Sound sound;
+	public TC2Sound sound;
 
 	public SaveGame saveGame;
 
@@ -499,51 +499,52 @@ public class TC2World : MonoBehaviour
 		heroShow.y = showingBlock.y;
 		sound.PlaySound(sound.otherSounds[6]);
 	}
-
+	*/
 	public void NextYear()
 	{
-		buttomUI.ChangeResource(2, -foodCost);
-		datas.NewBlock();
-		for (int i = 0; i < wars.Count; i++)
-		{
-			wars[i].number--;
-			wars[i].numberText.text = wars[i].number.ToString();
-			if (wars[i].number <= 0)
-			{
-				wars[i].BeDestroy();
-				wars.RemoveAt(i);
-			}
-		}
-		for (int j = 0; j < buildings.Count; j++)
-		{
-			SetFloatUI(buildings[j].transform.position, 1, 1);
-			buttomUI.ChangeResource(1, 1);
-		}
-		buttomUI.timeScore.NextTurn();
-		if (menuData.hard == 0)
-		{
-			return;
-		}
-		for (int k = 0; k < hightLimit; k++)
-		{
-			for (int l = 0; l < wideLimit; l++)
-			{
-				TC2Block block = blockCells[l, k];
-				if (block.kind > 0 && block.kind < 4 && block.number > block.level && (!block.moving || block.moveTime <= 0.15f) && !block.combining && !block.skill)
-				{
-					block.number--;
-					if (block.number == block.level)
-					{
-						block.numberText.color = new Color(0.25f, 0.15f, 0.15f, 1f);
-						block.outline1.effectColor = new Color(1f, 1f, 1f, 1f);
-						block.outline2.effectColor = new Color(1f, 1f, 1f, 1f);
-					}
-					block.numberText.text = block.number.ToString();
-				}
-			}
-		}
+		//buttomUI.ChangeResource(2, -foodCost);
+		//datas.NewBlock();
+		//for (int i = 0; i < wars.Count; i++)
+		//{
+		//	wars[i].number--;
+		//	wars[i].numberText.text = wars[i].number.ToString();
+		//	if (wars[i].number <= 0)
+		//	{
+		//		wars[i].BeDestroy();
+		//		wars.RemoveAt(i);
+		//	}
+		//}
+		//for (int j = 0; j < buildings.Count; j++)
+		//{
+		//	SetFloatUI(buildings[j].transform.position, 1, 1);
+		//	buttomUI.ChangeResource(1, 1);
+		//}
+		//buttomUI.timeScore.NextTurn();
+		//if (menuData.hard == 0)
+		//{
+		//	return;
+		//}
+		//for (int k = 0; k < hightLimit; k++)
+		//{
+		//	for (int l = 0; l < wideLimit; l++)
+		//	{
+		//		TC2Block block = blockCells[l, k];
+		//		if (block.kind > 0 && block.kind < 4 && block.number > block.level && (!block.moving || block.moveTime <= 0.15f) && !block.combining && !block.skill)
+		//		{
+		//			block.number--;
+		//			if (block.number == block.level)
+		//			{
+		//				block.numberText.color = new Color(0.25f, 0.15f, 0.15f, 1f);
+		//				block.outline1.effectColor = new Color(1f, 1f, 1f, 1f);
+		//				block.outline2.effectColor = new Color(1f, 1f, 1f, 1f);
+		//			}
+		//			block.numberText.text = block.number.ToString();
+		//		}
+		//	}
+		//}
 	}
 
+	/*
 	public bool canSkill(int cost)
 	{
 		if (rock >= cost)
