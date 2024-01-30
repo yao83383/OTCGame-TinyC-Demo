@@ -12,14 +12,6 @@ public class TC2Sound : MonoBehaviour
 
 	public Dictionary<string, AudioClip> Sounds = new Dictionary<string, AudioClip>();
 
-	public AudioClip selection;
-
-	public AudioClip newTech;
-
-	public AudioClip delect;
-
-	public AudioClip openMenu;
-
 	private void Start()
 	{
 		for (int soundIndex = 0; soundIndex < soundClips.Count && soundIndex < soundNames.Count; ++soundIndex)

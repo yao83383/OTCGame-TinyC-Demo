@@ -29258,13 +29258,19 @@ MonoBehaviour:
   soundNames:
   - Move
   - Combine
+  - Selection
+  - NewTech
+  - Delect
+  - OpenMenu
+  - Boom
   soundClips:
   - {fileID: 8300000, guid: 4cc78c4f0eb6f924f922e7ea3d4bbe40, type: 3}
   - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
-  selection: {fileID: 0}
-  newTech: {fileID: 0}
-  delect: {fileID: 0}
-  openMenu: {fileID: 0}
+  - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
+  - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
+  - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
+  - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
+  - {fileID: 8300000, guid: 0df446d2699640542b03d4528c4d0b73, type: 3}
 --- !u!1 &735581061
 GameObject:
   m_ObjectHideFlags: 0

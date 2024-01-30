@@ -124,4 +124,9 @@ public class TC2Block : MonoBehaviour
 			}
 		}
 	}
+
+	public void DisAppear()
+	{ 
+	
+	}
 }

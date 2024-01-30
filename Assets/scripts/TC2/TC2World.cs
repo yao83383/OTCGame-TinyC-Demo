@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TC2World : MonoBehaviour
 {
 	[Serializable]
-	public class WaitingBlock
+	public class TC2WaitingBlock
 	{
 		public int x;
 
@@ -43,9 +43,9 @@ public class TC2World : MonoBehaviour
 	[HideInInspector]
 	public List<Image> freeShadows = new List<Image>();
 
-	public MenuData menuData;
+	public TC2MenuData menuData;
 
-	public ButtomUI buttomUI;
+	public TC2ButtomUI buttomUI;
 	//鼠标当前悬浮的block，用于显示block信息
 	[HideInInspector]
 	public TC2Block showingBlock;
@@ -59,27 +59,27 @@ public class TC2World : MonoBehaviour
 
 	public Mouse mouse;
 
-	public Datas datas;
+	public TC2Datas datas;
 
 	public NewTech newTech;
 
-	public EndGame endGame;
+	public TC2EndGame endGame;
 
 	public TC2Sound sound;
 
 	public SaveGame saveGame;
 
-	public StartGame startGame;
+	public TC2StartGame startGame;
 
 	public RotateLight light1;
 
-	public Vectory vectory;
+	public TC2Victory vectory;
 
 	public Esc esc;
 
 	public AudioMixer audioMixer;
 
-	public SetScreen setScreen;
+	public TC2SetScreen setScreen;
 
 	public Buff buff;
 
@@ -93,7 +93,7 @@ public class TC2World : MonoBehaviour
 
 	public KuanRange kuanRange;
 	[HideInInspector]
-	public List<WaitingBlock> appearBlocks = new List<WaitingBlock>();
+	public List<TC2WaitingBlock> appearBlocks = new List<TC2WaitingBlock>();
 	[HideInInspector]
 	public List<TC2Block> movingBlocks = new List<TC2Block>();
 	[HideInInspector]
@@ -139,7 +139,7 @@ public class TC2World : MonoBehaviour
 	public int showBlockCount;
 
 	public List<Vector3> worldShakes = new List<Vector3>();
-	/*
+	
 	private void Awake()
 	{
 		menuData.firstOpen = PlayerPrefs.GetInt("firstOpen");
@@ -288,17 +288,16 @@ public class TC2World : MonoBehaviour
 		floatUI.text.text = number.ToString();
 		floatUI.gameObject.SetActive(value: true);
 	}
-
 	public void NewBlock(int x, int y, int kind, int level)
 	{
-		WaitingBlock waitingBlock = new WaitingBlock();
+		TC2WaitingBlock waitingBlock = new TC2WaitingBlock();
 		waitingBlock.kind = kind;
 		waitingBlock.level = level;
 		waitingBlock.x = x;
 		waitingBlock.y = y;
 		appearBlocks.Add(waitingBlock);
 	}
-
+	
 	private void FixedUpdate()
 	{
 		if (inMenu)
@@ -350,26 +349,26 @@ public class TC2World : MonoBehaviour
 			{
 				if (freeBlocks.Count > 0)
 				{
-					WaitingBlock waitingBlock = appearBlocks[0];
+					TC2WaitingBlock waitingBlock = appearBlocks[0];
 					bool flag = false;
 					if (waitingBlock.x < 99 && freeBlocks.Contains(blockCells[waitingBlock.x, waitingBlock.y]))
 					{
 						flag = true;
-						Block block = blockCells[waitingBlock.x, waitingBlock.y];
+						TC2Block block = blockCells[waitingBlock.x, waitingBlock.y];
 						freeBlocks.Remove(block);
 						block.kind = waitingBlock.kind;
 						block.level = waitingBlock.level;
-						block.FreshBlock(newBlock: true);
+						block.BlockSlotInst.RefreshSlotEdgeStateOnCreate();
 					}
 					if (!flag && freeBlocks.Count > 0)
 					{
-						Block block2 = freeBlocks[UnityEngine.Random.Range(0, freeBlocks.Count)];
+						TC2Block block2 = freeBlocks[UnityEngine.Random.Range(0, freeBlocks.Count)];
 						freeBlocks.Remove(block2);
 						block2.kind = waitingBlock.kind;
 						block2.level = waitingBlock.level;
-						waitingBlock.x = block2.x;
-						waitingBlock.y = block2.y;
-						block2.FreshBlock(newBlock: true);
+						waitingBlock.x = block2.BlockSlotInst.BlockLocation.x;
+						waitingBlock.y = block2.BlockSlotInst.BlockLocation.y;
+						block2.BlockSlotInst.RefreshSlotEdgeStateOnCreate();
 					}
 				}
 				else
@@ -413,8 +412,8 @@ public class TC2World : MonoBehaviour
 			for (int j = 0; j < 10; j++)
 			{
 				blockCells[j, i] = freeBlocks[j + i * 10];
-				blockCells[j, i].x = j;
-				blockCells[j, i].y = i;
+				blockCells[j, i].BlockSlotInst.BlockLocation.x = j;
+				blockCells[j, i].BlockSlotInst.BlockLocation.y = i;
 				shadows[j, i] = freeShadows[j + i * 10];
 			}
 		}
@@ -430,7 +429,9 @@ public class TC2World : MonoBehaviour
 
 	public void StartDrag(TC2Block b)
 	{
-		sound.PlaySound(sound.moveSounds[5]);
+		AudioClip MoveCilp;
+		sound.Sounds.TryGetValue("Move", out MoveCilp);
+		sound.PlaySound(MoveCilp);
 		movingBlock = b;
 		mouse.block.gameObject.SetActive(value: true);
 		mouse.block.kind = b.kind;
@@ -443,12 +444,12 @@ public class TC2World : MonoBehaviour
 		{
 			for (int j = 0; j < wideLimit; j++)
 			{
-				int num = i - b.y;
+				int num = i - b.BlockSlotInst.BlockLocation.y;
 				if (num < 0)
 				{
 					num = -num;
 				}
-				int num2 = j - b.x;
+				int num2 = j - b.BlockSlotInst.BlockLocation.x;
 				if (num2 < 0)
 				{
 					num2 = -num2;
@@ -475,16 +476,20 @@ public class TC2World : MonoBehaviour
 
 	public void StartSkill(int number)
 	{
-		sound.PlaySound(sound.moveSounds[5]);
-		mouse.skill.gameObject.SetActive(value: true);
+        AudioClip MoveCilp;
+        sound.Sounds.TryGetValue("Move", out MoveCilp);
+        sound.PlaySound(MoveCilp);
+        mouse.skill.gameObject.SetActive(value: true);
 		mouse.skill.UpdateSkill(number);
 		mouse.skill.transform.localPosition = new Vector3(0f, 0f, 0f);
 	}
 
 	public void PickUpHero(int n)
 	{
-		sound.PlaySound(sound.moveSounds[5]);
-		mouse.skill.gameObject.SetActive(value: true);
+        AudioClip MoveCilp;
+        sound.Sounds.TryGetValue("Move", out MoveCilp);
+        sound.PlaySound(MoveCilp);
+        mouse.skill.gameObject.SetActive(value: true);
 		mouse.skill.text.text = null;
 		mouse.skill.image.sprite = datas.heroSprites[n];
 	}
@@ -495,11 +500,13 @@ public class TC2World : MonoBehaviour
 		heroShow.number = n;
 		heroShow.image.sprite = datas.heroSprites[n];
 		heroShow.gameObject.SetActive(value: true);
-		heroShow.x = showingBlock.x;
-		heroShow.y = showingBlock.y;
-		sound.PlaySound(sound.otherSounds[6]);
-	}
-	*/
+		heroShow.x = showingBlock.BlockSlotInst.BlockLocation.x;
+		heroShow.y = showingBlock.BlockSlotInst.BlockLocation.y;
+        AudioClip MoveCilp;
+        sound.Sounds.TryGetValue("PutDownHero", out MoveCilp);
+        sound.PlaySound(MoveCilp);
+    }
+	
 	public void NextYear()
 	{
 		//buttomUI.ChangeResource(2, -foodCost);
@@ -544,7 +551,6 @@ public class TC2World : MonoBehaviour
 		//}
 	}
 
-	/*
 	public bool canSkill(int cost)
 	{
 		if (rock >= cost)
@@ -565,7 +571,9 @@ public class TC2World : MonoBehaviour
 		booms.Add(boom);
 		shakeCount = 1;
 		datas.nuclearBomb++;
-		sound.PlaySound(sound.otherSounds[0]);
+		AudioClip TempClip;
+		sound.Sounds.TryGetValue("Boom", out TempClip);
+		sound.PlaySound(TempClip);
 	}
 
 	public void RocketHere(Vector3 v)
@@ -589,5 +597,4 @@ public class TC2World : MonoBehaviour
 			}
 		}
 	}
-	*/
 }
