@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(TC2Datas))]
+[RequireComponent(typeof(TC2ButtomUI))]
+[RequireComponent(typeof(TC2ImportJson))]
 public class TC2World : MonoBehaviour
 {
 	[Serializable]
@@ -42,9 +45,9 @@ public class TC2World : MonoBehaviour
 	public List<Sprite> pictures = new List<Sprite>();
 	[HideInInspector]
 	public List<Image> freeShadows = new List<Image>();
-
+	[HideInInspector]
 	public TC2MenuData menuData;
-
+	[HideInInspector]
 	public TC2ButtomUI buttomUI;
 	//鼠标当前悬浮的block，用于显示block信息
 	[HideInInspector]
@@ -58,7 +61,7 @@ public class TC2World : MonoBehaviour
 	public Skill showingSkill;
 
 	public Mouse mouse;
-
+	[HideInInspector]
 	public TC2Datas datas;
 
 	public NewTech newTech;
@@ -104,9 +107,13 @@ public class TC2World : MonoBehaviour
 	public List<Boom> booms = new List<Boom>();
 	[HideInInspector]
 	public List<Transform> rockets = new List<Transform>();
-	//TC2
+	//Add to TC2
     [HideInInspector]
     public Dictionary<Vector2, TC2BlockSlot> BlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
+	public TC2ImportJson jsonImporter;
+
+
+
 	private int appearCount;
 
 	private int checkDead;
@@ -142,6 +149,8 @@ public class TC2World : MonoBehaviour
 	
 	private void Awake()
 	{
+		datas = GetComponent<TC2Datas>();
+		return;
 		menuData.firstOpen = PlayerPrefs.GetInt("firstOpen");
 		if (menuData.firstOpen == 0)
 		{
@@ -158,7 +167,15 @@ public class TC2World : MonoBehaviour
 			}
 		}
 		AwakeLoadData();
-		saveGame.AllLoad();
+		if (saveGame)
+		{
+			saveGame.AllLoad();
+		}
+		else
+		{
+			Debug.Log("savegame is null");
+		}
+
 		if (!inMenu)
 		{
 			SetAllBlock();
@@ -427,52 +444,52 @@ public class TC2World : MonoBehaviour
 		}
 	}
 
-	public void StartDrag(TC2Block b)
-	{
-		AudioClip MoveCilp;
-		sound.Sounds.TryGetValue("Move", out MoveCilp);
-		sound.PlaySound(MoveCilp);
-		movingBlock = b;
-		mouse.block.gameObject.SetActive(value: true);
-		mouse.block.kind = b.kind;
-		mouse.block.number = b.number;
-		mouse.block.land = b.land;
-		mouse.block.level = b.level;
-		mouse.block.FreshBlock(newBlock: false);
-		mouse.block.transform.localPosition = new Vector3(0f, 0f, 0f);
-		for (int i = 0; i < hightLimit; i++)
-		{
-			for (int j = 0; j < wideLimit; j++)
-			{
-				int num = i - b.BlockSlotInst.BlockLocation.y;
-				if (num < 0)
-				{
-					num = -num;
-				}
-				int num2 = j - b.BlockSlotInst.BlockLocation.x;
-				if (num2 < 0)
-				{
-					num2 = -num2;
-				}
-				if ((float)(num + num2) > (float)b.speed + 0.1f)
-				{
-					shadows[j, i].enabled = true;
-				}
-			}
-		}
-	}
-
-	public void EndDrag()
-	{
-		mouse.block.gameObject.SetActive(value: false);
-		for (int i = 0; i < hightLimit; i++)
-		{
-			for (int j = 0; j < wideLimit; j++)
-			{
-				shadows[j, i].enabled = false;
-			}
-		}
-	}
+	//public void StartDrag(TC2Block b)
+	//{
+	//	AudioClip MoveCilp;
+	//	sound.Sounds.TryGetValue("Move", out MoveCilp);
+	//	sound.PlaySound(MoveCilp);
+	//	movingBlock = b;
+	//	mouse.block.gameObject.SetActive(value: true);
+	//	mouse.block.kind = b.kind;
+	//	mouse.block.number = b.number;
+	//	mouse.block.land = b.land;
+	//	mouse.block.level = b.level;
+	//	mouse.block.FreshBlock(newBlock: false);
+	//	mouse.block.transform.localPosition = new Vector3(0f, 0f, 0f);
+	//	for (int i = 0; i < hightLimit; i++)
+	//	{
+	//		for (int j = 0; j < wideLimit; j++)
+	//		{
+	//			int num = i - b.BlockSlotInst.BlockLocation.y;
+	//			if (num < 0)
+	//			{
+	//				num = -num;
+	//			}
+	//			int num2 = j - b.BlockSlotInst.BlockLocation.x;
+	//			if (num2 < 0)
+	//			{
+	//				num2 = -num2;
+	//			}
+	//			if ((float)(num + num2) > (float)b.speed + 0.1f)
+	//			{
+	//				shadows[j, i].enabled = true;
+	//			}
+	//		}
+	//	}
+	//}
+	//
+	//public void EndDrag()
+	//{
+	//	mouse.block.gameObject.SetActive(value: false);
+	//	for (int i = 0; i < hightLimit; i++)
+	//	{
+	//		for (int j = 0; j < wideLimit; j++)
+	//		{
+	//			shadows[j, i].enabled = false;
+	//		}
+	//	}
+	//}
 
 	public void StartSkill(int number)
 	{
@@ -509,46 +526,46 @@ public class TC2World : MonoBehaviour
 	
 	public void NextYear()
 	{
-		//buttomUI.ChangeResource(2, -foodCost);
-		//datas.NewBlock();
-		//for (int i = 0; i < wars.Count; i++)
-		//{
-		//	wars[i].number--;
-		//	wars[i].numberText.text = wars[i].number.ToString();
-		//	if (wars[i].number <= 0)
-		//	{
-		//		wars[i].BeDestroy();
-		//		wars.RemoveAt(i);
-		//	}
-		//}
-		//for (int j = 0; j < buildings.Count; j++)
-		//{
-		//	SetFloatUI(buildings[j].transform.position, 1, 1);
-		//	buttomUI.ChangeResource(1, 1);
-		//}
-		//buttomUI.timeScore.NextTurn();
-		//if (menuData.hard == 0)
-		//{
-		//	return;
-		//}
-		//for (int k = 0; k < hightLimit; k++)
-		//{
-		//	for (int l = 0; l < wideLimit; l++)
-		//	{
-		//		TC2Block block = blockCells[l, k];
-		//		if (block.kind > 0 && block.kind < 4 && block.number > block.level && (!block.moving || block.moveTime <= 0.15f) && !block.combining && !block.skill)
-		//		{
-		//			block.number--;
-		//			if (block.number == block.level)
-		//			{
-		//				block.numberText.color = new Color(0.25f, 0.15f, 0.15f, 1f);
-		//				block.outline1.effectColor = new Color(1f, 1f, 1f, 1f);
-		//				block.outline2.effectColor = new Color(1f, 1f, 1f, 1f);
-		//			}
-		//			block.numberText.text = block.number.ToString();
-		//		}
-		//	}
-		//}
+		buttomUI.ChangeResource(2, -foodCost);
+		datas.NewBlock();
+		for (int i = 0; i < wars.Count; i++)
+		{
+			wars[i].number--;
+			wars[i].numberText.text = wars[i].number.ToString();
+			if (wars[i].number <= 0)
+			{
+				wars[i].BlockSlotInst.RefreshSlotEdgeStateOnDestory();
+				wars.RemoveAt(i);
+			}
+		}
+		for (int j = 0; j < buildings.Count; j++)
+		{
+			SetFloatUI(buildings[j].transform.position, 1, 1);
+			buttomUI.ChangeResource(1, 1);
+		}
+		buttomUI.timeScore.NextTurn();
+		if (menuData.hard == 0)
+		{
+			return;
+		}
+		for (int k = 0; k < hightLimit; k++)
+		{
+			for (int l = 0; l < wideLimit; l++)
+			{
+				TC2Block block = blockCells[l, k];
+				if (block.kind > 0 && block.kind < 4 && block.number > block.level && (!block.moving || block.moveTime <= 0.15f) && !block.combining && !block.skill)
+				{
+					block.number--;
+					if (block.number == block.level)
+					{
+						block.numberText.color = new Color(0.25f, 0.15f, 0.15f, 1f);
+						block.outline1.effectColor = new Color(1f, 1f, 1f, 1f);
+						block.outline2.effectColor = new Color(1f, 1f, 1f, 1f);
+					}
+					block.numberText.text = block.number.ToString();
+				}
+			}
+		}
 	}
 
 	public bool canSkill(int cost)
@@ -596,5 +613,11 @@ public class TC2World : MonoBehaviour
 				shakeCount = 0;
 			}
 		}
+	}
+
+	//Add to TC2
+	public void InitSceneByJson()
+	{ 
+		
 	}
 }

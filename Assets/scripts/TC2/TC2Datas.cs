@@ -16,6 +16,12 @@ public class TC2Datas : MonoBehaviour
 
 	public TC2World world;
 
+	//Add to TC2
+	public List<TC2BlockSlotJson> BlockSlotJson = new List<TC2BlockSlotJson>();
+
+	public List<TC2BlockJson> BlockJson = new List<TC2BlockJson>();
+
+
 	public List<TC2NewTechJson> newTechjsons = new List<TC2NewTechJson>();
 
 	public List<TC2SkillJson> skilljsons = new List<TC2SkillJson>();
@@ -26,9 +32,9 @@ public class TC2Datas : MonoBehaviour
 
 	public List<Sprite> heroSprites = new List<Sprite>();
 
-	public List<WonderName> wonderNames = new List<WonderName>();
+	public List<TC2WonderName> wonderNames = new List<TC2WonderName>();
 
-	public List<Age> ages = new List<Age>();
+	public List<TC2Age> ages = new List<TC2Age>();
 
 	public List<int> unlockTechs = new List<int>();
 

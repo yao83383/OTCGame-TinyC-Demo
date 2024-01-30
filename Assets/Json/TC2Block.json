@@ -1,0 +1,38 @@
+[
+  {
+    "x": "4",
+    "y": "3",
+    "kindName": "food",
+    "level": "1"
+  },
+  {
+    "x": "0",
+    "y": "3",
+    "kindName": "food",
+    "level": "1"
+  },
+  {
+    "x": "1",
+    "y": "1",
+    "kindName": "food",
+    "level": "1"
+  },
+  {
+    "x": "2",
+    "y": "1",
+    "kindName": "worker",
+    "level": "1"
+  },
+  {
+    "x": "3",
+    "y": "4",
+    "kindName": "worker",
+    "level": "1"
+  },
+  {
+    "x": "3",
+    "y": "2",
+    "kindName": "worker",
+    "level": "1"
+  }
+]

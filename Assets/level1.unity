@@ -7755,7 +7755,7 @@ PrefabInstance:
         type: 3}
       propertyPath: WorldRef
       value: 
-      objectReference: {fileID: 735151640}
+      objectReference: {fileID: 0}
     - target: {fileID: 5753382081261119174, guid: 841c516f74ae46043974f23fec0135dd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -12080,6 +12080,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264520555}
   m_CullTransparentMesh: 1
+--- !u!1 &266701810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266701811}
+  m_Layer: 0
+  m_Name: DontDestroy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &266701811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266701810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 751.2405, y: 1677.0322, z: 54.960022}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &268753076
 GameObject:
   m_ObjectHideFlags: 0
@@ -28975,9 +29006,12 @@ GameObject:
   - component: {fileID: 735151638}
   - component: {fileID: 735151637}
   - component: {fileID: 735151639}
-  - component: {fileID: 735151640}
   - component: {fileID: 735151642}
   - component: {fileID: 735151641}
+  - component: {fileID: 735151643}
+  - component: {fileID: 735151644}
+  - component: {fileID: 735151646}
+  - component: {fileID: 735151645}
   m_Layer: 5
   m_Name: GroundGrid
   m_TagString: Untagged
@@ -29079,71 +29113,6 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &735151640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735151635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02552432dd746f94e9c1f19f3e3375c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inMenu: 0
-  hightLimit: 0
-  wideLimit: 0
-  speed: 0
-  freeBlocks: []
-  lands: []
-  sprites: []
-  pictures: []
-  freeShadows: []
-  menuData: {fileID: 0}
-  buttomUI: {fileID: 0}
-  showingBlock: {fileID: 0}
-  movingBlock: {fileID: 0}
-  showingHero: {fileID: 0}
-  showingSkill: {fileID: 0}
-  mouse: {fileID: 0}
-  datas: {fileID: 0}
-  newTech: {fileID: 0}
-  endGame: {fileID: 0}
-  sound: {fileID: 735151642}
-  saveGame: {fileID: 0}
-  startGame: {fileID: 0}
-  light1: {fileID: 0}
-  vectory: {fileID: 0}
-  esc: {fileID: 0}
-  audioMixer: {fileID: 0}
-  setScreen: {fileID: 0}
-  buff: {fileID: 0}
-  heroShow: {fileID: 0}
-  chooseHero: {fileID: 0}
-  changeEnglish: {fileID: 0}
-  mainMenu: {fileID: 0}
-  kuanRange: {fileID: 0}
-  appearBlocks: []
-  movingBlocks: []
-  combiningBlocks: []
-  floatUIs: []
-  booms: []
-  rockets: []
-  wars: []
-  buildings: []
-  combining: 0
-  dead: 0
-  loading: 0
-  openMenu: {fileID: 0}
-  food: 0
-  rock: 0
-  culture: 0
-  foodCost: 0
-  shakeCount: 0
-  newAgeing: 0
-  showBlockCount: 0
-  worldShakes: []
 --- !u!82 &735151641
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29263,6 +29232,7 @@ MonoBehaviour:
   - Delect
   - OpenMenu
   - Boom
+  - PutDownHero
   soundClips:
   - {fileID: 8300000, guid: 4cc78c4f0eb6f924f922e7ea3d4bbe40, type: 3}
   - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
@@ -29271,6 +29241,153 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
   - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
   - {fileID: 8300000, guid: 0df446d2699640542b03d4528c4d0b73, type: 3}
+  - {fileID: 8300000, guid: ee11f7fdcafff0442b67e252ebc04123, type: 3}
+--- !u!114 &735151643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735151635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bd0971d0f398e44a69bf078aad2130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &735151644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735151635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f05ce6a9dae6940bb3e4cba77c80ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limits: 
+  lows: 
+  gailv: 
+  pool: 
+  poolNumber: 0
+  world: {fileID: 0}
+  BlockSlotJson: []
+  BlockJson: []
+  newTechjsons: []
+  skilljsons: []
+  blockGuides: []
+  heroJsons: []
+  heroSprites: []
+  wonderNames: []
+  ages: []
+  unlockTechs: 
+  nowTech: 0
+  nowAge: 0
+  nextTechNeed: 0
+  AddReported: 0
+  foodProduction: 0
+  industryProduction: 0
+  cultureProduction: 0
+  combineCount: 0
+  wonderBuild: 0
+  monsterKill: 0
+  wars: 0
+  nuclearBomb: 0
+  skillCounts: 
+--- !u!114 &735151645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735151635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02552432dd746f94e9c1f19f3e3375c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inMenu: 0
+  hightLimit: 0
+  wideLimit: 0
+  speed: 0
+  freeBlocks: []
+  lands: []
+  sprites: []
+  pictures: []
+  freeShadows: []
+  menuData: {fileID: 0}
+  buttomUI: {fileID: 0}
+  showingBlock: {fileID: 0}
+  movingBlock: {fileID: 0}
+  showingHero: {fileID: 0}
+  showingSkill: {fileID: 0}
+  mouse: {fileID: 0}
+  datas: {fileID: 0}
+  newTech: {fileID: 0}
+  endGame: {fileID: 0}
+  sound: {fileID: 0}
+  saveGame: {fileID: 0}
+  startGame: {fileID: 0}
+  light1: {fileID: 0}
+  vectory: {fileID: 0}
+  esc: {fileID: 0}
+  audioMixer: {fileID: 0}
+  setScreen: {fileID: 0}
+  buff: {fileID: 0}
+  heroShow: {fileID: 0}
+  chooseHero: {fileID: 0}
+  changeEnglish: {fileID: 0}
+  mainMenu: {fileID: 0}
+  kuanRange: {fileID: 0}
+  appearBlocks: []
+  movingBlocks: []
+  combiningBlocks: []
+  floatUIs: []
+  booms: []
+  rockets: []
+  jsonImporter: {fileID: 0}
+  wars: []
+  buildings: []
+  combining: 0
+  dead: 0
+  loading: 0
+  openMenu: {fileID: 0}
+  food: 0
+  rock: 0
+  culture: 0
+  foodCost: 0
+  shakeCount: 0
+  newAgeing: 0
+  showBlockCount: 0
+  worldShakes: []
+--- !u!114 &735151646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735151635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1aa379d9f3222748b08da9bcddd7f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 0}
+  rock: {fileID: 0}
+  culture: {fileID: 0}
+  world: {fileID: 0}
+  skills: []
+  skillNumbers: 
+  heroes: []
+  heroNumbers: 
+  cultureFill: {fileID: 0}
+  hungry: {fileID: 0}
+  timeScore: {fileID: 0}
+  techAwake: {fileID: 0}
+  heroFather: {fileID: 0}
+  esc: {fileID: 0}
+  hungryText: {fileID: 0}
 --- !u!1 &735581061
 GameObject:
   m_ObjectHideFlags: 0
@@ -82771,7 +82888,7 @@ PrefabInstance:
         type: 3}
       propertyPath: WorldRef
       value: 
-      objectReference: {fileID: 735151640}
+      objectReference: {fileID: 0}
     - target: {fileID: 5753382081261119174, guid: 841c516f74ae46043974f23fec0135dd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -89391,7 +89508,7 @@ PrefabInstance:
         type: 3}
       propertyPath: WorldRef
       value: 
-      objectReference: {fileID: 735151640}
+      objectReference: {fileID: 0}
     - target: {fileID: 5753382081261119174, guid: 841c516f74ae46043974f23fec0135dd,
         type: 3}
       propertyPath: m_Pivot.x
