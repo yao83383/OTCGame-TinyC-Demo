@@ -29,7 +29,7 @@ public class TC2ImportJson : MonoBehaviour
 
     private void ImportBlockJson()
     {
-        world.datas.BlockSlotJson.Clear();
+        world.datas.BlockJson.Clear();
         string value = File.ReadAllText(Application.dataPath + "/Json/TC2Block.json");
         world.datas.BlockJson = JsonConvert.DeserializeObject<List<TC2BlockJson>>(value);
     }

@@ -52,10 +52,17 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 		RefreshSlotEdgeStateOnDestory();
 	}
 
+	public void InitTC2BlockSlot(TC2World InWorld, int InX, int InY, bool InIsAvailable)
+	{
+		WorldRef = InWorld;
+		BlockLocation = new Vector2Int(InX, InY);
+		IsAvailable = InIsAvailable;
+	}
+
     public void Awake()
     {
-        BlockLocation.x = transform.GetSiblingIndex() / 10;
-        BlockLocation.y = transform.GetSiblingIndex() % 10;
+        //BlockLocation.x = transform.GetSiblingIndex() / 10;
+        //BlockLocation.y = transform.GetSiblingIndex() % 10;
 		WorldRef = transform.parent.GetComponent<TC2World>();
 		WorldRef.BlockSlots.Add(BlockLocation, this);
 

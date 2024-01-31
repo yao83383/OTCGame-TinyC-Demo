@@ -36,6 +36,7 @@ public class TC2ButtomUI : MonoBehaviour
 
 	private void Start()
 	{
+		return;
 		UpdateSkill();
 		UpdateHero();
 		timeScore.UpdateTime();

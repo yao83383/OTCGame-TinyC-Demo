@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(TC2Datas))]
 [RequireComponent(typeof(TC2ButtomUI))]
 [RequireComponent(typeof(TC2ImportJson))]
+[RequireComponent(typeof(SaveGame))]
 public class TC2World : MonoBehaviour
 {
 	[Serializable]
@@ -31,6 +32,14 @@ public class TC2World : MonoBehaviour
 	public int wideLimit;
 
 	public int speed;
+    //Add to TC2
+    [HideInInspector]
+    public Dictionary<Vector2, TC2BlockSlot> BlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
+    [HideInInspector]
+	public Dictionary<Vector2, TC2BlockSlot> FreeBlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
+	public GameObject BlockSlotPrefab;
+	public GameObject BlockPrefab;
+
 	[HideInInspector]
 	public List<TC2Block> freeBlocks = new List<TC2Block>();
 	[HideInInspector]
@@ -45,7 +54,7 @@ public class TC2World : MonoBehaviour
 	public List<Sprite> pictures = new List<Sprite>();
 	[HideInInspector]
 	public List<Image> freeShadows = new List<Image>();
-	[HideInInspector]
+	//[HideInInspector]
 	public TC2MenuData menuData;
 	[HideInInspector]
 	public TC2ButtomUI buttomUI;
@@ -107,13 +116,7 @@ public class TC2World : MonoBehaviour
 	public List<Boom> booms = new List<Boom>();
 	[HideInInspector]
 	public List<Transform> rockets = new List<Transform>();
-	//Add to TC2
-    [HideInInspector]
-    public Dictionary<Vector2, TC2BlockSlot> BlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
-	public TC2ImportJson jsonImporter;
-
-
-
+	
 	private int appearCount;
 
 	private int checkDead;
@@ -150,6 +153,7 @@ public class TC2World : MonoBehaviour
 	private void Awake()
 	{
 		datas = GetComponent<TC2Datas>();
+		saveGame = GetComponent<SaveGame>();
 		return;
 		menuData.firstOpen = PlayerPrefs.GetInt("firstOpen");
 		if (menuData.firstOpen == 0)
@@ -206,6 +210,8 @@ public class TC2World : MonoBehaviour
 
 	private void Start()
 	{
+		InitSceneByJson();
+		return;
 		float @float = PlayerPrefs.GetFloat("music");
 		float float2 = PlayerPrefs.GetFloat("sound");
 		if (float2 < -20f)
@@ -317,6 +323,7 @@ public class TC2World : MonoBehaviour
 	
 	private void FixedUpdate()
 	{
+		return;
 		if (inMenu)
 		{
 			return;
@@ -617,7 +624,68 @@ public class TC2World : MonoBehaviour
 
 	//Add to TC2
 	public void InitSceneByJson()
+	{
+		CreateSlotsBaseBySize(10, 10);
+
+		//初始化BlockSlot
+		for (int index = 0; index < datas.BlockSlotJson.Count; ++index)
+		{
+			TC2BlockSlot TempBlockSlot;
+			Vector2Int TempPostion = new Vector2Int(datas.BlockSlotJson[index].x, datas.BlockSlotJson[index].y);
+			BlockSlots.TryGetValue(TempPostion, out TempBlockSlot);
+
+			if (TempBlockSlot)
+			{
+				TempBlockSlot.IsAvailable = true;
+				List<Transform> children = new List<Transform>();
+				TempBlockSlot.GetComponentsInChildren<Transform>(true, children);
+                foreach (var child in children)
+                {
+                    child.gameObject.SetActive(true);
+                }
+            }
+		}
+        //初始化Block
+        for (int index = 0; index < datas.BlockJson.Count; ++index)
+        {
+            TC2BlockSlot TempBlockSlot;
+            Vector2Int TempPostion = new Vector2Int(datas.BlockSlotJson[index].x, datas.BlockSlotJson[index].y);
+            BlockSlots.TryGetValue(TempPostion, out TempBlockSlot);
+
+			if (TempBlockSlot)
+			{
+				TempBlockSlot.IsAvailable = true;
+				List <Transform> children = new List<Transform>();
+				TempBlockSlot.GetComponentsInChildren<Transform>(true, children);
+                foreach (var child in children)
+                {
+                    child.gameObject.SetActive(true);
+                }
+
+				GameObject TempBlockObj = GameObject.Instantiate(BlockPrefab);
+				TempBlockObj.transform.SetParent(children[children.Count - 1].transform);
+			}
+        }
+	}
+	//Size：HorizonSize * VerticalSize
+	private void CreateSlotsBaseBySize(int HorizonSize, int VerticalSize)
 	{ 
-		
+		for (int HorIndex = 0; HorIndex < HorizonSize; ++HorIndex)
+        {
+			for(int VertIndex = 0; VertIndex < VerticalSize; ++VertIndex)
+			{
+				GameObject TempSlotObj = GameObject.Instantiate(BlockSlotPrefab);
+				TC2BlockSlot TempSlot = TempSlotObj.GetComponent<TC2BlockSlot>();
+				TempSlot.InitTC2BlockSlot(this, HorIndex, VertIndex, false);
+				BlockSlots.Add(TempSlot.BlockLocation, TempSlot);
+				List<Transform> children = new List<Transform>();
+				TempSlotObj.GetComponentsInChildren<Transform>(true, children);
+				foreach (var child in children)
+				{
+					child.gameObject.SetActive(false);
+				}
+				TempSlot.transform.SetParent(this.transform);
+			}
+        }
 	}
 }
