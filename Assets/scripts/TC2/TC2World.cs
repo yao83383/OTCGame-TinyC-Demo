@@ -77,6 +77,7 @@ public class TC2World : MonoBehaviour
 
 	public TC2EndGame endGame;
 
+	[HideInInspector]
 	public TC2Sound sound;
 
 	public SaveGame saveGame;
@@ -154,6 +155,7 @@ public class TC2World : MonoBehaviour
 	{
 		datas = GetComponent<TC2Datas>();
 		saveGame = GetComponent<SaveGame>();
+		sound = GetComponent<TC2Sound>();
 		return;
 		menuData.firstOpen = PlayerPrefs.GetInt("firstOpen");
 		if (menuData.firstOpen == 0)
@@ -533,6 +535,7 @@ public class TC2World : MonoBehaviour
 	
 	public void NextYear()
 	{
+		return;
 		buttomUI.ChangeResource(2, -foodCost);
 		datas.NewBlock();
 		for (int i = 0; i < wars.Count; i++)

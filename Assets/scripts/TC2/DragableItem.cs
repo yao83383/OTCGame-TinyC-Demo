@@ -4,13 +4,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    [HideInInspector]
     public Image Icon;
     [HideInInspector] 
     public Transform parentBeforeDrag;
     
     private TC2Block BlockInst;
+
+    public void Awake()
+    {
+        Icon = GetComponent<Image>();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentBeforeDrag = transform.parent;

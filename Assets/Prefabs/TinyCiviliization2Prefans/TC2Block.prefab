@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5958475266801031596}
   - component: {fileID: 5958475266801031597}
   - component: {fileID: 5958475266801031598}
-  - component: {fileID: 5922684336533592966}
   - component: {fileID: 2748531131786996391}
   - component: {fileID: 5170667110627866477}
+  - component: {fileID: 1600366063570741026}
   m_Layer: 5
   m_Name: TC2Block
   m_TagString: Untagged
@@ -94,17 +94,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1288ae8772e4a2241a90018b41e079a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsMatchable: 0
   lockImage: {fileID: 0}
   image: {fileID: 0}
   numberText: {fileID: 0}
-  world: {fileID: 0}
   kind: 0
   land: 0
   level: 0
   number: 0
   speed: 0
   moveSpeed: {x: 0, y: 0, z: 0}
-  aimPosition: {x: 0, y: 0, z: 0}
+  aimBlock: {fileID: 0}
   BlockSlotInst: {fileID: 0}
   canMove: 0
   moving: 0
@@ -114,24 +114,9 @@ MonoBehaviour:
   onMouse: 0
   animator: {fileID: 0}
   moveTime: 0
-  sameBlock: []
   outline1: {fileID: 0}
   outline2: {fileID: 0}
   holding: 0
---- !u!114 &5922684336533592966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5958475266801031592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177e66a1b824ae54984dc5e0c53a4a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Icon: {fileID: 5958475266801031597}
-  parentBeforeDrag: {fileID: 0}
 --- !u!223 &2748531131786996391
 Canvas:
   m_ObjectHideFlags: 0
@@ -170,6 +155,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1600366063570741026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958475266801031592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2820b562e8bac24ca9a87597ff93680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  parentBeforeDrag: {fileID: 0}
 --- !u!1 &5958475267740327809
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +181,7 @@ GameObject:
   - component: {fileID: 5958475267740327814}
   - component: {fileID: 5958475267740327815}
   m_Layer: 5
-  m_Name: Image
+  m_Name: LevelImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +257,7 @@ GameObject:
   - component: {fileID: 5958475268127156010}
   - component: {fileID: 5958475268127156011}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: LastTimeImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
