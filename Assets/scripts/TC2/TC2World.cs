@@ -634,6 +634,11 @@ public class TC2World : MonoBehaviour
 			Vector2Int TempPostion = new Vector2Int(datas.BlockSlotJson[index].x, datas.BlockSlotJson[index].y);
 			BlockSlots.TryGetValue(TempPostion, out TempBlockSlot);
 
+			if (TempBlockSlot.IsInited)
+			{
+				continue;
+			}
+
 			if (TempBlockSlot)
 			{
 				TempBlockSlot.IsAvailable = true;
@@ -643,13 +648,15 @@ public class TC2World : MonoBehaviour
                 {
                     child.gameObject.SetActive(true);
                 }
-            }
+
+				TempBlockSlot.IsInited = true;
+			}
 		}
         //≥ı ºªØBlock
         for (int index = 0; index < datas.BlockJson.Count; ++index)
         {
             TC2BlockSlot TempBlockSlot;
-            Vector2Int TempPostion = new Vector2Int(datas.BlockSlotJson[index].x, datas.BlockSlotJson[index].y);
+            Vector2Int TempPostion = new Vector2Int(datas.BlockJson[index].x, datas.BlockJson[index].y);
             BlockSlots.TryGetValue(TempPostion, out TempBlockSlot);
 
 			if (TempBlockSlot)
@@ -664,6 +671,7 @@ public class TC2World : MonoBehaviour
 
 				GameObject TempBlockObj = GameObject.Instantiate(BlockPrefab);
 				TempBlockObj.transform.SetParent(children[children.Count - 1].transform);
+				TempBlockObj.GetComponent<TC2Block>().RegisterToSlot();
 			}
         }
 	}
@@ -677,7 +685,6 @@ public class TC2World : MonoBehaviour
 				GameObject TempSlotObj = GameObject.Instantiate(BlockSlotPrefab);
 				TC2BlockSlot TempSlot = TempSlotObj.GetComponent<TC2BlockSlot>();
 				TempSlot.InitTC2BlockSlot(this, HorIndex, VertIndex, false);
-				BlockSlots.Add(TempSlot.BlockLocation, TempSlot);
 				List<Transform> children = new List<Transform>();
 				TempSlotObj.GetComponentsInChildren<Transform>(true, children);
 				foreach (var child in children)
@@ -685,6 +692,7 @@ public class TC2World : MonoBehaviour
 					child.gameObject.SetActive(false);
 				}
 				TempSlot.transform.SetParent(this.transform);
+				TempSlot.RegisterBlockSlotToGrid();
 			}
         }
 	}

@@ -6,7 +6,10 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(TC2Sound))]
 public class TC2BlockSlot : MonoBehaviour, IDropHandler
 {
-
+	//用于放置填表出现重复的情况，初始化BUG；
+	[HideInInspector]
+	public bool IsInited = false;
+	
 	public enum NearDirect
 	{
 		Left = 1,
@@ -59,7 +62,10 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 		IsAvailable = InIsAvailable;
 	}
 
-    public void Awake()
+	public void Awake()
+	{ }
+
+	public void RegisterBlockSlotToGrid()
     {
         //BlockLocation.x = transform.GetSiblingIndex() / 10;
         //BlockLocation.y = transform.GetSiblingIndex() % 10;

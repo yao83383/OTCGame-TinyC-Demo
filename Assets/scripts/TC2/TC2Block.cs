@@ -56,7 +56,6 @@ public class TC2Block : MonoBehaviour
 	private void Awake()
 	{
 		InitBlock();
-		RegisterToSlot();
 	}
 
 	private void InitBlock()
