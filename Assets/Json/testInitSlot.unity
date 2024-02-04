@@ -28365,6 +28365,7 @@ GameObject:
   - component: {fileID: 735151644}
   - component: {fileID: 735151646}
   - component: {fileID: 735151645}
+  - component: {fileID: 735151647}
   m_Layer: 5
   m_Name: GroundGrid
   m_TagString: Untagged
@@ -28656,12 +28657,13 @@ MonoBehaviour:
     type: 3}
   BlockPrefab: {fileID: 5958475266801031592, guid: 7084e14f30bfd364c84daf9251a6d5b1,
     type: 3}
+  BlockData: {fileID: 11400000, guid: 49b7d54bab8f05f44aea448ebb23a6a0, type: 2}
+  menuData: {fileID: 11400000, guid: 10d165696559a76429e38b3cd7c4be25, type: 2}
   freeBlocks: []
   lands: []
   sprites: []
   pictures: []
   freeShadows: []
-  menuData: {fileID: 11400000, guid: 10d165696559a76429e38b3cd7c4be25, type: 2}
   buttomUI: {fileID: 0}
   showingBlock: {fileID: 0}
   movingBlock: {fileID: 0}
@@ -28732,6 +28734,29 @@ MonoBehaviour:
   heroFather: {fileID: 0}
   esc: {fileID: 0}
   hungryText: {fileID: 0}
+--- !u!114 &735151647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735151635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f09cd563a758ae499f1a229dfa2fe22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveCells: []
+  saveDatas: []
+  title: {fileID: 0}
+  ifSure: {fileID: 0}
+  yesSure: {fileID: 0}
+  noSure: {fileID: 0}
+  showingSaveCell: {fileID: 0}
+  save: 0
+  world: {fileID: 0}
+  mainMenu: {fileID: 0}
+  sure: {fileID: 0}
 --- !u!1 &735581061
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,6 +40,9 @@ public class TC2World : MonoBehaviour
 	public GameObject BlockSlotPrefab;
 	public GameObject BlockPrefab;
 
+	public TC2BlocksData BlockData;
+	public TC2MenuData menuData;
+
 	[HideInInspector]
 	public List<TC2Block> freeBlocks = new List<TC2Block>();
 	[HideInInspector]
@@ -55,7 +58,6 @@ public class TC2World : MonoBehaviour
 	[HideInInspector]
 	public List<Image> freeShadows = new List<Image>();
 	//[HideInInspector]
-	public TC2MenuData menuData;
 	[HideInInspector]
 	public TC2ButtomUI buttomUI;
 	//鼠标当前悬浮的block，用于显示block信息
@@ -675,6 +677,20 @@ public class TC2World : MonoBehaviour
 				GameObject TempBlockObj = GameObject.Instantiate(BlockPrefab);
 				TempBlockObj.transform.SetParent(children[children.Count - 1].transform);
 				TempBlockObj.GetComponent<TC2Block>().RegisterToSlot();
+
+				int CurrentNameIndex = -1;
+				for (int NameIndex = 0; NameIndex < BlockData.blockImage.Count; ++NameIndex)
+				{
+					if (BlockData.kindNames[NameIndex].Equals(datas.BlockJson[NameIndex]))
+					{
+						CurrentNameIndex = NameIndex;
+					}
+				}
+
+				if (CurrentNameIndex != -1)
+				{
+					TempBlockObj.GetComponent<TC2Block>().BlockImage.sprite = BlockData.blockImage[CurrentNameIndex];
+				}
 			}
         }
 	}

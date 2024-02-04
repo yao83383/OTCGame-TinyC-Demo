@@ -178,8 +178,11 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 		TC2Block DropedBlock = dropped.GetComponent<TC2Block>();
 
 		if (SwitchBlockByBlock(ref DropedBlock, ref this.BlockInst))
-		{ 
-			DropedBlock.BlockSlotInst.CheckMatch();
+		{
+			if (DropedBlock)
+			{ 
+				DropedBlock.BlockSlotInst.CheckMatch();
+			}
 			CheckMatch();
 		}
 	}
@@ -192,13 +195,13 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 			TempdraggableItem.parentBeforeDrag = BackGround.transform;
 			InDragItem.BlockSlotInst.BlockInst = null;
 			InDragItem.BlockSlotInst = this;
-			return true;
+			//return true;
 		}
 		else
 		{
             if (InDragItem == InTargetItem)
             {
-                Debug.Log("Same slot no need to switch");
+                Debug.Log("slot no need to switch");
                 return false;
             }
             //交换场景中位置

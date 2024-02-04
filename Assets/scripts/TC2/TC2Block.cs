@@ -2,12 +2,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(DragableItem))]
 public class TC2Block : MonoBehaviour
 {
 	//TC2Blocks
 	//是否是可匹配类型
 	public bool IsMatchable;
+	public Animator MoveAnimator;
+	public Image BlockImage;
 	//
 	public Image lockImage;
 	//物品类型图片
@@ -60,7 +63,8 @@ public class TC2Block : MonoBehaviour
 
 	private void InitBlock()
 	{
-        kind = 1;
+		BlockImage = GetComponent<Image>();
+		kind = 1;
         IsMatchable = true;
     }
 

@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+public enum TC2SortOrder
+{
+    BlockSlotNormal = 1,
+    BlockSlotOnDrag = 2
+}
+
 [RequireComponent(typeof(Image))]
 public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -27,6 +33,9 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         Icon.raycastTarget = false;
 
         BlockInst = GetComponent<TC2Block>();
+        BlockInst.GetComponent<Canvas>().sortingOrder = (int)TC2SortOrder.BlockSlotOnDrag;
+        BlockInst.MoveAnimator.SetBool("Move", true);
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -42,5 +51,7 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         Icon.raycastTarget = true;
 
         BlockInst.StartMove();
+        BlockInst.GetComponent<Canvas>().sortingOrder = (int)TC2SortOrder.BlockSlotNormal;
+        BlockInst.MoveAnimator.SetBool("Move", false);
     }
 }
