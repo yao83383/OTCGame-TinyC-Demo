@@ -34,7 +34,7 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         BlockInst = GetComponent<TC2Block>();
         BlockInst.GetComponent<Canvas>().sortingOrder = (int)TC2SortOrder.BlockSlotOnDrag;
-        BlockInst.MoveAnimator.SetBool("Move", true);
+        BlockInst.MoveAnimator.SetBool("move", true);
 
     }
 
@@ -52,6 +52,6 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         BlockInst.StartMove();
         BlockInst.GetComponent<Canvas>().sortingOrder = (int)TC2SortOrder.BlockSlotNormal;
-        BlockInst.MoveAnimator.SetBool("Move", false);
+        BlockInst.MoveAnimator.SetBool("move", false);
     }
 }

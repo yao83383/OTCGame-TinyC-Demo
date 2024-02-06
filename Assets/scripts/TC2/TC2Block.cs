@@ -47,8 +47,6 @@ public class TC2Block : MonoBehaviour
 
 	public bool onMouse;
 
-	public Animator animator;
-
 	public float moveTime = 0.5f;
 
 	public Outline outline1;
