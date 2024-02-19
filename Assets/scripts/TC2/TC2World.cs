@@ -34,9 +34,9 @@ public class TC2World : MonoBehaviour
 	public int speed;
     //Add to TC2
     [HideInInspector]
-    public Dictionary<Vector2, TC2BlockSlot> BlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
+    public Dictionary<Vector2Int, TC2BlockSlot> BlockSlots = new Dictionary<Vector2Int, TC2BlockSlot>();
     [HideInInspector]
-	public Dictionary<Vector2, TC2BlockSlot> FreeBlockSlots = new Dictionary<Vector2, TC2BlockSlot>();
+	public Dictionary<Vector2Int, TC2BlockSlot> FreeBlockSlots = new Dictionary<Vector2Int, TC2BlockSlot>();
 	public GameObject BlockSlotPrefab;
 	public GameObject BlockPrefab;
 

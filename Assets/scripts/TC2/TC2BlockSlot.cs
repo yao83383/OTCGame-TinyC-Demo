@@ -78,6 +78,13 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 		RefreshSlotEdgeStateOnCreate();
 	}
 
+	public TC2BlockSlot GetSlotByLocation(Vector2Int InBlockLocation)
+	{
+		TC2BlockSlot TempSlot;
+		WorldRef.BlockSlots.TryGetValue(new Vector2Int(InBlockLocation.x, InBlockLocation.y), out TempSlot);
+		return TempSlot;
+	}
+
 	public TC2BlockSlot GetSlotByDirect(Vector2Int InBlockLocation, NearDirect InDirectEnum)
 	{
         TC2BlockSlot TempSlot;
@@ -85,23 +92,23 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
         {
             case NearDirect.Left:
                 {
-                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x, InBlockLocation.y - 1), out TempSlot);
+                    WorldRef.BlockSlots.TryGetValue(new Vector2Int(InBlockLocation.x, InBlockLocation.y - 1), out TempSlot);
                     break;
                 }
             case NearDirect.Right:
                 {
-                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x + 1, InBlockLocation.y), out TempSlot);
+                    WorldRef.BlockSlots.TryGetValue(new Vector2Int(InBlockLocation.x, InBlockLocation.y + 1), out TempSlot);
                     break;
                 }
             case NearDirect.Up:
                 {
 
-                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x, InBlockLocation.y + 1), out TempSlot);
+                    WorldRef.BlockSlots.TryGetValue(new Vector2Int(InBlockLocation.x - 1, InBlockLocation.y), out TempSlot);
                     break;
                 }
             default:
                 {
-                    WorldRef.BlockSlots.TryGetValue(new Vector2(InBlockLocation.x, InBlockLocation.y - 1), out TempSlot);
+                    WorldRef.BlockSlots.TryGetValue(new Vector2Int(InBlockLocation.x + 1, InBlockLocation.y), out TempSlot);
                     break;
                 }
         }
@@ -247,17 +254,17 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 			for(int blockIndex = sameBlocks.Count - 1; blockIndex >= 0; --blockIndex)
 			{
                 Vector2Int StartUpLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
-				StartUpLocation = new Vector2Int(StartUpLocation.x + 1, StartUpLocation.y);
+				StartUpLocation = new Vector2Int(StartUpLocation.x - 1, StartUpLocation.y);
                 while (CheckToEndByDirect(StartUpLocation, NearDirect.Up))
                 {
-					StartUpLocation = new Vector2Int(StartUpLocation.x + 1, StartUpLocation.y);
+					StartUpLocation = new Vector2Int(StartUpLocation.x - 1, StartUpLocation.y);
                 }
 
                 Vector2Int StartDownLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
-				StartDownLocation = new Vector2Int(StartUpLocation.x - 1, StartUpLocation.y);
+				StartDownLocation = new Vector2Int(StartUpLocation.x + 1, StartUpLocation.y);
                 while (CheckToEndByDirect(StartDownLocation, NearDirect.Down))
                 {
-					StartDownLocation = new Vector2Int(StartDownLocation.x - 1, StartDownLocation.y);
+					StartDownLocation = new Vector2Int(StartDownLocation.x + 1, StartDownLocation.y);
                 }
             }
 
@@ -276,7 +283,7 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 	{
 		if (sameBlocks[0].IsMatchable)
 		{
-			TC2BlockSlot TempSlot = GetSlotByDirect(InBlockLoc, InDirectEnum);
+			TC2BlockSlot TempSlot = GetSlotByLocation(InBlockLoc);
 			if (!TempSlot || !TempSlot.BlockInst) return false;
 			if (TempSlot.BlockInst.kind == sameBlocks[0].kind)
 			{
@@ -287,7 +294,7 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 				}
 				else
 				{
-					Debug.Log("ssssssssssssssssss");
+					Debug.Log("Already contain: x = " + TempSlot.BlockLocation.x + ",y =  " + TempSlot.BlockLocation.y);
 				}
 				return true;
 			}
