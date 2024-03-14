@@ -127,7 +127,15 @@ public class TC2Block : MonoBehaviour
 	}
 
 	public void DisAppear()
-	{ 
-	
+	{
+		BlockSlotInst.BlockInst = null;
+		this.gameObject.SetActive(false);
+		Destroy(this.gameObject);
+		//Destroy(this);
+	}
+
+	public void LevelUp()
+	{
+		Debug.Log("LevelUp!");
 	}
 }

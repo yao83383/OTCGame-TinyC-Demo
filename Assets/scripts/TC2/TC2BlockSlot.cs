@@ -51,7 +51,7 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 	
 	private void OnDestroy()
 	{
-		WorldRef.BlockSlots.Remove(BlockLocation);
+		//WorldRef.BlockSlots.Remove(BlockLocation);
 		RefreshSlotEdgeStateOnDestory();
 	}
 
@@ -261,16 +261,21 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
                 }
 
                 Vector2Int StartDownLocation = sameBlocks[0].BlockSlotInst.BlockLocation;
-				StartDownLocation = new Vector2Int(StartUpLocation.x + 1, StartUpLocation.y);
+				StartDownLocation = new Vector2Int(StartDownLocation.x + 1, StartDownLocation.y);
                 while (CheckToEndByDirect(StartDownLocation, NearDirect.Down))
                 {
 					StartDownLocation = new Vector2Int(StartDownLocation.x + 1, StartDownLocation.y);
                 }
             }
 
-			if (sameBlocks.Count > 3)
+			if (sameBlocks.Count >= 3)
 			{
 				Debug.Log("Match success, number is " + sameBlocks.Count);
+
+				for (int index = 1; index < sameBlocks.Count; ++index)
+				{
+					sameBlocks[index].DisAppear();
+				}
 			}
 			else 
 			{

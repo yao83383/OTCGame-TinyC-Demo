@@ -115,7 +115,6 @@ MonoBehaviour:
   combining: 0
   skill: 0
   onMouse: 0
-  animator: {fileID: 0}
   moveTime: 0
   outline1: {fileID: 0}
   outline2: {fileID: 0}

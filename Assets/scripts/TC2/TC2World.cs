@@ -708,7 +708,14 @@ public class TC2World : MonoBehaviour
 				TempSlotObj.GetComponentsInChildren<Transform>(true, children);
 				foreach (var child in children)
 				{
-					child.gameObject.SetActive(false);
+					if (child.CompareTag("BlockSlot"))
+					{
+						child.gameObject.SetActive(true);
+					}
+					else
+					{
+						child.gameObject.SetActive(false);
+					}
 				}
 				TempSlot.transform.SetParent(this.transform);
 				TempSlot.RegisterBlockSlotToGrid();
