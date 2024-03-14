@@ -666,17 +666,18 @@ public class TC2World : MonoBehaviour
 
 			if (TempBlockSlot)
 			{
-				TempBlockSlot.IsAvailable = true;
-				List <Transform> children = new List<Transform>();
-				TempBlockSlot.GetComponentsInChildren<Transform>(true, children);
-                foreach (var child in children)
-                {
-                    child.gameObject.SetActive(true);
-                }
-
-				GameObject TempBlockObj = GameObject.Instantiate(BlockPrefab);
-				TempBlockObj.transform.SetParent(children[children.Count - 1].transform);
-				TempBlockObj.GetComponent<TC2Block>().RegisterToSlot();
+				GameObject TempBlockObj = TC2Block.CreateTC2Block(TempBlockSlot);
+				//TempBlockSlot.IsAvailable = true;
+				//List <Transform> children = new List<Transform>();
+				//TempBlockSlot.GetComponentsInChildren<Transform>(true, children);
+                //foreach (var child in children)
+                //{
+                //    child.gameObject.SetActive(true);
+                //}
+				//
+				//GameObject TempBlockObj = GameObject.Instantiate(BlockPrefab);
+				//TempBlockObj.transform.SetParent(children[children.Count - 1].transform);
+				//TempBlockObj.GetComponent<TC2Block>().RegisterToSlot();
 
 				int CurrentNameIndex = -1;
 				for (int NameIndex = 0; NameIndex < BlockData.blockImage.Count; ++NameIndex)

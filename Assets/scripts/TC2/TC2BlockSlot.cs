@@ -60,6 +60,10 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 		WorldRef = InWorld;
 		BlockLocation = new Vector2Int(InX, InY);
 		IsAvailable = InIsAvailable;
+		if(!WorldRef.FreeBlockSlots.ContainsKey(new Vector2Int(InX, InY)))
+		{ 
+			WorldRef.FreeBlockSlots.Add(new Vector2Int(InX, InY), this);
+		}
 	}
 
 	public void Awake()
@@ -71,7 +75,10 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
         //BlockLocation.y = transform.GetSiblingIndex() % 10;
 		WorldRef = transform.parent.GetComponent<TC2World>();
 		WorldRef.BlockSlots.Add(BlockLocation, this);
-
+		//if (WorldRef.FreeBlockSlots.ContainsKey(BlockLocation))
+		//{ 
+		//	WorldRef.FreeBlockSlots.Remove(BlockLocation);
+		//}
 		//BlockInst = null;
 		//IsAvailable = true;
 
@@ -275,15 +282,37 @@ public class TC2BlockSlot : MonoBehaviour, IDropHandler
 				for (int index = 1; index < sameBlocks.Count; ++index)
 				{
 					sameBlocks[index].DisAppear();
-				}
-			}
+					//每消除一个产生一个新Block
+					TC2BlockSlot RandomSlot = GetRandomSlot(WorldRef.FreeBlockSlots);
+                    GameObject TempBlockObj = TC2Block.CreateTC2Block(RandomSlot);
+                }
+            }
 			else 
 			{
-				Debug.Log("Match failed, number is " + sameBlocks.Count);
+                TC2BlockSlot RandomSlot = GetRandomSlot(WorldRef.FreeBlockSlots);
+                GameObject TempBlockObj = TC2Block.CreateTC2Block(RandomSlot);
+                Debug.Log("Match failed, number is " + sameBlocks.Count);
 			}
         }
 		return sameBlocks.Count;
 	}
+
+	private TC2BlockSlot GetRandomSlot(Dictionary<Vector2Int, TC2BlockSlot> dict)
+	{
+        int RandomValue = Random.Range(0, dict.Count);
+		int index = 0;
+		foreach (var kvp in dict)
+		{
+			++index;
+			if (index == RandomValue)
+			{
+				return kvp.Value;
+			}
+		}
+
+		return null;
+    }
+
 	private bool CheckToEndByDirect(Vector2Int InBlockLoc, NearDirect InDirectEnum)
 	{
 		if (sameBlocks[0].IsMatchable)

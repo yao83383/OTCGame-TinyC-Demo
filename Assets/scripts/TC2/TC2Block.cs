@@ -29,6 +29,8 @@ public class TC2Block : MonoBehaviour
 
 	public int speed;
 
+	public TC2World WorldRef;
+
 	public Vector3 moveSpeed;
 
 	public TC2Block aimBlock;
@@ -63,18 +65,40 @@ public class TC2Block : MonoBehaviour
 	{
 		BlockImage = GetComponent<Image>();
 		kind = 1;
-        IsMatchable = true;
-    }
+		IsMatchable = true;
+	}
+
+	public static GameObject CreateTC2Block(TC2BlockSlot InSlot)
+	{
+		InSlot.IsAvailable = true;
+        List<Transform> children = new List<Transform>();
+		InSlot.GetComponentsInChildren<Transform>(true, children);
+        foreach (var child in children)
+        {
+            child.gameObject.SetActive(true);
+        }
+
+        GameObject TempBlockObj = GameObject.Instantiate(InSlot.WorldRef.BlockPrefab);
+		TempBlockObj.transform.SetParent(children[children.Count - 1].transform);
+		TempBlockObj.GetComponent<TC2Block>().RegisterToSlot();
+
+		return TempBlockObj;
+	}
 
 	public void RegisterToSlot()
 	{
         Transform SlotTrans = transform.parent.parent;
         TC2BlockSlot SlotInst = SlotTrans.GetComponent<TC2BlockSlot>();
-        BlockSlotInst = SlotInst;
+		WorldRef = SlotInst.WorldRef;
+		BlockSlotInst = SlotInst;
         SlotInst.BlockInst = this;
-	}
+        if (WorldRef.FreeBlockSlots.ContainsKey(BlockSlotInst.BlockLocation))
+        { 
+        	WorldRef.FreeBlockSlots.Remove(BlockSlotInst.BlockLocation);
+        }
+    }
 
-	public void OnSpawnNewBlock()
+    public void OnSpawnNewBlock()
 	{
 		RegisterToSlot();
 		int CombineNum = this.BlockSlotInst.CheckMatch();
@@ -129,7 +153,11 @@ public class TC2Block : MonoBehaviour
 	public void DisAppear()
 	{
 		BlockSlotInst.BlockInst = null;
-		this.gameObject.SetActive(false);
+        if (!WorldRef.FreeBlockSlots.ContainsKey(BlockSlotInst.BlockLocation))
+        {
+            WorldRef.FreeBlockSlots.Add(BlockSlotInst.BlockLocation, BlockSlotInst);
+        }
+        this.gameObject.SetActive(false);
 		Destroy(this.gameObject);
 		//Destroy(this);
 	}
