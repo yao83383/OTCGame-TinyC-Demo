@@ -2804,7 +2804,7 @@ GameObject:
   - component: {fileID: 592589105}
   m_Layer: 0
   m_Name: BGscene
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4599,7 +4599,7 @@ GameObject:
   - component: {fileID: 1042617432}
   m_Layer: 0
   m_Name: BG
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7106,6 +7106,7 @@ GameObject:
   - component: {fileID: 1533151683}
   - component: {fileID: 1533151682}
   - component: {fileID: 1533151685}
+  - component: {fileID: 1533151686}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7186,7 +7187,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533151681}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a8f7c38e4425f64b9dbcf7f7d464779, type: 3}
   m_Name: 
@@ -7196,6 +7197,18 @@ MonoBehaviour:
   m_maxCamYPos: 20
   m_minCamXPos: -20
   m_maxCamXPos: 20
+--- !u!114 &1533151686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533151681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a8bba48d3a94440893b83af3d10c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541106869
 GameObject:
   m_ObjectHideFlags: 0
@@ -7965,7 +7978,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1707333082}
   - component: {fileID: 1707333081}
-  - component: {fileID: 1707333080}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -7973,14 +7985,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1707333080
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707333079}
-  m_Enabled: 1
 --- !u!20 &1707333081
 Camera:
   m_ObjectHideFlags: 0
