@@ -103,14 +103,20 @@ public class DragAndDrop : MonoBehaviour
                 else
                 {
                     Card CardObj = ObjectToMove.GetComponent<Card>();
-                    CardObj.Drop(null, cursorPosition);
+                    if (CardObj)
+                    { 
+                        CardObj.Drop(null, cursorPosition);
+                    }
                 }
             }
             else
             {
                 // 更新物体的位置
                 Card CardObj = ObjectToMove.GetComponent<Card>();
-                CardObj.Drop(null, cursorPosition);
+                if (CardObj)
+                { 
+                    CardObj.Drop(null, cursorPosition);
+                }
             }
            
             ObjectToMove = null;

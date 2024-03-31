@@ -34,6 +34,11 @@ public class Card : MonoBehaviour
     public void StartMove()
     {
         GetComponent<MeshCollider>().enabled = false;
+        if (PreCard)
+        { 
+            PreCard.NextCard = null;
+            PreCard = null;
+        }
     }
 
     public void Move(Vector3 InPostion)
@@ -77,7 +82,7 @@ public class Card : MonoBehaviour
         GetComponent<MeshCollider>().enabled = true;
         if (InPreCard)
         {
-            transform.position = PreCard.transform.position - NextCardOffset;
+            transform.position = InPreCard.transform.position - NextCardOffset;
             InPreCard.NextCard = this;
         }
         else
