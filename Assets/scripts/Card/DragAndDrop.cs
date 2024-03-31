@@ -53,6 +53,8 @@ public class DragAndDrop : MonoBehaviour
                 {
                     screenPoint = mainCamera.WorldToScreenPoint(ObjectToMove.transform.position);
                     offset = ObjectToMove.transform.position - mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+                    Card CardObj = ObjectToMove.GetComponent<Card>();
+                    CardObj.StartMove();
                     isCardDragging = true;
                     Debug.Log("Click Card");
                 }
@@ -69,8 +71,9 @@ public class DragAndDrop : MonoBehaviour
                 Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorPoint) + offset;
                 cursorPosition.z = -1;
                 // 更新物体的位置
-                ObjectToMove.transform.position = cursorPosition;
-                Debug.Log(cursorPosition);
+                Card CardObj = ObjectToMove.GetComponent<Card>();
+                CardObj.Move(cursorPosition);
+                //Debug.Log(cursorPosition);
             }
             else if (isCameraDragging)
             {
@@ -79,11 +82,46 @@ public class DragAndDrop : MonoBehaviour
                 m_prevPosition = curMousePosition;
             }
         }
-        else
+        else if (Input.GetMouseButtonUp(0))
         {
+            // 计算鼠标在屏幕上的位置
+            Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            //Debug.Log(Input.mousePosition);
+            // 将屏幕坐标转换为世界坐标
+            Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorPoint) + offset;
+            cursorPosition.z = -1;
+
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject.CompareTag("Card"))
+                {
+                    Card TargetCard = hit.collider.gameObject.GetComponent<Card>().GetListEnd();
+                    Card CardObj = ObjectToMove.GetComponent<Card>();
+                    CardObj.Drop(TargetCard, TargetCard.transform.position - TargetCard.NextCardOffset);
+                }
+                else
+                {
+                    Card CardObj = ObjectToMove.GetComponent<Card>();
+                    CardObj.Drop(null, cursorPosition);
+                }
+            }
+            else
+            {
+                // 更新物体的位置
+                Card CardObj = ObjectToMove.GetComponent<Card>();
+                CardObj.Drop(null, cursorPosition);
+            }
+           
+            ObjectToMove = null;
             isCardDragging = false;
             isCameraDragging = false;
+        }
+        else
+        {
             ObjectToMove = null;
+            isCardDragging = false;
+            isCameraDragging = false;
         }
     }
 
