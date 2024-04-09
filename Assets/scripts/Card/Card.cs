@@ -22,7 +22,7 @@ public class Card : MonoBehaviour
     [HideInInspector]
     public List<Card> CardList;
     private string CardName;
-    private int CardIndex;
+    //private Attac
 
     private Card PreCard;
     private Card NextCard;

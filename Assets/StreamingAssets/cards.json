@@ -1,0 +1,17 @@
+[
+  {
+    "cardId": 1,
+    "ImageName": "card_1",
+    "prefabName": "CardLayoutUI"
+  },
+  {
+    "cardId": 2,
+    "ImageName": "card_2",
+    "prefabName": "CardLayoutUI"
+  },
+  {
+    "cardId": 3,
+    "ImageName": "card_3",
+    "prefabName": "CardLayoutUI"
+  }
+] 

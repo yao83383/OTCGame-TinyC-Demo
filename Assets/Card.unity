@@ -7107,6 +7107,7 @@ GameObject:
   - component: {fileID: 1533151682}
   - component: {fileID: 1533151685}
   - component: {fileID: 1533151686}
+  - component: {fileID: 1533151687}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7209,6 +7210,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a8bba48d3a94440893b83af3d10c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1533151687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533151681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d406dc25ab681443a3057e46a8bbc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardDatas:
+  - cardId: 0
+    ImageName: 
+    prefabName: 
 --- !u!1 &1541106869
 GameObject:
   m_ObjectHideFlags: 0
@@ -9157,7 +9174,7 @@ PrefabInstance:
     - target: {fileID: 1676917825391245577, guid: 8e35ae2c36fb45947869a0de31975883,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.847385
+      value: -6.83
       objectReference: {fileID: 0}
     - target: {fileID: 1676917825391245577, guid: 8e35ae2c36fb45947869a0de31975883,
         type: 3}
@@ -9167,7 +9184,7 @@ PrefabInstance:
     - target: {fileID: 1676917825391245577, guid: 8e35ae2c36fb45947869a0de31975883,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.17
+      value: -1.27
       objectReference: {fileID: 0}
     - target: {fileID: 1676917825391245577, guid: 8e35ae2c36fb45947869a0de31975883,
         type: 3}
