@@ -57,18 +57,3 @@ public class RecipeManager : MonoBehaviour
         recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData); //JsonUtility.FromJson<List<Recipe>>(jsonData);
     }
 }
-
-[System.Serializable]
-public class Recipe
-{
-    public List<Item> inputs = new List<Item>();
-    public Item output;
-    // 其他可能的属性，如合成所需的数量、合成成功率等  
-}
-
-[System.Serializable]
-public class Item
-{
-    public string id; // 物品的唯一标识符  
-    public int amount; // 物品数量  
-}

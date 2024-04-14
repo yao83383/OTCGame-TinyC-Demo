@@ -5,7 +5,7 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class CardSettings
+public struct CardSettings
 {
     public CardSettings(int IncardId, string InImageName, string InprefabName)
     {
