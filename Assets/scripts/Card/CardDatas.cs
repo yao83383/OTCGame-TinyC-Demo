@@ -20,7 +20,7 @@ public struct RecipeElem
 public class Recipe
 {
     public List<RecipeElem> inputs = new List<RecipeElem>();
-    public List<RecipeElem> output;
+    public List<RecipeElem> outputs = new List<RecipeElem>();
     // 其他可能的属性，如合成所需的数量、合成成功率等
     //public float SuccessRate = 1;
 }

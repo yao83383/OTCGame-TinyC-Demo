@@ -5,30 +5,57 @@ using System.IO;
 
 public class CSVReader
 {
-    public void LoadRecipeData()
+    public List<Recipe> LoadRecipeData()
     {
+        List<Recipe> tempRecipes = new List<Recipe>();
         string filePath = Path.Combine(Application.streamingAssetsPath, "Recipes.csv");
         if (File.Exists(filePath))
         {
             string[] lines = File.ReadAllLines(filePath);
             List<string[]> data = new List<string[]>();
 
-            foreach (string line in lines)
+            for(int index = 1; index < lines.Length; ++ index)
             {
-                string[] values = line.Split(','); // 假设CSV使用逗号作为分隔符  
-                data.Add(values);
-            }
+                string[] structData = lines[index].Split(','); // 假设CSV使用逗号作为分隔符  
 
-            // 处理数据...  
-            foreach (string[] row in data)
-            {
-                // 打印行数据  
-                Debug.Log(string.Join(", ", row));
+                if (structData.Length == 2)
+                {
+                    Recipe recipe = new Recipe();
+
+                    string[] inputElems = structData[0].Split(';');
+                    foreach (string elem in inputElems)
+                    {
+                        RecipeElem tempElem;
+
+                        string[] values = elem.Split('|');
+
+                        tempElem.ItemId = int.Parse(values[0]);
+                        tempElem.Num = int.Parse(values[1]);
+
+                        recipe.inputs.Add(tempElem);
+                    }
+
+                    string[] outputElems = structData[1].Split(';');
+                    foreach (string elem in outputElems)
+                    {
+                        RecipeElem tempElem;
+
+                        string[] values = elem.Split('|');
+
+                        tempElem.ItemId = int.Parse(values[0]);
+                        tempElem.Num = int.Parse(values[1]);
+
+                        recipe.outputs.Add(tempElem);
+                    }
+                    tempRecipes.Add(recipe);
+                }
             }
         }
         else
         {
             Debug.LogError("CSV file not found at path: " + filePath);
         }
+
+        return tempRecipes;
     }
 }
