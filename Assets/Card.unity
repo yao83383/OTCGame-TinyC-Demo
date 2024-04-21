@@ -1830,6 +1830,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardLayoutUI (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4178688270766212650, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: CardId
+      value: 1000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b21732004e364d85f7ecd0967a345, type: 3}
 --- !u!4 &419645256 stripped
@@ -2691,6 +2696,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CardLayoutUI (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178688270766212650, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: CardId
+      value: 1000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b21732004e364d85f7ecd0967a345, type: 3}
@@ -7237,10 +7247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d406dc25ab681443a3057e46a8bbc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardDatas:
-  - cardId: 0
-    ImageName: 
-    prefabName: 
+  Itemdata: []
 --- !u!1 &1541106869
 GameObject:
   m_ObjectHideFlags: 0
@@ -8826,6 +8833,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardLayoutUI (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4178688270766212650, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: CardId
+      value: 1000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b21732004e364d85f7ecd0967a345, type: 3}
 --- !u!4 &1810703760 stripped
@@ -10160,8 +10172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635bf433d61ec244d8a4f7444cc258cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Itemdata: []
-  Recipedata: []
 --- !u!1001 &2100802425
 PrefabInstance:
   m_ObjectHideFlags: 0
