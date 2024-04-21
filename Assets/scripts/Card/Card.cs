@@ -1,14 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Card : MonoBehaviour
 {
+    public TextMeshPro CardnameText;
+
+    //Contains Cards from this to the end;
+    //  PreCards not included;
+    [HideInInspector]
+    private List<Card> CardList = new List<Card>();
+    private string CardName;
+
+    private Card PreCard;
+    private Card NextCard;
+    private GameObject NextEmptyCard;
+
+    public ItemData CardData;
+    public int CardId;
+
+    [HideInInspector]
+    public Vector3 NextCardOffset = new Vector3(0f, 0.5f, 0f);
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (CardDatas.Instance.Itemdata_dic.TryGetValue(CardId, out CardData))
+        { 
+            if (CardnameText)
+            {
+                CardnameText.text = CardData.ItemName;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -16,19 +40,6 @@ public class Card : MonoBehaviour
     {
         
     }
-
-    //Contains Cards from this to the end;
-    //  PreCards not included;
-    [HideInInspector]
-    public List<Card> CardList;
-    private string CardName;
-    //private Attac
-
-    private Card PreCard;
-    private Card NextCard;
-    private GameObject NextEmptyCard;
-    [HideInInspector]
-    public Vector3 NextCardOffset = new Vector3(0f, 0.5f, 0f);
 
 
     public void StartMove()
@@ -63,7 +74,7 @@ public class Card : MonoBehaviour
     {
         if (this.NextCard)
         {
-            return NextCard.GetListEnd();
+            return this.NextCard.GetListEnd();
         }
         else
         {
@@ -71,9 +82,36 @@ public class Card : MonoBehaviour
         }
     }
 
-    private void RefreshListHead()
-    { 
-        
+    public List<Card> GetCardList()
+    {
+        if (this.PreCard)
+        {
+            return this.PreCard.GetCardList();
+        }
+        else
+        {
+            return this.CardList;
+        }
+    }
+
+    private void RefreshCardList()
+    {
+        if (NextCard)
+        {
+            //非链首 递归加入list
+            NextCard.RefreshCardList();
+        }
+        else
+        {
+            //链首 清除list
+            GetCardList().Clear();
+        }
+
+        if (!GetCardList().Contains(this))
+        {
+            GetCardList().Remove(this);
+            GetCardList().Add(this);
+        }
     }
 
     public void Drop(Card InPreCard, Vector3 InPosition)
@@ -89,5 +127,10 @@ public class Card : MonoBehaviour
         {
             transform.position = InPosition;
         }
+        RefreshCardList();
+        CardsManager.Instance.MatchRecipe(this.CardList);
     }
+
+    public void LevelUp()
+    { }
 }

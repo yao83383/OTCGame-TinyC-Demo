@@ -19,6 +19,12 @@ public struct RecipeElem
 [System.Serializable]
 public class Recipe
 {
+    public List<int> inputs_items = new List<int>();
+    public List<int> inputs_nums = new List<int>();
+    public List<int> outputs_items = new List<int>();
+    public List<int> outputs_nums = new List<int>();
+    public float combinetime;
+
     public List<RecipeElem> inputs = new List<RecipeElem>();
     public List<RecipeElem> outputs = new List<RecipeElem>();
     // 其他可能的属性，如合成所需的数量、合成成功率等
@@ -32,6 +38,9 @@ public class CardDatas : MonoBehaviour
 
     // 私有构造函数，防止外部通过new创建实例  
     private CardDatas() { }
+
+    public Dictionary<int, ItemData> Itemdata_dic = new Dictionary<int, ItemData>();
+    public Dictionary<int, Recipe> Recipedata_dic = new Dictionary<int, Recipe>();
 
     // 公共静态方法，用于获取Manager的实例  
     public static CardDatas Instance
@@ -67,11 +76,8 @@ public class CardDatas : MonoBehaviour
 
         _instance = this;
         // 在这里添加初始化代码...  
-    }
-
-    private void Start()
-    {
         CSVReader csvreader = new CSVReader();
         csvreader.LoadRecipeData();
+        csvreader.LoadItemData();
     }
 }

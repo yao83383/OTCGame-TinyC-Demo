@@ -47,13 +47,12 @@ public class RecipeManager : MonoBehaviour
         // 在这里添加初始化代码...  
     }
 
-
-    public List<Recipe> recipes = new List<Recipe>();
+    public List<Recipe> Recipedata = new List<Recipe>();
     void Start()
     {
         // 假设JSON文件放在Resources文件夹下  
-        string jsonPath = Path.Combine(Application.streamingAssetsPath, "recipes.json");
-        string jsonData = File.ReadAllText(jsonPath);
-        recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData); //JsonUtility.FromJson<List<Recipe>>(jsonData);
+        //string jsonPath = Path.Combine(Application.streamingAssetsPath, "recipes.json");
+        //string jsonData = File.ReadAllText(jsonPath);
+        //recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData); //JsonUtility.FromJson<List<Recipe>>(jsonData);
     }
 }
