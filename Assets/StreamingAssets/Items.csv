@@ -1,4 +1,4 @@
-ID,Name,Name_CN,Type,Lv,Quality,Wuxing,EquipmentSlot,WeaponType,Stack,career,CanDestroy,product_count,effect,effect_value,Duration,cooldown,contain_items,contain_num,Desc
+id,name,Name_CN,Type,Lv,Quality,Wuxing,EquipmentSlot,WeaponType,Stack,career,CanDestroy,product_count,effect,effect_value,Duration,cooldown,contain_items,contain_num,Desc
 1000000,wood,Ô­Ä¾,1,,0,,,,32,,9900002;9900001,1-1;1-1,,,,,,,
 1000001,rock,ËéÊ¯,1,,0,,,,32,,9900002;9900001,1-1;1-1,,,,,,,
 1000002,woodblock,Ä¾ÁÏ,1,,0,,,,32,,9900002;9900001,1-1;1-1,,,,,,,

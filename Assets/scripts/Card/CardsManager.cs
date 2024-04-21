@@ -65,66 +65,116 @@ public class CardsManager : MonoBehaviour
 
     public GameObject InstantiateCard(int cardId)
     {
-        if (cardsDictionary.ContainsKey(cardId))
-        {
-            string prefabPath = "prefabs/" + cardsDictionary[cardId].prefabName;
-            GameObject prefab = Resources.Load<GameObject>(prefabPath);
-            GameObject newCard = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
-            LoadCardImage(cardId, newCard.GetComponent<Card>());
-            return newCard;
-        }
-        else
-        {
-            Debug.LogError("Card prefab not found for ID: " + cardId);
+        //if (cardsDictionary.ContainsKey(cardId))
+        //{
+        //    string prefabPath = "prefabs/" + cardsDictionary[cardId].prefabName;
+        //    GameObject prefab = Resources.Load<GameObject>(prefabPath);
+        //    GameObject newCard = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+        //    LoadCardImage(cardId, newCard.GetComponent<Card>());
+        //    return newCard;
+        //}
+        //else
+        //{
+        //    Debug.LogError("Card prefab not found for ID: " + cardId);
             return null;
-        }
+        //}
     }
 
     public void LoadCardImage(int cardId, Card InCard)
     {
-        string imagePath = "sprites/" + cardsDictionary[cardId].ImageName;
-        Texture2D cardImage = Resources.Load<Texture2D>(imagePath);
-        if (cardImage == null)
-        {
-            Debug.LogError("Card image not found for ID: " + cardId);
-        }
-        else 
-        {
-            //Material newMat = new Material(Shader.Find("Standard"));
-            //newMat.mainTexture = cardImage;
-
-            MeshRenderer meshRenderer = InCard.GetComponent<MeshRenderer>();
-            //meshRenderer.materials[1] = newMat;
-            //meshRenderer.material = newMat;
-            meshRenderer.materials[1].mainTexture = cardImage;
-            meshRenderer.materials[2].mainTexture = cardImage;
-        }
+        //string imagePath = "sprites/" + cardsDictionary[cardId].ImageName;
+        //Texture2D cardImage = Resources.Load<Texture2D>(imagePath);
+        //if (cardImage == null)
+        //{
+        //    Debug.LogError("Card image not found for ID: " + cardId);
+        //}
+        //else 
+        //{
+        //    //Material newMat = new Material(Shader.Find("Standard"));
+        //    //newMat.mainTexture = cardImage;
+        //
+        //    MeshRenderer meshRenderer = InCard.GetComponent<MeshRenderer>();
+        //    //meshRenderer.materials[1] = newMat;
+        //    //meshRenderer.material = newMat;
+        //    meshRenderer.materials[1].mainTexture = cardImage;
+        //    meshRenderer.materials[2].mainTexture = cardImage;
+        //}
     }
     //-------------------------------------------------------------
     //CardImage:---------------------------------------------------
     // 使用List<MyDictionaryItem>来模拟Dictionary的功能，因为List可以在Inspector中编辑  
-    public List<CardSettings> CardDatas = new List<CardSettings>();
+    //public List<CardSettings> CardDatas = new List<CardSettings>();
 
     // 在需要的时候，你可以将这个List转换为Dictionary来使用  
-    private Dictionary<int, CardSettings> cardsDictionary;
+   // private Dictionary<int, CardSettings> cardsDictionary;
 
     void Start()
     {
-        // 假设JSON文件放在Resources文件夹下  
-        string jsonPath = Path.Combine(Application.streamingAssetsPath, "cards.json");
-        string jsonData = File.ReadAllText(jsonPath);
-        CardDatas = JsonConvert.DeserializeObject<List<CardSettings>>(jsonData); //JsonUtility.FromJson<List<Recipe>>(jsonData);
-        // 初始化Dictionary，使用List中的数据  
-        cardsDictionary = new Dictionary<int, CardSettings>();
-        foreach (var item in CardDatas)
-        {
-            CardSettings TempCardData = new CardSettings(item.cardId, item.ImageName, item.prefabName);
-            cardsDictionary.Add(item.cardId, TempCardData);
-        }
-
-        // 现在你可以使用myDictionary进行其他操作了  
-        InstantiateCard(1);
+        //// 假设JSON文件放在Resources文件夹下  
+        //string jsonPath = Path.Combine(Application.streamingAssetsPath, "cards.json");
+        //string jsonData = File.ReadAllText(jsonPath);
+        //CardDatas = JsonConvert.DeserializeObject<List<CardSettings>>(jsonData); //JsonUtility.FromJson<List<Recipe>>(jsonData);
+        //// 初始化Dictionary，使用List中的数据  
+        //cardsDictionary = new Dictionary<int, CardSettings>();
+        //foreach (var item in CardDatas)
+        //{
+        //    CardSettings TempCardData = new CardSettings(item.cardId, item.ImageName, item.prefabName);
+        //    cardsDictionary.Add(item.cardId, TempCardData);
+        //}
+        //
+        //// 现在你可以使用myDictionary进行其他操作了  
+        //InstantiateCard(1);
     }
     //CardImage:---------------------------------------------------
     //-------------------------------------------------------------
+
+    public List<ItemData> Itemdata = new List<ItemData>();
+    public Recipe MatchRecipe(List<Card> ToMatchCardList)
+    {
+        Dictionary<int, int> idList = new Dictionary<int, int>();
+        foreach (Card card in ToMatchCardList)
+        {
+            if (idList.ContainsKey(card.CardId))
+            {
+                int num = 0;
+                if (idList.TryGetValue(card.CardId, out num))
+                {
+                    ++num;
+                    idList[card.CardId] = num;
+                }
+                else
+                {
+                    idList.Add(card.CardId, 1);
+                }
+            }
+        }
+
+        foreach (Recipe recipe in RecipeManager.Instance.Recipedata)
+        {
+            bool Dirtyflag = true;
+            foreach (int itemid in recipe.inputs_items)
+            {
+                int tempNum = 0;
+                if (idList.TryGetValue(itemid, out tempNum))
+                { 
+                    
+                }
+                else
+                {
+                    Dirtyflag = false;
+                    break;
+                }
+            }
+
+            if (Dirtyflag)
+            {
+                return recipe;
+            }
+            else
+            {
+                continue;
+            }
+        }
+        return null;
+    }
 }

@@ -3095,6 +3095,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardLayoutUI (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4178688270766212650, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: CardId
+      value: 1000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b21732004e364d85f7ecd0967a345, type: 3}
 --- !u!1001 &652483202
@@ -3868,6 +3873,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CardLayoutUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178688270766212650, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: CardId
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874890575516402775, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b21732004e364d85f7ecd0967a345, type: 3}
@@ -7737,6 +7752,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardLayoutUI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4178688270766212650, guid: ed7b21732004e364d85f7ecd0967a345,
+        type: 3}
+      propertyPath: CardId
+      value: 1000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7b21732004e364d85f7ecd0967a345, type: 3}
 --- !u!1 &1654376444
@@ -10140,6 +10160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635bf433d61ec244d8a4f7444cc258cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Itemdata: []
+  Recipedata: []
 --- !u!1001 &2100802425
 PrefabInstance:
   m_ObjectHideFlags: 0
