@@ -166,7 +166,7 @@ public class CardsManager : MonoBehaviour
                 }
             }
 
-            if (Dirtyflag)
+            if (!Dirtyflag)
             {
                 return recipe;
             }
