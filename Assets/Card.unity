@@ -2057,9 +2057,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7995d3f649a3e6d499651d4d60c0407b, type: 2}
+    - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7995d3f649a3e6d499651d4d60c0407b, type: 2}
+    - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: a24733f7d9f0b6949b9a478d63bd923e, type: 2}
+      objectReference: {fileID: 2100000, guid: 7995d3f649a3e6d499651d4d60c0407b, type: 2}
     - target: {fileID: 877906941162334460, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4738,7 +4748,7 @@ RectTransform:
   m_GameObject: {fileID: 1167028349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1528702926}
@@ -4748,7 +4758,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167028351
 MonoBehaviour:
@@ -6440,9 +6450,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7a4aea76f58b1b47b607493ccda169f, type: 2}
+    - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 5d77e5400ff65b748b95d192d44355ff, type: 2}
+      objectReference: {fileID: 2100000, guid: a7a4aea76f58b1b47b607493ccda169f, type: 2}
     - target: {fileID: 877906941162334460, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6891,9 +6906,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533151681}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -100}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9241,6 +9256,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: e397bea3e9d61d8489806e45b82eeb12,
+        type: 3}
+    - target: {fileID: 286698968935561494, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 849c6c0ce1fc09449a4da2ee3151e1f3, type: 2}
@@ -9329,11 +9350,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardLayoutUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1799877725413988547, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2322903426535488916, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2602650093921177052, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: e397bea3e9d61d8489806e45b82eeb12,
+        type: 3}
     - target: {fileID: 2866335765065169619, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
       propertyPath: m_SizeDelta.x
