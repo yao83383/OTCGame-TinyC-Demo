@@ -86,6 +86,8 @@ public class CSVReader
 
                     tempData.ItemId = int.Parse(structData[0]);
                     tempData.ItemName = structData[1];
+                    tempData.SpriteRef = null;
+                    tempData.PrefabRef = null;
 
                     CardsManager.Instance.Itemdata.Add(tempData);
                     CardDatas.Instance.Itemdata_dic.Add(tempData.ItemId, tempData);

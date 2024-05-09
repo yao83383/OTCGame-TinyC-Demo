@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
 
 	//游戏设置
 	public MenuData menuData;
-
 	//读取游戏
 	public SaveGame saveGame;
 

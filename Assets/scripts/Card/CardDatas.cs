@@ -7,6 +7,9 @@ public struct ItemData
 {
     public int ItemId; // 物品的唯一标识符  
     public string ItemName; // 物品数量
+
+    public Sprite SpriteRef;
+    public GameObject PrefabRef;
 }
 
 [System.Serializable]
@@ -80,4 +83,10 @@ public class CardDatas : MonoBehaviour
         csvreader.LoadRecipeData();
         csvreader.LoadItemData();
     }
+}
+
+[CreateAssetMenu(fileName = "CardData", menuName = "Prefabs/CardData")]
+public class CardData : ScriptableObject
+{
+    public List<ItemData> item = new List<ItemData>();
 }

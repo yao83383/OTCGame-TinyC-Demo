@@ -132,6 +132,7 @@ public class CardsManager : MonoBehaviour
     public Recipe MatchRecipe(List<Card> ToMatchCardList)
     {
         Dictionary<int, int> idList = new Dictionary<int, int>();
+        //遍历当前卡牌 id 并分别计数
         foreach (Card card in ToMatchCardList)
         {
             if (idList.ContainsKey(card.CardId))
@@ -149,6 +150,7 @@ public class CardsManager : MonoBehaviour
             }
         }
 
+        //匹配id，返回recipe
         foreach (Recipe recipe in RecipeManager.Instance.Recipedata)
         {
             bool Dirtyflag = true;
@@ -176,5 +178,72 @@ public class CardsManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    //必须完全匹配
+    public Recipe FullMatchRecipe(List<Card> ToMatchCardList)
+    {
+        Dictionary<int, int> idList = new Dictionary<int, int>();
+        //遍历当前卡牌 id 并分别计数
+        foreach (Card card in ToMatchCardList)
+        {
+            if (idList.ContainsKey(card.CardId))
+            {
+                int num = 0;
+                if (idList.TryGetValue(card.CardId, out num))
+                {
+                    ++num;
+                    idList[card.CardId] = num;
+                }
+                else
+                {
+                    idList.Add(card.CardId, 1);
+                }
+            }
+        }
+
+        //匹配id，只有完全匹配，返回recipe
+        foreach (Recipe recipe in RecipeManager.Instance.Recipedata)
+        {
+            bool Dirtyflag = true;
+            for (int index = 0; index < recipe.inputs_items.Count; ++index)
+            {
+                int tempNum = 0;
+                if (idList.TryGetValue(recipe.inputs_items[index], out tempNum))
+                {
+                    //如果配方内，此 物品对应数量 不与 idList内该物品数量 相当，不可合成；
+                    if (recipe.inputs_nums[index] == tempNum)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Dirtyflag = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    Dirtyflag = false;
+                    break;
+                }
+            }
+
+            //如果此recipe内所有物品数量都与idlist内物品数量 相当，则找到对应recipe；
+            if (Dirtyflag)
+            {
+                return recipe;
+            }
+            else
+            {
+                continue;
+            }
+        }
+        return null;
+    }
+
+    public void OnRecipeFullMatch(List<Card> ToMatchCardList)
+    { 
+        
     }
 }
