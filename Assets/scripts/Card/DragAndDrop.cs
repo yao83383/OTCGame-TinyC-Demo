@@ -98,7 +98,7 @@ public class DragAndDrop : MonoBehaviour
                 {
                     Card TargetCard = hit.collider.gameObject.GetComponent<Card>().GetListEnd();
                     Card CardObj = ObjectToMove.GetComponent<Card>();
-                    CardObj.Drop(TargetCard, TargetCard.transform.position - TargetCard.NextCardOffset);
+                    CardObj.Drop(TargetCard, TargetCard.transform.position + TargetCard.NextCardOffset);
                 }
                 else
                 {

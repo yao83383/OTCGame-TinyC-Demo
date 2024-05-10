@@ -29,13 +29,13 @@ public class CSVReader
                     {
                         RecipeElem tempElem;
 
-                        tempElem.ItemId = int.Parse(input_items[index_input]);
+                        tempElem.CardId = int.Parse(input_items[index_input]);
                         tempElem.Num = int.Parse(input_nums[index_input]);
 
-                        recipe.inputs_items.Add(tempElem.ItemId);
+                        recipe.inputs_items.Add(tempElem.CardId);
                         recipe.inputs_nums.Add(tempElem.Num);
                         recipe.inputs.Add(tempElem);
-                        recipe.Ingredients.Add(tempElem.ItemId, tempElem.Num);
+                        recipe.Ingredients.Add(tempElem.CardId, tempElem.Num);
                     }
 
                     string[] output_items = structData[2].Split(',');
@@ -44,13 +44,13 @@ public class CSVReader
                     {
                         RecipeElem tempElem;
 
-                        tempElem.ItemId = int.Parse(output_items[index_out]);
+                        tempElem.CardId = int.Parse(output_items[index_out]);
                         tempElem.Num = int.Parse(output_nums[index_out]);
 
-                        recipe.outputs_items.Add(tempElem.ItemId);
+                        recipe.outputs_items.Add(tempElem.CardId);
                         recipe.outputs_nums.Add(tempElem.Num);
                         recipe.outputs.Add(tempElem);
-                        recipe.Output.Add(tempElem.ItemId, tempElem.Num);
+                        recipe.Output.Add(tempElem.CardId, tempElem.Num);
                     }
                     recipe.combinetime = float.Parse(structData[4]);
                     
@@ -67,9 +67,9 @@ public class CSVReader
         return RecipeManager.Instance.Recipedata;
     }
 
-    public List<ItemData> LoadItemData()
+    public Dictionary<int, FCardData> LoadCardData()
     {
-        CardsManager.Instance.Itemdata.Clear();
+        CardDatas.Instance.Carddata_dic.Clear();
 
         string filePath = Path.Combine(Application.streamingAssetsPath, "Items.csv");
         if (File.Exists(filePath))
@@ -85,16 +85,30 @@ public class CSVReader
                 {
                     //string[] ids = structData[0].Split(';');
                     //string[] names = structData[1].Split(';');
- 
-                    ItemData tempData;
 
-                    tempData.ItemId = int.Parse(structData[0]);
-                    tempData.ItemName = structData[1];
+                    FCardData tempData;
+
+                    tempData.CardId = int.Parse(structData[0]);
+                    tempData.CardName = structData[1];
                     tempData.SpriteRef = null;
                     tempData.PrefabRef = null;
 
-                    CardsManager.Instance.Itemdata.Add(tempData);
-                    CardDatas.Instance.Itemdata_dic.Add(tempData.ItemId, tempData);
+                    foreach (FCardData cdata in CardDatas.Instance.BaseCardDataTable.item)
+                    {
+                        if (cdata.CardId == tempData.CardId)
+                        {
+                            tempData = cdata;
+                            break;
+                        }
+                        else
+                        {
+                            tempData.SpriteRef = null;
+                            tempData.PrefabRef = null;
+                        }
+                    }
+                    
+
+                    CardDatas.Instance.Carddata_dic.Add(tempData.CardId, tempData);
                 }
             }
         }
@@ -103,6 +117,6 @@ public class CSVReader
             Debug.LogError("CSV file not found at path: " + filePath);
         }
 
-        return CardsManager.Instance.Itemdata;
+        return CardDatas.Instance.Carddata_dic;
     }
 }

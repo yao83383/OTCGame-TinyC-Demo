@@ -4,25 +4,16 @@ using Newtonsoft.Json;
 using UnityEngine;
 using System.IO;
 
-[System.Serializable]
-public struct CardSettings
-{
-    public CardSettings(int IncardId, string InImageName, string InprefabName)
-    {
-        cardId = IncardId;
-        ImageName = InImageName;
-        prefabName = InprefabName;
-    }
-    public int cardId;
-    public string ImageName;
-    public string prefabName;
-}
-
 public class CardsManager : MonoBehaviour
 {
     // 静态变量来保存Manager的实例  
     private static CardsManager _instance;
 
+    //存储卡数据
+    //public FCardData Carddata;
+
+    //所有当前Card实例
+    public List<FCardData> Carddata = new List<FCardData>();
     // 私有构造函数，防止外部通过new创建实例  
     private CardsManager() { }
 
@@ -62,22 +53,26 @@ public class CardsManager : MonoBehaviour
         // 在这里添加初始化代码...  
     }
 
-
-    public GameObject InstantiateCard(int cardId)
+    public GameObject CreateCardById(int CardId, GameObject parent)
     {
-        //if (cardsDictionary.ContainsKey(cardId))
-        //{
-        //    string prefabPath = "prefabs/" + cardsDictionary[cardId].prefabName;
-        //    GameObject prefab = Resources.Load<GameObject>(prefabPath);
-        //    GameObject newCard = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
-        //    LoadCardImage(cardId, newCard.GetComponent<Card>());
-        //    return newCard;
-        //}
-        //else
-        //{
-        //    Debug.LogError("Card prefab not found for ID: " + cardId);
-            return null;
-        //}
+        GameObject TempCard =null;
+        FCardData TempCardData;
+        if (CardDatas.Instance.Carddata_dic.TryGetValue(CardId, out TempCardData))
+        {
+            if (TempCardData.PrefabRef)
+            {
+                Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+                TempCard = Instantiate(TempCardData.PrefabRef, new Vector3(0, 0, 0), rotation, parent.transform);
+                TempCard.transform.localScale = new Vector3(10, 10, 10);
+
+                Card cardComp = TempCard.GetComponent<Card>();
+                if (cardComp)
+                { 
+                    cardComp.InitCarddataByID(CardId);
+                }
+            }
+        }
+        return TempCard;
     }
 
     public void LoadCardImage(int cardId, Card InCard)
@@ -128,55 +123,5 @@ public class CardsManager : MonoBehaviour
     //CardImage:---------------------------------------------------
     //-------------------------------------------------------------
 
-    public List<ItemData> Itemdata = new List<ItemData>();
-    public Recipe MatchRecipe(List<Card> ToMatchCardList)
-    {
-        Dictionary<int, int> idList = new Dictionary<int, int>();
-        //遍历当前卡牌 id 并分别计数
-        foreach (Card card in ToMatchCardList)
-        {
-            if (idList.ContainsKey(card.CardId))
-            {
-                int num = 0;
-                if (idList.TryGetValue(card.CardId, out num))
-                {
-                    ++num;
-                    idList[card.CardId] = num;
-                }
-                else
-                {
-                    idList.Add(card.CardId, 1);
-                }
-            }
-        }
-
-        //匹配id，返回recipe
-        foreach (Recipe recipe in RecipeManager.Instance.Recipedata)
-        {
-            bool Dirtyflag = true;
-            foreach (int itemid in recipe.inputs_items)
-            {
-                int tempNum = 0;
-                if (idList.TryGetValue(itemid, out tempNum))
-                { 
-                    
-                }
-                else
-                {
-                    Dirtyflag = false;
-                    break;
-                }
-            }
-
-            if (!Dirtyflag)
-            {
-                return recipe;
-            }
-            else
-            {
-                continue;
-            }
-        }
-        return null;
-    }
+    
 }

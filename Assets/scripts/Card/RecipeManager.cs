@@ -8,13 +8,21 @@ using System;
 using System.Security.Cryptography;  
 using System.Text;
 using System.Linq;
-  
+
+[System.Serializable]
+public struct RecipeElem
+{
+    public int CardId;
+    public int Num;
+}
+
+
 // 假设的配方类  
 [System.Serializable]
 public class Recipe  
 {
     public Dictionary<int, int> Ingredients = new Dictionary<int, int>(); // 原料和数量  
-    public Dictionary<int, int> Output = new Dictionary<int, int>();// 输出物品  
+    public Dictionary<int, int> Output = new Dictionary<int, int>();// 输出物品和数量
   
     //public Recipe(Dictionary<int, int> ingredients, List<int> output)  
     //{  
@@ -158,18 +166,22 @@ public class RecipeManager : MonoBehaviour
         //遍历当前卡牌 id 并分别计数
         foreach (Card card in ToMatchCardList)
         {
-            if (idList.ContainsKey(card.CardId))
+            if (idList.ContainsKey(card.CardData.CardId))
             {
-                int num = 0;
-                if (idList.TryGetValue(card.CardId, out num))
+                int num;
+                if (idList.TryGetValue(card.CardData.CardId, out num))
                 {
                     ++num;
-                    idList[card.CardId] = num;
+                    idList[card.CardData.CardId] = num;
                 }
                 else
                 {
-                    idList.Add(card.CardId, 1);
+                    idList.Add(card.CardData.CardId, 1);
                 }
+            }
+            else 
+            {
+                idList.Add(card.CardData.CardId, 1);
             }
         }
         return FindRecipe(idList);
