@@ -152,4 +152,61 @@ public class RecipeManager : MonoBehaviour
         //string jsonData = File.ReadAllText(jsonPath);
         //recipes = JsonConvert.DeserializeObject<List<Recipe>>(jsonData); //JsonUtility.FromJson<List<Recipe>>(jsonData);
     }
+    public Recipe MatchRecipe(List<Card> ToMatchCardList)
+    {
+        Dictionary<int, int> idList = new Dictionary<int, int>();
+        //遍历当前卡牌 id 并分别计数
+        foreach (Card card in ToMatchCardList)
+        {
+            if (idList.ContainsKey(card.CardId))
+            {
+                int num = 0;
+                if (idList.TryGetValue(card.CardId, out num))
+                {
+                    ++num;
+                    idList[card.CardId] = num;
+                }
+                else
+                {
+                    idList.Add(card.CardId, 1);
+                }
+            }
+        }
+        return FindRecipe(idList);
+
+        //匹配id，返回recipe
+        //foreach (Recipe recipe in RecipeManager.Instance.Recipedata)
+        //{
+        //    bool Dirtyflag = true;
+        //    foreach (int itemid in recipe.inputs_items)
+        //    {
+        //        int tempNum = 0;
+        //        if (idList.TryGetValue(itemid, out tempNum))
+        //        {
+        //
+        //        }
+        //        else
+        //        {
+        //            Dirtyflag = false;
+        //            break;
+        //        }
+        //    }
+        //
+        //    if (!Dirtyflag)
+        //    {
+        //        return recipe;
+        //    }
+        //    else
+        //    {
+        //        continue;
+        //    }
+        //}
+        return null;
+    }
+    //必须完全匹配
+    public Recipe FullMatchRecipe(List<Card> ToMatchCardList)
+    {
+        
+        return null;
+    }
 }

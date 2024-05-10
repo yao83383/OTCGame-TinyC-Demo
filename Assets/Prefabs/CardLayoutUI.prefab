@@ -379,6 +379,8 @@ MonoBehaviour:
   CardData:
     ItemId: 0
     ItemName: 
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 0}
   CardId: 1000116
   NextCardOffset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &3418872060210621119
@@ -760,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.73}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3776073714445900901

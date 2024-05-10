@@ -128,6 +128,7 @@ public class Card : MonoBehaviour
             transform.position = InPosition;
         }
         RefreshCardList();
+
         Recipe matchRecipe = CardsManager.Instance.FullMatchRecipe(this.CardList);
         if (matchRecipe != null)
         {
