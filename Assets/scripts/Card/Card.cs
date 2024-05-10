@@ -129,7 +129,7 @@ public class Card : MonoBehaviour
         }
         RefreshCardList();
 
-        Recipe matchRecipe = CardsManager.Instance.FullMatchRecipe(this.CardList);
+        Recipe matchRecipe = RecipeManager.Instance.MatchRecipe(this.CardList);
         if (matchRecipe != null)
         {
             //matchRecipe.inputs_items
