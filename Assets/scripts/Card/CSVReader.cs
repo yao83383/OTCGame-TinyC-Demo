@@ -13,7 +13,7 @@ public class CSVReader
         if (File.Exists(filePath))
         {
             string[] lines = File.ReadAllLines(filePath);
-            List<string[]> data = new List<string[]>();
+            //List<string[]> data = new List<string[]>();
 
             for(int index = 1; index < lines.Length; ++ index)
             {
@@ -35,6 +35,7 @@ public class CSVReader
                         recipe.inputs_items.Add(tempElem.ItemId);
                         recipe.inputs_nums.Add(tempElem.Num);
                         recipe.inputs.Add(tempElem);
+                        recipe.Ingredients.Add(tempElem.ItemId, tempElem.Num);
                     }
 
                     string[] output_items = structData[2].Split(',');
@@ -49,9 +50,12 @@ public class CSVReader
                         recipe.outputs_items.Add(tempElem.ItemId);
                         recipe.outputs_nums.Add(tempElem.Num);
                         recipe.outputs.Add(tempElem);
+                        recipe.Output.Add(tempElem.ItemId, tempElem.Num);
                     }
                     recipe.combinetime = float.Parse(structData[4]);
+                    
                     RecipeManager.Instance.Recipedata.Add(recipe);
+                    RecipeManager.Instance.AddRecipe(recipe);
                 }
             }
         }
