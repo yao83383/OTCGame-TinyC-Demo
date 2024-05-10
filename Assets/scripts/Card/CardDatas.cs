@@ -19,21 +19,6 @@ public struct RecipeElem
     public int Num;
 }
 
-[System.Serializable]
-public class Recipe
-{
-    public List<int> inputs_items = new List<int>();
-    public List<int> inputs_nums = new List<int>();
-    public List<int> outputs_items = new List<int>();
-    public List<int> outputs_nums = new List<int>();
-    public float combinetime;
-
-    public List<RecipeElem> inputs = new List<RecipeElem>();
-    public List<RecipeElem> outputs = new List<RecipeElem>();
-    // 其他可能的属性，如合成所需的数量、合成成功率等
-    //public float SuccessRate = 1;
-}
-
 public class CardDatas : MonoBehaviour
 {
     // 静态变量来保存Manager的实例  
