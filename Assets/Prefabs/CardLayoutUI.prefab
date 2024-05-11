@@ -375,12 +375,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40b67a0efe0d58439c4ca52ae246968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 3158334206788527183}
   CardnameText: {fileID: 8708232361768413230}
   CardData:
-    ItemId: 0
-    ItemName: 
-  CardId: 1000116
-  NextCardOffset: {x: 0, y: 0.5, z: 0}
+    CardId: 0
+    CardName: 
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 0}
+  NextCardOffset: {x: 0, y: -10, z: -0.5}
 --- !u!1 &3418872060210621119
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.73}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 560}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3776073714445900901

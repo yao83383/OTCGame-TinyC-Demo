@@ -5,32 +5,46 @@ using TMPro;
 
 public class Card : MonoBehaviour
 {
+    //Object to show-------------------------------
+    public SpriteRenderer spriteRenderer;
+    //-------------------------------
+
     public TextMeshPro CardnameText;
 
     //Contains Cards from this to the end;
     //  PreCards not included;
     [HideInInspector]
     private List<Card> CardList = new List<Card>();
-    private string CardName;
 
     private Card PreCard;
     private Card NextCard;
-    private GameObject NextEmptyCard;
 
-    public ItemData CardData;
-    public int CardId;
+    public FCardData CardData;
 
-    [HideInInspector]
-    public Vector3 NextCardOffset = new Vector3(0f, 0.5f, 0f);
+    public Vector3 NextCardOffset = new Vector3(-1.5f, -0.5f, 0f);
+
+    public void InitCarddataByID(int cardId)
+    {
+        FCardData TempCardData;
+        if (CardDatas.Instance.Carddata_dic.TryGetValue(cardId, out TempCardData))
+        {
+            this.CardData = TempCardData;
+
+            if (spriteRenderer)
+            {
+                spriteRenderer.sprite = this.CardData.SpriteRef;
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (CardDatas.Instance.Itemdata_dic.TryGetValue(CardId, out CardData))
+        if (CardDatas.Instance.Carddata_dic.TryGetValue(CardData.CardId, out CardData))
         { 
             if (CardnameText)
             {
-                CardnameText.text = CardData.ItemName;
+                CardnameText.text = CardData.CardName;
             }
         }
     }
@@ -54,10 +68,10 @@ public class Card : MonoBehaviour
 
     public void Move(Vector3 InPostion)
     {
-        this.transform.position = InPostion;
+        this.transform.position = InPostion + NextCardOffset;
         if (NextCard)
         { 
-            NextCard.Move(InPostion - NextCardOffset);
+            NextCard.Move(InPostion + NextCardOffset);
         }
     }
 
@@ -120,7 +134,7 @@ public class Card : MonoBehaviour
         GetComponent<MeshCollider>().enabled = true;
         if (InPreCard)
         {
-            transform.position = InPreCard.transform.position - NextCardOffset;
+            transform.position = InPreCard.transform.position + NextCardOffset;
             InPreCard.NextCard = this;
         }
         else
@@ -128,13 +142,25 @@ public class Card : MonoBehaviour
             transform.position = InPosition;
         }
         RefreshCardList();
-        Recipe matchRecipe = CardsManager.Instance.FullMatchRecipe(this.CardList);
+
+        Recipe matchRecipe = RecipeManager.Instance.MatchRecipe(this.CardList);
         if (matchRecipe != null)
         {
+            foreach (int outId in matchRecipe.Output.Keys)
+            {
+                int CreateCardNum = matchRecipe.Output[outId];
+                while (CreateCardNum > 0)
+                {
+                    CardsManager.Instance.CreateCardById(outId, this.transform.parent.gameObject);
+                    CreateCardNum--;
+                }
+            }
             //matchRecipe.inputs_items
             foreach (Card card in CardList)
             {
-                Destroy(card);
+                
+                DestroyImmediate(card.gameObject);
+
             }
         }
 

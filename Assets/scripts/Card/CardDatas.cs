@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct ItemData
+public struct FCardData
 {
-    public int ItemId; // 物品的唯一标识符  
-    public string ItemName; // 物品数量
+    public int CardId; // 物品的唯一标识符  
+    public string CardName; // 物品数量
 
     public Sprite SpriteRef;
     public GameObject PrefabRef;
-}
-
-[System.Serializable]
-public struct RecipeElem
-{
-    public int ItemId;
-    public int Num;
 }
 
 public class CardDatas : MonoBehaviour
@@ -27,8 +20,12 @@ public class CardDatas : MonoBehaviour
     // 私有构造函数，防止外部通过new创建实例  
     private CardDatas() { }
 
-    public Dictionary<int, ItemData> Itemdata_dic = new Dictionary<int, ItemData>();
-    public Dictionary<int, Recipe> Recipedata_dic = new Dictionary<int, Recipe>();
+    //基础卡包数据
+    public CardDatatable BaseCardDataTable;
+
+    //储存所有Card数据
+    [HideInInspector]
+    public Dictionary<int, FCardData> Carddata_dic = new Dictionary<int, FCardData>();
 
     // 公共静态方法，用于获取Manager的实例  
     public static CardDatas Instance
@@ -66,12 +63,6 @@ public class CardDatas : MonoBehaviour
         // 在这里添加初始化代码...  
         CSVReader csvreader = new CSVReader();
         csvreader.LoadRecipeData();
-        csvreader.LoadItemData();
+        csvreader.LoadCardData();
     }
-}
-
-[CreateAssetMenu(fileName = "CardData", menuName = "Prefabs/CardData")]
-public class CardData : ScriptableObject
-{
-    public List<ItemData> item = new List<ItemData>();
 }
