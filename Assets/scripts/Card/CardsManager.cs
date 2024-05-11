@@ -61,9 +61,9 @@ public class CardsManager : MonoBehaviour
         {
             if (TempCardData.PrefabRef)
             {
-                Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+                Quaternion rotation = Quaternion.Euler(0, 0, 0);
                 TempCard = Instantiate(TempCardData.PrefabRef, new Vector3(0, 0, 0), rotation, parent.transform);
-                TempCard.transform.localScale = new Vector3(10, 10, 10);
+                //TempCard.transform.localScale = new Vector3(1, 1, 1);
 
                 Card cardComp = TempCard.GetComponent<Card>();
                 if (cardComp)

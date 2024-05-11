@@ -16,20 +16,20 @@ MonoBehaviour:
   - CardId: 1000000
     CardName: "\u7070"
     SpriteRef: {fileID: 21300000, guid: 29006cef0fe2a5545aa01540e52a52f1, type: 3}
-    PrefabRef: {fileID: 1799877725413988547, guid: 695f8532b9d79094ab14561b5ba40a6b,
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}
   - CardId: 1000001
     CardName: "\u7EFF"
     SpriteRef: {fileID: 21300000, guid: 7fdc257bde1da2a4397db37f42e54a83, type: 3}
-    PrefabRef: {fileID: 1799877725413988547, guid: 695f8532b9d79094ab14561b5ba40a6b,
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}
   - CardId: 1000002
     CardName: "\u7D2B"
     SpriteRef: {fileID: 21300000, guid: b8dd9c64d82e73742b512688108b9c36, type: 3}
-    PrefabRef: {fileID: 1799877725413988547, guid: 695f8532b9d79094ab14561b5ba40a6b,
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}
   - CardId: 1000003
     CardName: "\u7EA2"
     SpriteRef: {fileID: 21300000, guid: 7d54c8ef344b01b40b22ce34fa89ebfd, type: 3}
-    PrefabRef: {fileID: 1799877725413988547, guid: 695f8532b9d79094ab14561b5ba40a6b,
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-
 public class DragAndDrop : MonoBehaviour
 {
     private Camera mainCamera; // 引用主相机
@@ -42,7 +40,14 @@ public class DragAndDrop : MonoBehaviour
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                ObjectToMove = hit.collider.gameObject;
+                if (hit.collider.transform.parent)
+                {
+                    ObjectToMove = hit.collider.transform.parent.gameObject;
+                }
+                else
+                {
+                    ObjectToMove = hit.collider.transform.gameObject;
+                }
                 m_prevPosition = Input.mousePosition;
                 if (hit.collider.gameObject.CompareTag("Map"))
                 {
@@ -96,7 +101,7 @@ public class DragAndDrop : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Card"))
                 {
-                    Card TargetCard = hit.collider.gameObject.GetComponent<Card>().GetListEnd();
+                    Card TargetCard = hit.collider.transform.parent.gameObject.GetComponent<Card>().GetListEnd();
                     Card CardObj = ObjectToMove.GetComponent<Card>();
                     CardObj.Drop(TargetCard, TargetCard.transform.position + TargetCard.NextCardOffset);
                 }
@@ -104,7 +109,7 @@ public class DragAndDrop : MonoBehaviour
                 {
                     Card CardObj = ObjectToMove.GetComponent<Card>();
                     if (CardObj)
-                    { 
+                    {
                         CardObj.Drop(null, cursorPosition);
                     }
                 }
@@ -114,14 +119,29 @@ public class DragAndDrop : MonoBehaviour
                 // 更新物体的位置
                 Card CardObj = ObjectToMove.GetComponent<Card>();
                 if (CardObj)
-                { 
+                {
                     CardObj.Drop(null, cursorPosition);
                 }
             }
-           
+
             ObjectToMove = null;
             isCardDragging = false;
             isCameraDragging = false;
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("right button down");
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                ObjectToMove = hit.collider.gameObject;
+                m_prevPosition = Input.mousePosition;
+                if (hit.collider.gameObject.CompareTag("Card"))
+                {
+                    LineRendererManager tempLineRenderComp = ObjectToMove.AddComponent<LineRendererManager>();
+                    //tempLineRenderComp.
+                }
+            }
         }
         else
         {

@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 2602650093921177052}
   - component: {fileID: 286698968935561494}
   - component: {fileID: 6334768607875885001}
-  - component: {fileID: 4398212377391906138}
+  - component: {fileID: 5232991954963640803}
   m_Layer: 0
   m_Name: CardLayoutUI
   m_TagString: Card
@@ -363,26 +363,26 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: e397bea3e9d61d8489806e45b82eeb12, type: 3}
---- !u!114 &4398212377391906138
-MonoBehaviour:
+--- !u!95 &5232991954963640803
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799877725413988547}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c40b67a0efe0d58439c4ca52ae246968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3158334206788527183}
-  CardnameText: {fileID: 8708232361768413230}
-  CardData:
-    CardId: 0
-    CardName: 
-    SpriteRef: {fileID: 0}
-    PrefabRef: {fileID: 0}
-  NextCardOffset: {x: 0, y: -10, z: -0.5}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d592ad874dbf134f82d057647655f88, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3418872060210621119
 GameObject:
   m_ObjectHideFlags: 0

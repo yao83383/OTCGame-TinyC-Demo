@@ -6,7 +6,9 @@ using TMPro;
 public class Card : MonoBehaviour
 {
     //Object to show-------------------------------
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Animator animator;
     //-------------------------------
 
     public TextMeshPro CardnameText;
@@ -22,6 +24,18 @@ public class Card : MonoBehaviour
     public FCardData CardData;
 
     public Vector3 NextCardOffset = new Vector3(-1.5f, -0.5f, 0f);
+
+    //[SerializeField]
+    private Camera _mainCamera;
+
+    public GameObject CardLayout;
+    //private void LateUpdate()
+    //{
+    //    Vector3 cameraPosition = _mainCamera.transform.position;
+    //    cameraPosition.y = transform.position.y;
+    //    transform.LookAt(cameraPosition);
+    //    transform.Rotate(0, 180, 0);
+    //}
 
     public void InitCarddataByID(int cardId)
     {
@@ -40,12 +54,19 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _mainCamera = Camera.main;
+        //animator = this.transform.parent.GetComponent<Animator>();
         if (CardDatas.Instance.Carddata_dic.TryGetValue(CardData.CardId, out CardData))
         { 
             if (CardnameText)
             {
                 CardnameText.text = CardData.CardName;
             }
+        }
+
+        if (animator)
+        {
+            animator.Play("SpawnCardAnimator");
         }
     }
 
@@ -58,7 +79,7 @@ public class Card : MonoBehaviour
 
     public void StartMove()
     {
-        GetComponent<MeshCollider>().enabled = false;
+        CardLayout.GetComponent<MeshCollider>().enabled = false;
         if (PreCard)
         { 
             PreCard.NextCard = null;
@@ -73,6 +94,7 @@ public class Card : MonoBehaviour
         { 
             NextCard.Move(InPostion + NextCardOffset);
         }
+        Debug.Log("moving card " + this.name + this.transform.position);
     }
 
     private Card GetListHead()
@@ -131,7 +153,7 @@ public class Card : MonoBehaviour
     public void Drop(Card InPreCard, Vector3 InPosition)
     {
         this.PreCard = InPreCard;
-        GetComponent<MeshCollider>().enabled = true;
+        CardLayout.GetComponent<MeshCollider>().enabled = true;
         if (InPreCard)
         {
             transform.position = InPreCard.transform.position + NextCardOffset;

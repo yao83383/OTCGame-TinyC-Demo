@@ -16,12 +16,19 @@ public class LineRendererManager : MonoBehaviour {
         //添加LineRenderer组件
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         //设置材质
-        lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+        //string shaderName = "TextMeshPro/Shaders/TMP_Sprite";
+        //Shader tempShader = Shader.Find(shaderName);
+        //if (tempShader)
+        { 
+            Material mat = Resources.Load<Material>("Materials/card_green");
+            lineRenderer.material = mat;
+        }
         //设置颜色
-        lineRenderer.SetColors(Color.red, Color.yellow);
+        lineRenderer.startColor = Color.red;
+        lineRenderer.endColor = Color.yellow;
         //设置宽度
-        lineRenderer.SetWidth(0.02f, 0.02f);
-        
+        lineRenderer.startWidth = 0.2f;
+        lineRenderer.endWidth = 0.2f;
     }
  
     void Update()
@@ -36,8 +43,7 @@ public class LineRendererManager : MonoBehaviour {
             //端点数+1
             LengthOfLineRenderer++;
             //设置线段的端点数
-            lineRenderer.SetVertexCount(LengthOfLineRenderer);
-            
+            lineRenderer.positionCount = LengthOfLineRenderer;
         }
         //连续绘制线段
         while (index < LengthOfLineRenderer)
@@ -46,8 +52,6 @@ public class LineRendererManager : MonoBehaviour {
             lineRenderer.SetPosition(index, position);
             index++;
         } 
-       
- 
     }
  
     void OnGUI()
