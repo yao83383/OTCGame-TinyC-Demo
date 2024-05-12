@@ -64,15 +64,32 @@ public class CardsManager : MonoBehaviour
                 Quaternion rotation = Quaternion.Euler(0, 0, 0);
                 TempCard = Instantiate(TempCardData.PrefabRef, new Vector3(0, 0, 0), rotation, parent.transform);
                 //TempCard.transform.localScale = new Vector3(1, 1, 1);
-
-                Card cardComp = TempCard.GetComponent<Card>();
-                if (cardComp)
-                { 
-                    cardComp.InitCarddataByID(CardId);
-                }
             }
         }
         return TempCard;
+    }
+
+    public FCardData GetCardDataByid(int cardId)
+    {
+        FCardData tempData = new FCardData();
+        foreach (FCardData cdata in CardDatas.Instance.BaseCardDataTable.item)
+        {
+            if (cdata.CardId == cardId)
+            {
+                tempData = cdata;
+                break;
+            }
+            else
+            {
+                tempData.CardId = 0;
+                tempData.CardName = "";
+                tempData.CostGold = 0;
+                tempData.PrefabRef = null;
+                tempData.SpriteRef = null;
+                continue;
+            }
+        }
+        return tempData;
     }
 
     public void LoadCardImage(int cardId, Card InCard)

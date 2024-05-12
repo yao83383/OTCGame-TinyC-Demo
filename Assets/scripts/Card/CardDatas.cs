@@ -7,6 +7,7 @@ public struct FCardData
 {
     public int CardId; // 物品的唯一标识符  
     public string CardName; // 物品数量
+    public int CostGold;
 
     public Sprite SpriteRef;
     public GameObject PrefabRef;

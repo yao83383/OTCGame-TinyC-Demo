@@ -88,27 +88,12 @@ public class CSVReader
 
                     FCardData tempData;
 
-                    tempData.CardId = int.Parse(structData[0]);
-                    tempData.CardName = structData[1];
-                    tempData.SpriteRef = null;
-                    tempData.PrefabRef = null;
+                    tempData = CardsManager.Instance.GetCardDataByid(int.Parse(structData[0]));
 
-                    foreach (FCardData cdata in CardDatas.Instance.BaseCardDataTable.item)
+                    if (tempData.CardId != 0)
                     {
-                        if (cdata.CardId == tempData.CardId)
-                        {
-                            tempData = cdata;
-                            break;
-                        }
-                        else
-                        {
-                            tempData.SpriteRef = null;
-                            tempData.PrefabRef = null;
-                        }
+                        CardDatas.Instance.Carddata_dic.Add(tempData.CardId, tempData);
                     }
-                    
-
-                    CardDatas.Instance.Carddata_dic.Add(tempData.CardId, tempData);
                 }
             }
         }

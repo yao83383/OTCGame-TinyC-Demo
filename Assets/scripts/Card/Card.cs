@@ -6,6 +6,7 @@ using TMPro;
 public class Card : MonoBehaviour
 {
     //Object to show-------------------------------
+    [SerializeField]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Animator animator;
@@ -63,6 +64,8 @@ public class Card : MonoBehaviour
                 CardnameText.text = CardData.CardName;
             }
         }
+        
+        InitCarddataByID(CardData.CardId);
 
         if (animator)
         {

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40b67a0efe0d58439c4ca52ae246968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8394789691805783153}
   animator: {fileID: 1714660828780429789}
   CardnameText: {fileID: 1731580929892192025}
   CardData:
@@ -192,6 +193,12 @@ GameObject:
 --- !u!4 &5540909033212981831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1419095599470346873, guid: 695f8532b9d79094ab14561b5ba40a6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6869362195456176190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8394789691805783153 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3158334206788527183, guid: 695f8532b9d79094ab14561b5ba40a6b,
     type: 3}
   m_PrefabInstance: {fileID: 6869362195456176190}
   m_PrefabAsset: {fileID: 0}
