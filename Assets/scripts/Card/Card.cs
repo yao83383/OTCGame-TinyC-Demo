@@ -38,7 +38,7 @@ public class Card : MonoBehaviour
     //    transform.Rotate(0, 180, 0);
     //}
 
-    public void InitCarddataByID(int cardId)
+    public bool InitCarddataByID(int cardId)
     {
         FCardData TempCardData;
         if (CardDatas.Instance.Carddata_dic.TryGetValue(cardId, out TempCardData))
@@ -49,6 +49,11 @@ public class Card : MonoBehaviour
             {
                 spriteRenderer.sprite = this.CardData.SpriteRef;
             }
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -64,8 +69,12 @@ public class Card : MonoBehaviour
                 CardnameText.text = CardData.CardName;
             }
         }
-        
-        InitCarddataByID(CardData.CardId);
+
+        if (!InitCarddataByID(CardData.CardId))
+        {
+            Destroy(this.gameObject);
+        }
+
 
         if (animator)
         {

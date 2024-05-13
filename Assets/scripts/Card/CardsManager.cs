@@ -72,7 +72,7 @@ public class CardsManager : MonoBehaviour
     public FCardData GetCardDataByid(int cardId)
     {
         FCardData tempData = new FCardData();
-        foreach (FCardData cdata in CardDatas.Instance.BaseCardDataTable.item)
+        foreach (FCardData cdata in CardDatas.Instance.BaseCardDataTable.Cards)
         {
             if (cdata.CardId == cardId)
             {

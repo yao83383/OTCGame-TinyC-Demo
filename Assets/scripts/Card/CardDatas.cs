@@ -2,17 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct FCardData
-{
-    public int CardId; // 物品的唯一标识符  
-    public string CardName; // 物品数量
-    public int CostGold;
-
-    public Sprite SpriteRef;
-    public GameObject PrefabRef;
-}
-
 public class CardDatas : MonoBehaviour
 {
     // 静态变量来保存Manager的实例  
@@ -64,6 +53,27 @@ public class CardDatas : MonoBehaviour
         // 在这里添加初始化代码...  
         CSVReader csvreader = new CSVReader();
         csvreader.LoadRecipeData();
-        csvreader.LoadCardData();
+        //csvreader.LoadCardData();
+        LoadCardData();
+
+    }
+
+    public static Dictionary<int, FCardData> LoadCardData()
+    {
+        CardDatas.Instance.Carddata_dic.Clear();
+
+        foreach (FCardData card in CardDatas.Instance.BaseCardDataTable.Cards)
+        {
+            FCardData tempData;
+
+            tempData = CardsManager.Instance.GetCardDataByid(card.CardId);
+
+            if (tempData.CardId != 0)
+            {
+                CardDatas.Instance.Carddata_dic.Add(tempData.CardId, tempData);
+            }
+        }
+        
+        return CardDatas.Instance.Carddata_dic;
     }
 }

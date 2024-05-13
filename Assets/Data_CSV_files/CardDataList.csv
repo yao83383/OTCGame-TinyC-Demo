@@ -1,0 +1,5 @@
+cardid,cardname,costgold,sprite,prefab
+1000000,灰,1,1000000,Card
+1000001,绿,2,1000001,Card
+1000002,紫,3,1000002,Card
+1000003,红,4,1000003,Card
