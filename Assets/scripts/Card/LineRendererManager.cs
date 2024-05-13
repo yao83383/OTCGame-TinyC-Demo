@@ -28,7 +28,7 @@ public class LineRendererManager : MonoBehaviour {
         lineRenderer.endColor = Color.yellow;
         //设置宽度
         lineRenderer.startWidth = 0.2f;
-        lineRenderer.endWidth = 0.2f;
+        lineRenderer.endWidth = 0.02f;
     }
  
     void Update()

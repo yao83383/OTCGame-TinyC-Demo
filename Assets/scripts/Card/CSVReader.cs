@@ -23,8 +23,8 @@ public class CSVReader
                 {
                     Recipe recipe = new Recipe();
 
-                    string[] input_items = structData[0].Split(';');
-                    string[] input_nums = structData[1].Split(';');
+                    string[] input_items = structData[2].Split(';');
+                    string[] input_nums = structData[3].Split(';');
                     for(int index_input = 0; index_input < input_items.Length; ++index_input)
                     {
                         RecipeElem tempElem;
@@ -38,8 +38,8 @@ public class CSVReader
                         recipe.Ingredients.Add(tempElem.CardId, tempElem.Num);
                     }
 
-                    string[] output_items = structData[2].Split(',');
-                    string[] output_nums = structData[3].Split(',');
+                    string[] output_items = structData[0].Split(',');
+                    string[] output_nums = structData[1].Split(',');
                     for (int index_out = 0; index_out < output_items.Length; ++index_out)
                     {
                         RecipeElem tempElem;
