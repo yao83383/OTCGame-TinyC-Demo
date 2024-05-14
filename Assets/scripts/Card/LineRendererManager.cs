@@ -27,32 +27,43 @@ public class LineRendererManager : MonoBehaviour {
         lineRenderer.startColor = Color.red;
         lineRenderer.endColor = Color.yellow;
         //设置宽度
-        lineRenderer.startWidth = 0.2f;
+        lineRenderer.startWidth = 0.02f;
         lineRenderer.endWidth = 0.02f;
+
+        DrawGrid(GridSize);
+    }
+
+    public int GridLength = 10;
+    public int GridSize = 10;
+    public void DrawGrid(int size)
+    {
+        if (size <= 0) size = 1;
+        int LeftTopGridNum = size / 2;
+        int RightButtomGridNum = size - size / 2;
     }
  
-    void Update()
-    {  
-        //获取LineRenderer组件
-        lineRenderer = GetComponent<LineRenderer>();
-       //鼠标左击
-        if (Input.GetMouseButtonDown(0))
-        {
-            //将鼠标点击的屏幕坐标转换为世界坐标，然后存储到position中
-            position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,1.0f)); 
-            //端点数+1
-            LengthOfLineRenderer++;
-            //设置线段的端点数
-            lineRenderer.positionCount = LengthOfLineRenderer;
-        }
-        //连续绘制线段
-        while (index < LengthOfLineRenderer)
-        {   
-            //两点确定一条直线，所以我们依次绘制点就可以形成线段了
-            lineRenderer.SetPosition(index, position);
-            index++;
-        } 
-    }
+    //void Update()
+    //{  
+    //    //获取LineRenderer组件
+    //    lineRenderer = GetComponent<LineRenderer>();
+    //   //鼠标左击
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        //将鼠标点击的屏幕坐标转换为世界坐标，然后存储到position中
+    //        position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,1.0f)); 
+    //        //端点数+1
+    //        LengthOfLineRenderer++;
+    //        //设置线段的端点数
+    //        lineRenderer.positionCount = LengthOfLineRenderer;
+    //    }
+    //    //连续绘制线段
+    //    while (index < LengthOfLineRenderer)
+    //    {   
+    //        //两点确定一条直线，所以我们依次绘制点就可以形成线段了
+    //        lineRenderer.SetPosition(index, position);
+    //        index++;
+    //    } 
+    //}
  
     void OnGUI()
     {          

@@ -128,21 +128,21 @@ public class DragAndDrop : MonoBehaviour
             isCardDragging = false;
             isCameraDragging = false;
         }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("right button down");
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                ObjectToMove = hit.collider.transform.parent.gameObject;
-                m_prevPosition = Input.mousePosition;
-                if (hit.collider.gameObject.CompareTag("Card"))
-                {
-                    LineRendererManager tempLineRenderComp = ObjectToMove.AddComponent<LineRendererManager>();
-                    //tempLineRenderComp.
-                }
-            }
-        }
+        //else if (Input.GetMouseButtonDown(1))
+        //{
+        //    Debug.Log("right button down");
+        //    Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        ObjectToMove = hit.collider.transform.parent.gameObject;
+        //        m_prevPosition = Input.mousePosition;
+        //        if (hit.collider.gameObject.CompareTag("Card"))
+        //        {
+        //            LineRendererManager tempLineRenderComp = ObjectToMove.AddComponent<LineRendererManager>();
+        //            //tempLineRenderComp.
+        //        }
+        //    }
+        //}
         else
         {
             ObjectToMove = null;
