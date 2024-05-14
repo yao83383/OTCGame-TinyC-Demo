@@ -13,16 +13,864 @@ MonoBehaviour:
   m_Name: CardDatatable
   m_EditorClassIdentifier: 
   Cards:
+  - CardId: 1010000
+    CardName: "\u539F\u6728"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: f7de5a3197991c841aa566c3e5f6a826, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010000
+    prefabname: Card
+  - CardId: 1010001
+    CardName: "\u788E\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 3c0fdff5721854c408c40f139dc042cf, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010001
+    prefabname: Card
+  - CardId: 1010002
+    CardName: "\u6728\u6599"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: a298efd50ebf51248ace104f1c8f6365, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010002
+    prefabname: Card
+  - CardId: 1010003
+    CardName: "\u77F3\u5757"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 109cee6e99cf5434cb28ecc6e1bea8c5, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010003
+    prefabname: Card
+  - CardId: 1010004
+    CardName: "\u7075\u6728"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 84c59d3ece9a37247bef05d1c157f3cc, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010004
+    prefabname: Card
+  - CardId: 1010005
+    CardName: "\u7389\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 44a6721ee814a244dacd82b2bcd57eb3, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010005
+    prefabname: Card
+  - CardId: 1010006
+    CardName: "\u7389\u77F3\u5757"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: d5b6627fa20d2c74fb423805b22f8d94, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010006
+    prefabname: Card
+  - CardId: 1010007
+    CardName: "\u661F\u7EB9\u94A2"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 9784185ab4153144f991c3dafc7b0f0b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010007
+    prefabname: Card
+  - CardId: 1010008
+    CardName: "\u5341\u80DC\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: cfaa38ea41fdbed42b7e8ab3eb469f5f, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010008
+    prefabname: Card
+  - CardId: 1010009
+    CardName: "\u4E03\u661F\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 6ce263e2626b7c1489d97d1949ed9852, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010009
+    prefabname: Card
+  - CardId: 1010010
+    CardName: "\u4E07\u9752\u85E4"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 9166c6cc21b849b46a2c28d3446cb24f, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010010
+    prefabname: Card
+  - CardId: 1010011
+    CardName: "\u9ED1\u6728"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 466e55944fbc1cd439ed4dac72cec07a, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010011
+    prefabname: Card
+  - CardId: 1010012
+    CardName: "\u96F7\u7075\u6676"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 661aed5a32d5dc04d836248e3c153235, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010012
+    prefabname: Card
+  - CardId: 1010013
+    CardName: "\u4E94\u5F69\u795E\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 18198e09c09bec543a89f41eba977b6d, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010013
+    prefabname: Card
+  - CardId: 1010014
+    CardName: "\u8D64\u6676"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 7e585614f4ce0324bbab0d0ecb4c7a7a, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010014
+    prefabname: Card
+  - CardId: 1010015
+    CardName: "\u9AD3\u7389"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2c4c52f1d35155d4691224d32cb80afc, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010015
+    prefabname: Card
+  - CardId: 1010016
+    CardName: "\u70BC\u6676"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: d56840bc9369fce41bbd4a5ca36d879c, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010016
+    prefabname: Card
+  - CardId: 1010017
+    CardName: "\u706B\u7194\u6676"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 83b42b8db7a179641add966c4d70c04a, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010017
+    prefabname: Card
+  - CardId: 1010018
+    CardName: "\u6C34\u7389"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 834cbc9e7e466734ba2f77349da33c0f, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010018
+    prefabname: Card
+  - CardId: 1010019
+    CardName: "\u9EC4\u571F\u6676"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 64383aa7855072046ad5000023b6889a, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010019
+    prefabname: Card
+  - CardId: 1010020
+    CardName: "\u8D64\u6728\u94A2"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: bc18ece8a23fe3a458fec297deea16d7, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010020
+    prefabname: Card
+  - CardId: 1010021
+    CardName: "\u7D2B\u7130\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 32ea2f6c7aeaf794ab6058c21cbf6a90, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010021
+    prefabname: Card
+  - CardId: 1010022
+    CardName: "\u91D1\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: e5ce775dc6917664e98167ac76d2f11b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010022
+    prefabname: Card
+  - CardId: 1010023
+    CardName: "\u4E94\u884C\u7389"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 852c3fbb9070e4f4c92a609185e71533, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010023
+    prefabname: Card
+  - CardId: 1010024
+    CardName: "\u9ED1\u6676\u795E\u7802"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 6d7fe5119a4baf34da5e1944ccf50cdd, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010024
+    prefabname: Card
+  - CardId: 1020000
+    CardName: "\u5996\u8089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: c921e425388d3194db7463cb1eed3233, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020000
+    prefabname: Card
+  - CardId: 1020001
+    CardName: "\u73CD\u5143\u5996\u8089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 118bd89449614a5418e6d88928c4c320, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020001
+    prefabname: Card
+  - CardId: 1020002
+    CardName: "\u7384\u6676\u5996\u8089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: a664a7ab70f1e934f9b853468975d10a, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020002
+    prefabname: Card
+  - CardId: 1020003
+    CardName: "\u8840\u7CBE\u8349"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 9626e9246dc9be440b079e2bb989c862, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020003
+    prefabname: Card
+  - CardId: 1020004
+    CardName: "\u571F\u9E21\u86CB"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 48292a21e911cd148a2eedec86ee6b42, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020004
+    prefabname: Card
+  - CardId: 1020005
+    CardName: "\u5996\u517D\u719F\u8089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 7fe6f173aed5cef42bc8a7428d06b25c, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020005
+    prefabname: Card
+  - CardId: 1020006
+    CardName: "\u73CD\u5143\u719F\u8089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 1cb96041e3c872b4d87c0b50dfc59045, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020006
+    prefabname: Card
+  - CardId: 1020007
+    CardName: "\u7384\u6676\u719F\u8089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: e7f259bbac661064f957bda5eb910b64, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020007
+    prefabname: Card
+  - CardId: 1020008
+    CardName: "\u9F99\u51E4\u53CC\u817F"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: f632989536337bc49a2b5f8a67efaaf4, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020008
+    prefabname: Card
+  - CardId: 1020009
+    CardName: "\u516B\u6781\u9C9C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 7fe5647d4ee61c24c8885937d089e921, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020009
+    prefabname: Card
+  - CardId: 1020010
+    CardName: "\u592A\u7384\u679C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: f40ff1972659d0441816173f6d892a6d, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020010
+    prefabname: Card
+  - CardId: 1010025
+    CardName: "\u5929\u5FC3\u82B1"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 077207f5620173c4490306c51cfcca7f, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010025
+    prefabname: Card
+  - CardId: 1010026
+    CardName: "\u4E03\u661F\u8349"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 148c4d74b7c77184687b8945f18a9307, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010026
+    prefabname: Card
+  - CardId: 1010027
+    CardName: "\u8D64\u8840\u7075\u679C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 3068f06d5af515a4384b6acbff5fd0bf, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010027
+    prefabname: Card
+  - CardId: 1010028
+    CardName: "\u6C99\u6728\u6839"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: f55e59bd289f429429812b82006ad2b2, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010028
+    prefabname: Card
+  - CardId: 1010029
+    CardName: "\u7389\u674F"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: dcabe58eca310de4ab41af419cdbee9e, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010029
+    prefabname: Card
+  - CardId: 1010030
+    CardName: "\u9F99\u8475\u82B1"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2e769f88948059140a6fc58b2860d527, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010030
+    prefabname: Card
+  - CardId: 1010031
+    CardName: "\u671D\u5915\u9732"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: ba865cd3ea3ea2c439721a8b36bc504b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010031
+    prefabname: Card
+  - CardId: 1010032
+    CardName: "\u6731\u679C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: ac5efacd0212ccf48bfb20a19640ad61, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010032
+    prefabname: Card
+  - CardId: 1010033
+    CardName: "\u846C\u6C99\u9AA8"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 8e40e6e0fedbd444da4076f0974c70eb, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010033
+    prefabname: Card
+  - CardId: 1010034
+    CardName: "\u8D64\u8840\u4E39\u7802"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 28162c62d4d5e8148a66cad9527682fd, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010034
+    prefabname: Card
+  - CardId: 1010035
+    CardName: "\u7389\u9F99\u971C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b4232df04ff29b746958640778de2da2, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010035
+    prefabname: Card
+  - CardId: 1010036
+    CardName: "\u8F6E\u56DE\u8349"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: e918bfdec2c569e488de0d0cec610c50, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010036
+    prefabname: Card
+  - CardId: 1010037
+    CardName: "\u805A\u9B42\u7075\u6DB2"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2fc9cd6e27e60cf41b1c9df3531c99b5, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010037
+    prefabname: Card
+  - CardId: 1010038
+    CardName: "\u9634\u7075\u6C34"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 632d5de2dbfa65a409caa619d487f775, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010038
+    prefabname: Card
+  - CardId: 1010039
+    CardName: "\u7384\u7075\u6DB2"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2320af5c1cc81ac45a041eb7d1e75e23, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010039
+    prefabname: Card
+  - CardId: 1020011
+    CardName: "\u4E09\u82B1\u7389\u9732"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b699c52062d4dfa49a08b6e28c95bc0c, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020011
+    prefabname: Card
+  - CardId: 1020012
+    CardName: "\u5343\u53F6\u9732"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 271e4de26ddc5f747949ca4cd31319e5, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020012
+    prefabname: Card
+  - CardId: 1010040
+    CardName: "\u7D2B\u9B42\u82B1"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 3294923ca4f5bf245aed336583fcc410, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010040
+    prefabname: Card
+  - CardId: 1010041
+    CardName: "\u5929\u706B\u6DB2"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b03a0c039112ff148afadcf63dfdc8c9, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010041
+    prefabname: Card
+  - CardId: 1010042
+    CardName: "\u9B3C\u54ED\u85E4"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 0e802cf9d8fafed48a241287bc027e9d, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010042
+    prefabname: Card
+  - CardId: 1010043
+    CardName: "\u739B\u7459\u89D2"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b11e1295eb285a243b3d5fd244de4a23, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010043
+    prefabname: Card
+  - CardId: 1010044
+    CardName: "\u4E5D\u7A8D\u8574\u4ED9\u6563"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: a5aa1c86ae17fce418fff8dfba4f6007, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010044
+    prefabname: Card
+  - CardId: 1010045
+    CardName: "\u5996\u7F57\u679C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 06aa8dba7eac9154bb69ccd0139cecf1, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010045
+    prefabname: Card
+  - CardId: 1010046
+    CardName: "\u661F\u8FB0\u7802"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: c84a3bba982acbc42944def90bac854b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010046
+    prefabname: Card
+  - CardId: 1010047
+    CardName: "\u4E5D\u5E7D\u51A5\u6CC9\u6C34"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 609ff19672cb046458d85b9f76d4813b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010047
+    prefabname: Card
+  - CardId: 1010048
+    CardName: "\u7384\u9EC4\u6BCD\u6C14"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: da5a755a7230f294b8022c215a492aa5, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010048
+    prefabname: Card
+  - CardId: 1010049
+    CardName: "\u609F\u5FC3\u73E0"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 82299f4ab45da6f40ae55fffe3a2f0c5, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010049
+    prefabname: Card
+  - CardId: 1010050
+    CardName: "\u6DF7\u5143\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 1a92c80061d9a624e854ec582b151855, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010050
+    prefabname: Card
+  - CardId: 1020013
+    CardName: "\u5343\u8349\u8FD8\u9B42\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 11bc38835c4938a4084fde5657e76ed1, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020013
+    prefabname: Card
+  - CardId: 1010051
+    CardName: "\u9EC4\u7EB8"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 1ef00095d09a13c4887eaf9c941a9614, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010051
+    prefabname: Card
+  - CardId: 1010052
+    CardName: "\u6731\u7802"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: df59bd3108110224a90ae0b1745bb915, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010052
+    prefabname: Card
+  - CardId: 1030000
+    CardName: "\u7075\u7530"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: ecea6e6243685cc4587707a2587270d2, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030000
+    prefabname: Card
+  - CardId: 1030001
+    CardName: "\u836F\u7530"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 0d0d0b87aa97fd04587806ba91f6bd08, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030001
+    prefabname: Card
+  - CardId: 1030002
+    CardName: "\u4ED9\u98DF\u574A"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b44da19d79af85a4587f698766fc18f2, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030002
+    prefabname: Card
+  - CardId: 1030003
+    CardName: "\u6781\u4E50\u6D1E\u5E9C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 3cbf63216dab1164cb16e882bba9f731, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030003
+    prefabname: Card
+  - CardId: 1030004
+    CardName: "\u7EB3\u6212"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 80cbc79657748624aad76bd180b460c7, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030004
+    prefabname: Card
+  - CardId: 1030005
+    CardName: "\u987B\u5F25\u624B\u956F"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 17a2e19552184fc4e9ee3bcf33a3b882, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030005
+    prefabname: Card
+  - CardId: 1030006
+    CardName: "\u70BC\u4E39\u7089"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: e06386e47612e5e46b7671b05a56feea, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030006
+    prefabname: Card
+  - CardId: 1030007
+    CardName: "\u953B\u9020\u574A"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: bc6258267454d004c836c0e07c06328d, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030007
+    prefabname: Card
+  - CardId: 1030008
+    CardName: "\u7075\u517D\u573A"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 5e35067770b53d24983adb556b2e9b92, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030008
+    prefabname: Card
+  - CardId: 1030009
+    CardName: "\u6676\u77F3\u573A"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: dbf3bf38202de414d9ae46a4b11f9649, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030009
+    prefabname: Card
+  - CardId: 1030010
+    CardName: "\u767B\u4ED9\u53F0"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: e40d5445497752f48a53555d08bb28d4, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030010
+    prefabname: Card
+  - CardId: 1030011
+    CardName: "\u68A7\u6850\u9662"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 48b58684dd748fb42af90c0c72dd525a, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030011
+    prefabname: Card
+  - CardId: 1030012
+    CardName: "\u7075\u8109"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 6b67b1e342e6d2b47862e537c4e6336e, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030012
+    prefabname: Card
+  - CardId: 1030013
+    CardName: "\u7075\u5323"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: a0091b9488dab4a47aa536bd3c22a677, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030013
+    prefabname: Card
+  - CardId: 1030014
+    CardName: "\u957F\u751F\u6BBF"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: c138099db4d8e1242924f231fc6a3c82, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030014
+    prefabname: Card
+  - CardId: 1030015
+    CardName: "\u6B66\u9B42\u6BBF"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 6cd1ced9401aefe498dffaa32cc69240, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1030015
+    prefabname: Card
+  - CardId: 9900000
+    CardName: "\u7075\u77F3"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 84f8495db09f42848b4575c110ddb4c9, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 9900000
+    prefabname: Card
+  - CardId: 9900001
+    CardName: "\u94F6\u4E24"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 9900001
+    prefabname: Card
+  - CardId: 9900002
+    CardName: "\u4FEE\u4E3A"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 9900002
+    prefabname: Card
+  - CardId: 1020014
+    CardName: "\u51DD\u6C14\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2ac5f72e1e045bf4595960880012b248, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020014
+    prefabname: Card
+  - CardId: 1020015
+    CardName: "\u7B51\u57FA\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b03a44c7a4c762a458ea8e504c13b90c, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020015
+    prefabname: Card
+  - CardId: 1020016
+    CardName: "\u5316\u6676\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 031c65615510774459e69ab0ab341f7d, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020016
+    prefabname: Card
+  - CardId: 1020017
+    CardName: "\u91D1\u5143\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 8c92d9266d811074980b8476fb88a414, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020017
+    prefabname: Card
+  - CardId: 1020018
+    CardName: "\u5316\u7075\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 840d53c9247f61042a0ac4adb9b6d21e, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020018
+    prefabname: Card
+  - CardId: 1020019
+    CardName: "\u7ED3\u5A74\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: ea5f08480dc42924ca7b4694a24a7166, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020019
+    prefabname: Card
+  - CardId: 1020020
+    CardName: "\u7ED3\u795E\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: a262dc53bf454bf4b81c4f73ae339e17, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020020
+    prefabname: Card
+  - CardId: 1020021
+    CardName: "\u609F\u9053\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 144e774428a7a374985b33ecb8b5d47c, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020021
+    prefabname: Card
+  - CardId: 1020022
+    CardName: "\u7FBD\u5316\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b5ac05041a3d0ea44a3939bdb703959b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020022
+    prefabname: Card
+  - CardId: 1020023
+    CardName: "\u661F\u9F99\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 703fe0fb3e50a564cb1d45176452a693, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020023
+    prefabname: Card
+  - CardId: 1020024
+    CardName: "\u592A\u4E59\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2a9133208d2039b48acd0f7c6b7a3576, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020024
+    prefabname: Card
+  - CardId: 1020025
+    CardName: "\u4E5D\u9633\u5723\u8F6C\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: b634b39a41c9252458493d6dd2e798c6, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020025
+    prefabname: Card
+  - CardId: 1020026
+    CardName: "\u4FDD\u6D4E\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 62c17136e25cd294a8e1cc63806fd067, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020026
+    prefabname: Card
+  - CardId: 1020027
+    CardName: "\u6B63\u6C14\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: f00666e5b7dcc864cba1b660c2a3846b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020027
+    prefabname: Card
+  - CardId: 1020028
+    CardName: "\u9F99\u529B\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 2535c6b6ed30bce44a50a326b96ba0c1, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020028
+    prefabname: Card
+  - CardId: 1020029
+    CardName: "\u7EAF\u9633\u8D64\u8840\u4E39"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: c524b575b0a4e7646a55f60b007cd960, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1020029
+    prefabname: Card
+  - CardId: 1010053
+    CardName: "\u8FD8\u9B42"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 0c139d87bb29f3341bbfe269d2da44a0, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010053
+    prefabname: Card
+  - CardId: 1010054
+    CardName: "\u7834\u754C\u7B26"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 0dc0db03c22113648b2765cded90776b, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010054
+    prefabname: Card
+  - CardId: 1010055
+    CardName: "\u9A6F\u517D\u7B26"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 29a004858546b2342b070541c830c2b9, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010055
+    prefabname: Card
+  - CardId: 1010056
+    CardName: "\u5FA1\u96F7\u7B26"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: f8eb198c161330b43ad9825c1e375033, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1010056
+    prefabname: Card
   - CardId: 1000000
-    CardName: "\u7070"
-    CostGold: 1
+    CardName: "\u5BD2\u6676\u5203"
+    CostGold: 2
     SpriteRef: {fileID: 21300000, guid: 5668929199618184da7cfe2474b81f79, type: 3}
     PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}
     spritename: 1000000
     prefabname: Card
   - CardId: 1000001
-    CardName: "\u7EFF"
+    CardName: "\u94F6\u8F89\u5251"
     CostGold: 2
     SpriteRef: {fileID: 21300000, guid: 23f62eb19bcf17b4ea21d4511386226f, type: 3}
     PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
@@ -30,18 +878,186 @@ MonoBehaviour:
     spritename: 1000001
     prefabname: Card
   - CardId: 1000002
-    CardName: "\u7D2B"
-    CostGold: 3
+    CardName: "\u751F\u82B1\u7B14"
+    CostGold: 2
     SpriteRef: {fileID: 21300000, guid: d1f0ff9898e83a94a97a7bf535d15d65, type: 3}
     PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}
     spritename: 1000002
     prefabname: Card
   - CardId: 1000003
-    CardName: "\u7EA2"
-    CostGold: 4
+    CardName: "\u6731\u96C0\u73AF"
+    CostGold: 2
     SpriteRef: {fileID: 21300000, guid: 09c841fe172032c408810771ce2a7299, type: 3}
     PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
       type: 3}
     spritename: 1000003
+    prefabname: Card
+  - CardId: 1000004
+    CardName: "\u9752\u51DD\u955C"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 6e999bb96c6fd574c85ff2d1d9b524aa, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1000004
+    prefabname: Card
+  - CardId: 1000005
+    CardName: "\u98DE\u8679\u5251"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 4e4634892f92c17489fa6b398347384d, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1000005
+    prefabname: Card
+  - CardId: 1000006
+    CardName: "\u76D8\u9F99\u5200"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 147ec64f37d57cf48a385a3f338316a2, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1000006
+    prefabname: Card
+  - CardId: 1000007
+    CardName: "\u78D0\u9F99\u7834\u9B54\u67AA"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 8bbbb55fd59f4824aa61fa0d8054edd9, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1000007
+    prefabname: Card
+  - CardId: 1000008
+    CardName: "\u8F69\u8F95\u5251"
+    CostGold: 2
+    SpriteRef: {fileID: 21300000, guid: 4cca8e9161b947b4797c65886f748e68, type: 3}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1000008
+    prefabname: Card
+  - CardId: 1040000
+    CardName: "\u51E1\u4EBA"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040000
+    prefabname: Card
+  - CardId: 1040001
+    CardName: "\u5A74\u513F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040001
+    prefabname: Card
+  - CardId: 1040002
+    CardName: "\u6167\u6839\u5B50"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040002
+    prefabname: Card
+  - CardId: 1040003
+    CardName: "\u609F\u7075\u5B50"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040003
+    prefabname: Card
+  - CardId: 1040004
+    CardName: "\u5929\u4E4B\u5B50"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040004
+    prefabname: Card
+  - CardId: 1040005
+    CardName: "\u7EC3\u6C14\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040005
+    prefabname: Card
+  - CardId: 1040006
+    CardName: "\u7B51\u57FA\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040006
+    prefabname: Card
+  - CardId: 1040007
+    CardName: "\u7ED3\u6676\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040007
+    prefabname: Card
+  - CardId: 1040008
+    CardName: "\u91D1\u4E39\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040008
+    prefabname: Card
+  - CardId: 1040009
+    CardName: "\u5177\u7075\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040009
+    prefabname: Card
+  - CardId: 1040010
+    CardName: "\u5143\u5A74\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040010
+    prefabname: Card
+  - CardId: 1040011
+    CardName: "\u5316\u795E\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040011
+    prefabname: Card
+  - CardId: 1040012
+    CardName: "\u609F\u9053\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040012
+    prefabname: Card
+  - CardId: 1040013
+    CardName: "\u7FBD\u5316\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040013
+    prefabname: Card
+  - CardId: 1040014
+    CardName: "\u767B\u4ED9\u671F"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040014
+    prefabname: Card
+  - CardId: 1040015
+    CardName: "\u5927\u7F57\u91D1\u4ED9"
+    CostGold: 2
+    SpriteRef: {fileID: 0}
+    PrefabRef: {fileID: 5662062196731262311, guid: 6a6358168c6279a4aab1d4900df03771,
+      type: 3}
+    spritename: 1040015
     prefabname: Card

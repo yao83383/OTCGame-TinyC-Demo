@@ -51,8 +51,11 @@ MonoBehaviour:
   CardData:
     CardId: 1000000
     CardName: 
+    CostGold: 0
     SpriteRef: {fileID: 0}
     PrefabRef: {fileID: 0}
+    spritename: 
+    prefabname: 
   NextCardOffset: {x: 0, y: -10, z: -0.5}
   CardLayout: {fileID: 5165228293667547389}
 --- !u!1001 &6869362195456176190
@@ -163,6 +166,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5495902117074765545, guid: e397bea3e9d61d8489806e45b82eeb12,
         type: 3}
+    - target: {fileID: 8769381676847284855, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 120802424259492905, guid: 695f8532b9d79094ab14561b5ba40a6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 695f8532b9d79094ab14561b5ba40a6b, type: 3}
