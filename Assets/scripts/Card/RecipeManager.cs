@@ -9,38 +9,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
 
-[System.Serializable]
-public struct RecipeElem
-{
-    public int CardId;
-    public int Num;
-}
-
-
-// 假设的配方类  
-[System.Serializable]
-public class Recipe  
-{
-    public Dictionary<int, int> Ingredients = new Dictionary<int, int>(); // 原料和数量  
-    public Dictionary<int, int> Output = new Dictionary<int, int>();// 输出物品和数量
-  
-    //public Recipe(Dictionary<int, int> ingredients, List<int> output)  
-    //{  
-    //    Ingredients = ingredients;  
-    //    Output = output;  
-    //}  
-
-    public List<int> inputs_items = new List<int>();
-    public List<int> inputs_nums = new List<int>();
-    public List<int> outputs_items = new List<int>();
-    public List<int> outputs_nums = new List<int>();
-    public float combinetime;
-
-    public List<RecipeElem> inputs = new List<RecipeElem>();
-    public List<RecipeElem> outputs = new List<RecipeElem>();
-}  
-
-
 public class RecipeManager : MonoBehaviour
 {
 	//Create HashMap to save Recipe---------------------------------------------------------------------

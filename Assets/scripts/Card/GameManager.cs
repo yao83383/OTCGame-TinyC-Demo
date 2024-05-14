@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         { 
             GameObject cardObject = CardsManager.Instance.CreateCardById(cardId, this.gameObject);
             _globaldata.SpriteStone -= findData.CostGold;
-            GoldNumText.text = "所剩金钱: " + (_globaldata.SpriteStone - findData.CostGold);
+            GoldNumText.text = "所剩金钱: " + (_globaldata.SpriteStone);
         }
     }
 }

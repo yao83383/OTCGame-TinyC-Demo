@@ -10153,6 +10153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseCardDataTable: {fileID: 11400000, guid: 57c6ca3b1648a0c4e8db36461b926017, type: 2}
+  BaseRecipeDataTable: {fileID: 11400000, guid: 8611b98d76c2c7a47ae9993dceb58144,
+    type: 2}
 --- !u!114 &2073085720
 MonoBehaviour:
   m_ObjectHideFlags: 0

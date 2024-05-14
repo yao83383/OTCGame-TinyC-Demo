@@ -180,9 +180,9 @@ public class Card : MonoBehaviour
         Recipe matchRecipe = RecipeManager.Instance.MatchRecipe(this.CardList);
         if (matchRecipe != null)
         {
-            foreach (int outId in matchRecipe.Output.Keys)
+            foreach (int outId in matchRecipe.Output_dic.Keys)
             {
-                int CreateCardNum = matchRecipe.Output[outId];
+                int CreateCardNum = matchRecipe.Output_dic[outId];
                 while (CreateCardNum > 0)
                 {
                     CardsManager.Instance.CreateCardById(outId, this.transform.parent.gameObject);

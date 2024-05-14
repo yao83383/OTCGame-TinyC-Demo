@@ -50,7 +50,7 @@ public class CSVReader
                         recipe.outputs_items.Add(tempElem.CardId);
                         recipe.outputs_nums.Add(tempElem.Num);
                         recipe.outputs.Add(tempElem);
-                        recipe.Output.Add(tempElem.CardId, tempElem.Num);
+                        recipe.Output_dic.Add(tempElem.CardId, tempElem.Num);
                     }
                     recipe.combinetime = float.Parse(structData[4]);
                     
@@ -67,41 +67,41 @@ public class CSVReader
         return RecipeManager.Instance.Recipedata;
     }
 
-    public Dictionary<int, FCardData> LoadCardData()
-    {
-        CardDatas.Instance.Carddata_dic.Clear();
-
-        string filePath = Path.Combine(Application.streamingAssetsPath, "Items.csv");
-        if (File.Exists(filePath))
-        {
-            string[] lines = File.ReadAllLines(filePath);
-            List<string[]> data = new List<string[]>();
-
-            for (int index = 1; index < lines.Length; ++index)
-            {
-                string[] structData = lines[index].Split(','); // 假设CSV使用逗号作为分隔符  
-
-                if (structData.Length >= 2)
-                {
-                    //string[] ids = structData[0].Split(';');
-                    //string[] names = structData[1].Split(';');
-
-                    FCardData tempData;
-
-                    tempData = CardsManager.Instance.GetCardDataByid(int.Parse(structData[0]));
-
-                    if (tempData.CardId != 0)
-                    {
-                        CardDatas.Instance.Carddata_dic.Add(tempData.CardId, tempData);
-                    }
-                }
-            }
-        }
-        else
-        {
-            Debug.LogError("CSV file not found at path: " + filePath);
-        }
-
-        return CardDatas.Instance.Carddata_dic;
-    }
+    //public Dictionary<int, FCardData> LoadCardData()
+    //{
+    //    CardDatas.Instance.Carddata_dic.Clear();
+    //
+    //    string filePath = Path.Combine(Application.streamingAssetsPath, "Items.csv");
+    //    if (File.Exists(filePath))
+    //    {
+    //        string[] lines = File.ReadAllLines(filePath);
+    //        List<string[]> data = new List<string[]>();
+    //
+    //        for (int index = 1; index < lines.Length; ++index)
+    //        {
+    //            string[] structData = lines[index].Split(','); // 假设CSV使用逗号作为分隔符  
+    //
+    //            if (structData.Length >= 2)
+    //            {
+    //                //string[] ids = structData[0].Split(';');
+    //                //string[] names = structData[1].Split(';');
+    //
+    //                FCardData tempData;
+    //
+    //                tempData = CardsManager.Instance.GetCardDataByid(int.Parse(structData[0]));
+    //
+    //                if (tempData.CardId != 0)
+    //                {
+    //                    CardDatas.Instance.Carddata_dic.Add(tempData.CardId, tempData);
+    //                }
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("CSV file not found at path: " + filePath);
+    //    }
+    //
+    //    return CardDatas.Instance.Carddata_dic;
+    //}
 }

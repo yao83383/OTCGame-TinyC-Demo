@@ -16,7 +16,16 @@ public class DataImporter
 
         // 在编辑器中，使用AssetDatabase来保存ScriptableObject  
 #if UNITY_EDITOR
-        AssetDatabase.CreateAsset(table, AssetDatabase.GenerateUniqueAssetPath("Assets/PData/CardDatatable.asset"));
+        string filepath = "Assets/PData/CardDatatable.asset";
+        if (!File.Exists(filepath))
+        {
+            AssetDatabase.CreateAsset(table, AssetDatabase.GenerateUniqueAssetPath(filepath));
+        }
+        else
+        {
+            AssetDatabase.DeleteAsset(filepath);
+            AssetDatabase.CreateAsset(table, AssetDatabase.GenerateUniqueAssetPath(filepath));
+        }
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 #endif
@@ -86,5 +95,74 @@ public class DataImporter
 #else
     throw new NotSupportedException("This method can only be used in the Unity Editor.");  
 #endif
+    }
+
+    [MenuItem("Custom/Import RecipeDataList from CSV")]
+    public static void ImportRecipeData()
+    {
+        string csvRecipeDataFilePath = "Assets/Data_CSV_files/RecipesDataList.csv";
+
+
+        RecipeDatatable table = ScriptableObject.CreateInstance<RecipeDatatable>();
+        table.Recipes = ReadRecipeDataCsvFile(csvRecipeDataFilePath);
+
+        // 在编辑器中，使用AssetDatabase来保存ScriptableObject  
+#if UNITY_EDITOR
+        string filepath = "Assets/PData/RecipesDataTable.asset";
+        if (!File.Exists(filepath))
+        {
+            AssetDatabase.CreateAsset(table, AssetDatabase.GenerateUniqueAssetPath(filepath));
+        }
+        else 
+        {
+            AssetDatabase.DeleteAsset(filepath);
+            AssetDatabase.CreateAsset(table, AssetDatabase.GenerateUniqueAssetPath(filepath));
+        }
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+#endif
+    }
+
+    public static List<Recipe> ReadRecipeDataCsvFile(string filePath)
+    {
+        List<Recipe> recipeDataList = new List<Recipe>();
+        string[] lines = File.ReadAllLines(filePath);
+
+        // 跳过标题行（第一行）  
+        for (int i = 1; i < lines.Length; i++) // 从第二行开始循环  
+        {
+            string[] fields = lines[i].Split(','); // 假设字段由逗号分隔  
+
+            Recipe recipe = new Recipe();
+
+            string[] input_items = fields[2].Split(';');
+            string[] input_nums = fields[3].Split(';');
+            for (int index_input = 0; index_input < input_items.Length; ++index_input)
+            {
+                RecipeElem tempElem;
+
+                tempElem.CardId = int.Parse(input_items[index_input]);
+                tempElem.Num = int.Parse(input_nums[index_input]);
+
+                recipe.inputs.Add(tempElem);
+            }
+
+            string[] output_items = fields[0].Split(',');
+            string[] output_nums = fields[1].Split(',');
+            for (int index_out = 0; index_out < output_items.Length; ++index_out)
+            {
+                RecipeElem tempElem;
+
+                tempElem.CardId = int.Parse(output_items[index_out]);
+                tempElem.Num = int.Parse(output_nums[index_out]);
+
+                recipe.outputs.Add(tempElem);
+            }
+            recipe.combinetime = float.Parse(fields[4]);
+
+            recipeDataList.Add(recipe);
+        }
+
+        return recipeDataList;
     }
 }

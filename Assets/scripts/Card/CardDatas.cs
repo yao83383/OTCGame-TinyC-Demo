@@ -12,6 +12,7 @@ public class CardDatas : MonoBehaviour
 
     //基础卡包数据
     public CardDatatable BaseCardDataTable;
+    public RecipeDatatable BaseRecipeDataTable;
 
     //储存所有Card数据
     [HideInInspector]
@@ -51,17 +52,18 @@ public class CardDatas : MonoBehaviour
 
         _instance = this;
         // 在这里添加初始化代码...  
-        CSVReader csvreader = new CSVReader();
-        csvreader.LoadRecipeData();
+        //CSVReader csvreader = new CSVReader();
+        //csvreader.LoadRecipeData();
         //csvreader.LoadCardData();
         LoadCardData();
-
+        LoadRecipeData();
     }
 
     public static Dictionary<int, FCardData> LoadCardData()
     {
-        CardDatas.Instance.Carddata_dic.Clear();
+        if (!CardDatas.Instance.BaseCardDataTable) return null;
 
+        CardDatas.Instance.Carddata_dic.Clear();
         foreach (FCardData card in CardDatas.Instance.BaseCardDataTable.Cards)
         {
             FCardData tempData;
@@ -75,5 +77,38 @@ public class CardDatas : MonoBehaviour
         }
         
         return CardDatas.Instance.Carddata_dic;
+    }
+
+    public static List<Recipe> LoadRecipeData()
+    {
+        if (!CardDatas.Instance.BaseRecipeDataTable) return null;
+
+        RecipeManager.Instance.Recipedata.Clear();
+        foreach(Recipe data in CardDatas.Instance.BaseRecipeDataTable.Recipes)
+        {
+            Recipe recipe = new Recipe();
+            foreach (RecipeElem elem in data.inputs)
+            {
+                recipe.inputs_items.Add(elem.CardId);
+                recipe.inputs_nums.Add(elem.Num);
+                recipe.inputs.Add(elem);
+                recipe.Ingredients.Add(elem.CardId, elem.Num);
+            }
+
+            foreach (RecipeElem elem in data.outputs)
+            {
+                recipe.outputs_items.Add(elem.CardId);
+                recipe.outputs_nums.Add(elem.Num);
+                recipe.outputs.Add(elem);
+                recipe.Output_dic.Add(elem.CardId, elem.Num);
+            }
+
+            recipe.combinetime = data.combinetime;
+
+            RecipeManager.Instance.Recipedata.Add(recipe);
+            RecipeManager.Instance.AddRecipe(recipe);
+        }
+
+        return RecipeManager.Instance.Recipedata;
     }
 }
