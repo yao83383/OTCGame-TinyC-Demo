@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
         if (findData.CardId != 0)
         { 
             GameObject cardObject = CardsManager.Instance.CreateCardById(cardId, this.gameObject);
-            cardObject.GetComponent<Card>().InitCarddataByID(cardId);
             _globaldata.SpriteStone -= findData.CostGold;
             GoldNumText.text = "ËùÊ£½ðÇ®: " + (_globaldata.SpriteStone);
         }

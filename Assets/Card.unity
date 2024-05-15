@@ -4114,7 +4114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042617431}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 124}
   m_LocalScale: {x: 160.00002, y: 119.999954, z: 79.99996}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7408,6 +7408,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732502549}
   m_CullTransparentMesh: 1
+--- !u!1 &1761254282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761254283}
+  - component: {fileID: 1761254284}
+  m_Layer: 0
+  m_Name: chessgrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761254283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761254282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2073085718}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1761254284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761254282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b3630cce66a2459751671e568c299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: 19
+  cellSize: 19
 --- !u!1001 &1769062600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9100,6 +9146,7 @@ Transform:
   - {fileID: 1129409369}
   - {fileID: 1099747778}
   - {fileID: 1179804860}
+  - {fileID: 1761254283}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9116,7 +9163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseCardDataTable: {fileID: 11400000, guid: 57c6ca3b1648a0c4e8db36461b926017, type: 2}
-  BaseRecipeDataTable: {fileID: 0}
+  BaseRecipeDataTable: {fileID: 11400000, guid: 8611b98d76c2c7a47ae9993dceb58144,
+    type: 2}
 --- !u!114 &2073085720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9606,6 +9654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 340
+      objectReference: {fileID: 0}
+    - target: {fileID: 832417147742522022, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 832417148405306514, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
         type: 3}
