@@ -40,6 +40,8 @@ public class LineRendererManager : MonoBehaviour {
         if (size <= 0) size = 1;
         int LeftTopGridNum = size / 2;
         int RightButtomGridNum = size - size / 2;
+
+        //lineRenderer.
     }
  
     //void Update()
