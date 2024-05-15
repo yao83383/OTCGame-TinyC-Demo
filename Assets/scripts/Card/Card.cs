@@ -16,9 +16,6 @@ public class Card : MonoBehaviour
 
     //Contains Cards from this to the end;
     //  PreCards not included;
-    [HideInInspector]
-    private List<Card> CardList = new List<Card>();
-
     private Card PreCard;
     private Card NextCard;
 
@@ -130,54 +127,82 @@ public class Card : MonoBehaviour
         }
     }
 
-    public List<Card> GetCardList()
+    public List<Card> GetCardList(Card InRootCard)
     {
-        if (this.PreCard)
+        List<Card> TempCardList = new List<Card>();
+        if (InRootCard)
         {
-            return this.PreCard.GetCardList();
+            TempCardList.Add(InRootCard);
+
+            if (InRootCard.NextCard)
+            {
+                Card TempNextCard = InRootCard.NextCard;
+                for (; TempNextCard;)
+                {
+                    if (TempNextCard)
+                    {
+                        TempCardList.Add(TempNextCard);
+                    }
+                    TempNextCard = TempNextCard.NextCard;
+                }
+                return TempCardList;
+            }
+            else 
+            {
+                return TempCardList;
+            }
         }
-        else
-        {
-            return this.CardList;
-        }
+
+        return null;
     }
 
-    private void RefreshCardList()
-    {
-        if (NextCard)
-        {
-            //非链首 递归加入list
-            NextCard.RefreshCardList();
-        }
-        else
-        {
-            //链首 清除list
-            GetCardList().Clear();
-        }
+    //private void RefreshCardList()
+    //{
+    //    if (NextCard)
+    //    {
+    //        //非链首 递归加入list
+    //        NextCard.RefreshCardList();
+    //    }
+    //    else
+    //    {
+    //        //链首 清除list
+    //        GetCardList().Clear();
+    //    }
+    //
+    //    if (!GetCardList().Contains(this))
+    //    {
+    //        GetCardList().Remove(this);
+    //        GetCardList().Add(this);
+    //    }
+    //}
 
-        if (!GetCardList().Contains(this))
+    //增
+    private void AddToParentListEnd(Card InParentCard)
+    {
+        if (InParentCard)
         {
-            GetCardList().Remove(this);
-            GetCardList().Add(this);
+            InParentCard.NextCard = this;
+            this.PreCard = InParentCard;
         }
     }
 
     public void Drop(Card InPreCard, Vector3 InPosition)
     {
-        this.PreCard = InPreCard;
         CardLayout.GetComponent<MeshCollider>().enabled = true;
+
         if (InPreCard)
         {
+            this.PreCard = InPreCard;
             transform.position = InPreCard.transform.position + NextCardOffset;
             InPreCard.NextCard = this;
+            //AddToListEnd(InPreCard.CardList);
         }
         else
         {
             transform.position = InPosition;
         }
-        RefreshCardList();
 
-        Recipe matchRecipe = RecipeManager.Instance.MatchRecipe(this.CardList);
+        Recipe matchRecipe = RecipeManager.Instance.MatchRecipe(GetCardList(GetListHead()));
         if (matchRecipe != null)
         {
             foreach (int outId in matchRecipe.Output_dic.Keys)
@@ -190,7 +215,7 @@ public class Card : MonoBehaviour
                 }
             }
             //matchRecipe.inputs_items
-            foreach (Card card in CardList)
+            foreach (Card card in GetCardList(GetListHead()))
             {
                 
                 DestroyImmediate(card.gameObject);
