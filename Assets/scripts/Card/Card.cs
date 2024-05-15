@@ -61,7 +61,13 @@ public class Card : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
-        //animator = this.transform.parent.GetComponent<Animator>();
+
+        if (!InitCarddataByID(CardData.CardId))
+        {
+            Destroy(this.gameObject);
+        }
+
+		//animator = this.transform.parent.GetComponent<Animator>();
         if (CardDatas.Instance.Carddata_dic.TryGetValue(CardData.CardId, out CardData))
         { 
             if (CardnameText)
@@ -69,12 +75,6 @@ public class Card : MonoBehaviour
                 CardnameText.text = CardData.CardName;
             }
         }
-
-        if (!InitCarddataByID(CardData.CardId))
-        {
-            Destroy(this.gameObject);
-        }
-
 
         if (animator)
         {
