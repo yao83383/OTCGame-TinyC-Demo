@@ -3,55 +3,15 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using System.IO;
+using AStar.Utils.DesignPattern.Singleton;
 
-public class CardsManager : MonoBehaviour
+public class CardsManager : SingletonMonoBase<CardsManager>
 {
-    // 静态变量来保存Manager的实例  
-    private static CardsManager _instance;
-
     //存储卡数据
     //public FCardData Carddata;
 
     //所有当前Card实例
     public List<FCardData> Carddata = new List<FCardData>();
-    // 私有构造函数，防止外部通过new创建实例  
-    private CardsManager() { }
-
-    // 公共静态方法，用于获取Manager的实例  
-    public static CardsManager Instance
-    {
-        get
-        {
-            // 如果_instance为空，则寻找场景中的Manager实例  
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<CardsManager>();
-
-                // 如果没有找到，则创建一个新的Manager实例并添加到场景中  
-                if (_instance == null)
-                {
-                    GameObject managerObject = new GameObject("CardsManager");
-                    _instance = managerObject.AddComponent<CardsManager>();
-                }
-            }
-
-            return _instance;
-        }
-    }
-
-    // 初始化方法，可以在这里添加初始化代码  
-    void Awake()
-    {
-        // 确保Manager是单例  
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        _instance = this;
-        // 在这里添加初始化代码...  
-    }
 
     public GameObject CreateCardById(int CardId, GameObject parent)
     {
