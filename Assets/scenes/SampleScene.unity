@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 267857884}
   - component: {fileID: 267857883}
   - component: {fileID: 267857882}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1013,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634279282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: -2.19, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 1718789389}
   - component: {fileID: 1718789388}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GridTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,12 +1052,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d291975853395f748bd21c188f80087a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellSize: 1
-  gridWidth: 6
-  gridHeight: 4
+  cellSize: 0.5
+  gridWidth: 10
+  gridHeight: 10
   yOffset: 0.5
-  cellMaterialValid: {fileID: 2100000, guid: a9df652c0e9a0cc43a4a11169f91a712, type: 2}
-  cellMaterialInvalid: {fileID: 2100000, guid: b3443f8de10fc4a4bb43402a897d179c, type: 2}
+  cellMaterialValid: {fileID: 2100000, guid: 3111df7cc93836f459372786947c746c, type: 2}
+  cellMaterialInvalid: {fileID: 2100000, guid: fc5b48a4e05c7eb499f49ce25d94c64a, type: 2}
 --- !u!4 &1718789387
 Transform:
   m_ObjectHideFlags: 0
