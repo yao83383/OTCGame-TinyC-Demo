@@ -74,7 +74,7 @@ public class DragAndDrop : MonoBehaviour
                 //Debug.Log(Input.mousePosition);
                 // 将屏幕坐标转换为世界坐标
                 Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorPoint) + offset;
-                cursorPosition.z = -1;
+                //cursorPosition.z = -1;
                 // 更新物体的位置
                 Card CardObj = ObjectToMove.GetComponent<Card>();
                 CardObj.Move(cursorPosition);
@@ -94,7 +94,7 @@ public class DragAndDrop : MonoBehaviour
             //Debug.Log(Input.mousePosition);
             // 将屏幕坐标转换为世界坐标
             Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorPoint) + offset;
-            cursorPosition.z = -1;
+            //cursorPosition.z = -1;
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
@@ -161,7 +161,7 @@ public class DragAndDrop : MonoBehaviour
         Vector2 newPos = new Vector2(transform.localPosition.x + offset.x * CamCtrlSettings.m_cameraScaleVal, transform.localPosition.y + offset.y * CamCtrlSettings.m_cameraScaleVal);
         newPos.y = Mathf.Clamp(newPos.y, CamCtrlSettings.m_minCamYPos, CamCtrlSettings.m_maxCamYPos);
         newPos.x = Mathf.Clamp(newPos.x, CamCtrlSettings.m_minCamXPos, CamCtrlSettings.m_maxCamXPos);
-        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+        transform.position = new Vector3(newPos.x, transform.position.z, newPos.y);
     }
 }
 
