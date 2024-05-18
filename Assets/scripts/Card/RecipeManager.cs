@@ -38,10 +38,10 @@ public class RecipeManager : SingletonMonoBase<RecipeManager>
     {
         // 对原料列表进行排序,确保传入md5计算的产出数值与配方顺序无关  
         var sortedByKeys = ingredients.OrderBy(entry => entry.Key);
-        foreach (var pair in sortedByKeys)
-        {
-            Debug.Log("Key = " + pair.Key + ", Value = " + pair.Value);
-        }
+        // foreach (var pair in sortedByKeys)
+        // {
+        //     Debug.Log("Key = " + pair.Key + ", Value = " + pair.Value);
+        // }
 		
         StringBuilder sb = new StringBuilder();  
         foreach (var pair in ingredients)  

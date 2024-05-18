@@ -7232,7 +7232,7 @@ GameObject:
   - component: {fileID: 1609199180}
   - component: {fileID: 1609199179}
   m_Layer: 0
-  m_Name: WorldContainer
+  m_Name: CardsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8623,7 +8623,7 @@ PrefabInstance:
     - target: {fileID: 832417146917881743, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: -250.00002
       objectReference: {fileID: 0}
     - target: {fileID: 832417147397820150, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
         type: 3}

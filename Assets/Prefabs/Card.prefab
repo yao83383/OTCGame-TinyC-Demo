@@ -145,6 +145,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardLayoutUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1799877725413988547, guid: 695f8532b9d79094ab14561b5ba40a6b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2322903426535488916, guid: 695f8532b9d79094ab14561b5ba40a6b,
         type: 3}
       propertyPath: m_AnchorMax.y

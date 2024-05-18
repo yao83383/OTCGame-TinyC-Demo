@@ -20,7 +20,7 @@ public class DragAndDrop : MonoBehaviour
     void Update()
     {
 #if (UNITY_ANDROID || UNITY_IPHONE) && !UNITY_EDITOR
-			HandleTouchInput();
+		HandleTouchInput();
 #else
         HandleMouseInput();
 #endif
@@ -35,7 +35,7 @@ public class DragAndDrop : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("ClickableObject")))
             {
                 if (hit.collider.transform.parent)
                 {
@@ -47,10 +47,10 @@ public class DragAndDrop : MonoBehaviour
                 }
 
                 m_prevPosition = Input.mousePosition;
-                if (hit.collider.gameObject.CompareTag("Card"))
+                if (ObjectToMove.CompareTag("Card"))
                 {
                     screenPoint = mainCamera.WorldToScreenPoint(ObjectToMove.transform.position);
-                    offset = ObjectToMove.transform.position - mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+                    //offset = ObjectToMove.transform.position - mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
                     Card CardObj = ObjectToMove.GetComponent<Card>();
                     CardObj.StartMove();
                     isCardDragging = true;
@@ -62,11 +62,27 @@ public class DragAndDrop : MonoBehaviour
         {
             if (isCardDragging)
             {
+                // 获取鼠标的屏幕坐标  
+                Vector3 mousePos = Input.mousePosition;  
+                mousePos.z = 0;//= (ObjectToMove.transform.position - mainCamera.transform.position).z; // 设定z坐标（深度）  
+                Debug.Log("mousePos: " + mousePos);
+                // 将屏幕坐标转换为世界坐标  
+                Vector3 targetPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mousePos.z));  
+  
+                Vector3 velocity = new Vector3();
+
+                float smoothTime = 10f;
+                // 平滑移动到目标位置  
+                ObjectToMove.transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);  
+                Debug.Log("targetPosition: " + ObjectToMove.transform.position);
+                Debug.Log("ObjectToMove.transform.position：" + targetPosition);
+
+                return;
                 // 计算鼠标在屏幕上的位置
                 Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
                 //Debug.Log(Input.mousePosition);
                 // 将屏幕坐标转换为世界坐标
-                Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorPoint) + offset;
+                Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorPoint);// + offset;
                 //cursorPosition.z = -1;
                 // 更新物体的位置
                 Card CardObj = ObjectToMove.GetComponent<Card>();
@@ -85,7 +101,7 @@ public class DragAndDrop : MonoBehaviour
             //cursorPosition.z = -1;
 
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("ClickableObject")))
             {
                 if (hit.collider.gameObject.CompareTag("Card"))
                 {
