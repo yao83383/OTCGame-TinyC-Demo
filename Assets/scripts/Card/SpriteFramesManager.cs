@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SpriteFramesManager : MonoBehaviour
+using AStar.Utils.DesignPattern.Singleton;
+ 
+public class SpriteFramesManager : SingletonMonoBase<SpriteFramesManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void PlayAnimation()
     {
         
     }

@@ -69,7 +69,7 @@ public class CameraMoveControl : MonoBehaviour
     /// <summary>
     /// 缩放时间
     /// </summary>
-    [SerializeField] private float zoomTime;
+    [SerializeField] private float zoomSpeed;
     #endregion
  
     private void Start()
@@ -103,7 +103,7 @@ public class CameraMoveControl : MonoBehaviour
             newMainCamreaPos -= Input.GetAxis("Mouse ScrollWheel") * zoomV3;
             ZoomLimit(ref newMainCamreaPos);
             //刷新最终位置
-            mainCamreaTF.localPosition = Vector3.Lerp(mainCamreaTF.localPosition, newMainCamreaPos, zoomTime * Time.deltaTime);
+            mainCamreaTF.localPosition = Vector3.MoveTowards(mainCamreaTF.localPosition, newMainCamreaPos, zoomSpeed * Time.deltaTime);
         }
     }
  
