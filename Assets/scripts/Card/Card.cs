@@ -83,10 +83,19 @@ public class Card : MonoBehaviour
         
     }
 
+    void ChangeAllChildCardsCollision(bool IsEnable)
+    {
+        CardLayout.GetComponent<MeshCollider>().enabled = IsEnable;
+
+        if (NextCard)
+        {
+            NextCard.ChangeAllChildCardsCollision(IsEnable);
+        }
+    }
 
     public void StartMove()
     {
-        CardLayout.GetComponent<MeshCollider>().enabled = false;
+        ChangeAllChildCardsCollision(false);
         if (PreCard)
         { 
             PreCard.NextCard = null;
@@ -94,19 +103,9 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void Move(Vector3 InPostion)
-    {
-        this.transform.position = InPostion;
-        if (NextCard)
-        { 
-            NextCard.Move(InPostion + CardsManager.Instance.NextCardOffset);
-        }
-        Debug.Log("moving card " + this.name + this.transform.position);
-    }
-
     private Card GetListHead()
     {
-        if (this.PreCard)
+        if (PreCard)
         {
             return PreCard.GetListHead();
         }
@@ -184,10 +183,20 @@ public class Card : MonoBehaviour
         }
     }
 
+    public void Move(Vector3 InPostion)
+    {
+        this.transform.position = InPostion;
+        if (NextCard)
+        {
+            NextCard.Move(InPostion + CardsManager.Instance.NextCardOffset);
+        }
+        Debug.Log("moving card " + this.name + this.transform.position);
+    }
+
     //Drop位置有上一张Card时
     public void Drop(Card InPreCard)
     {
-        CardLayout.GetComponent<MeshCollider>().enabled = true;
+        ChangeAllChildCardsCollision(true);
 
         if (InPreCard)
         {
@@ -202,7 +211,7 @@ public class Card : MonoBehaviour
 
     public void Drop(Vector3 InPosition)
     {
-        CardLayout.GetComponent<MeshCollider>().enabled = true;
+        ChangeAllChildCardsCollision(true);
 
         transform.position = InPosition;
 
