@@ -506,52 +506,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 170633841}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &235948698
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 235948699}
-  - component: {fileID: 235948700}
-  m_Layer: 0
-  m_Name: chessgrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &235948699
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235948698}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1609199181}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &235948700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235948698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 072b3630cce66a2459751671e568c299, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSize: 19
-  cellSize: 19
 --- !u!1001 &242307010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5779,7 +5733,6 @@ Transform:
   - {fileID: 896769202}
   - {fileID: 1161225234}
   - {fileID: 1823305894}
-  - {fileID: 235948699}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6359,7 +6312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSize: 0.5
   gridWidth: 10
-  gridHeight: 10
+  gridHeight: 14
   yOffset: 0.5
   cellMaterialValid: {fileID: 2100000, guid: 3111df7cc93836f459372786947c746c, type: 2}
   cellMaterialInvalid: {fileID: 2100000, guid: fc5b48a4e05c7eb499f49ce25d94c64a, type: 2}

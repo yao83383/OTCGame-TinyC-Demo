@@ -10,7 +10,10 @@ public class CardsManager : SingletonMonoBase<CardsManager>
     //存储卡数据
     //public FCardData Carddata;
 
+    public Vector3 NextCardOffset = new Vector3(0f, 0.5f, -1.5f);
+
     //所有当前Card实例
+    [HideInInspector]
     public List<FCardData> Carddata = new List<FCardData>();
 
     public GameObject CreateCardById(int CardId, GameObject parent)

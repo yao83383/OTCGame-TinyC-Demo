@@ -21,8 +21,6 @@ public class Card : MonoBehaviour
 
     public FCardData CardData;
 
-    public Vector3 NextCardOffset = new Vector3(-1.5f, -0.5f, 0f);
-
     //[SerializeField]
     private Camera _mainCamera;
 
@@ -98,10 +96,10 @@ public class Card : MonoBehaviour
 
     public void Move(Vector3 InPostion)
     {
-        this.transform.position = InPostion + NextCardOffset;
+        this.transform.position = InPostion;
         if (NextCard)
         { 
-            NextCard.Move(InPostion + NextCardOffset);
+            NextCard.Move(InPostion + CardsManager.Instance.NextCardOffset);
         }
         Debug.Log("moving card " + this.name + this.transform.position);
     }
@@ -186,22 +184,33 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void Drop(Card InPreCard, Vector3 InPosition)
+    //Drop位置有上一张Card时
+    public void Drop(Card InPreCard)
     {
         CardLayout.GetComponent<MeshCollider>().enabled = true;
 
         if (InPreCard)
         {
             this.PreCard = InPreCard;
-            transform.position = InPreCard.transform.position + NextCardOffset;
+            transform.position = InPreCard.transform.position + CardsManager.Instance.NextCardOffset;
             InPreCard.NextCard = this;
             //AddToListEnd(InPreCard.CardList);
         }
-        else
-        {
-            transform.position = InPosition;
-        }
 
+        MatchRecipe();
+    }
+
+    public void Drop(Vector3 InPosition)
+    {
+        CardLayout.GetComponent<MeshCollider>().enabled = true;
+
+        transform.position = InPosition;
+
+        MatchRecipe();
+    }
+
+    private void MatchRecipe()
+    {
         Recipe matchRecipe = RecipeManager.Instance.MatchRecipe(GetCardList(GetListHead()));
         if (matchRecipe != null)
         {
@@ -217,14 +226,12 @@ public class Card : MonoBehaviour
             //matchRecipe.inputs_items
             foreach (Card card in GetCardList(GetListHead()))
             {
-                
+
                 DestroyImmediate(card.gameObject);
 
             }
         }
-
     }
-
     public void LevelUp()
     { }
 
