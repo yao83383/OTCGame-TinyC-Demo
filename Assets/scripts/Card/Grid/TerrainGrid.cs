@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class TerrainGrid : MonoBehaviour {
+using AStar.Utils.DesignPattern.Singleton;
+public class TerrainGrid : SingletonMonoBase<TerrainGrid>
+{
     public float cellSize = 1;
     public int gridWidth = 10;
     public int gridHeight = 10;
@@ -80,9 +81,9 @@ public class TerrainGrid : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Terrain"));
         Vector3 position = hitInfo.point;
-    
-        position.x -= hitInfo.point.x % cellSize + gridWidth * cellSize / 2;
-        position.z -= hitInfo.point.z % cellSize + gridHeight * cellSize / 2;
+
+        position.x -= hitInfo.point.x % cellSize;// + gridWidth * cellSize / 2;
+        position.z -= hitInfo.point.z % cellSize;// + gridHeight * cellSize / 2;
         position.y = 0;
     
         transform.position = position;
@@ -117,7 +118,7 @@ public class TerrainGrid : MonoBehaviour {
     
     bool IsCellValid(int x, int z) {
         RaycastHit hitInfo;
-        Vector3 origin = new Vector3(x * cellSize + cellSize/2, 200, z * cellSize + cellSize/2);
+        Vector3 origin = new Vector3((x - (int)(gridWidth / 2)) * cellSize + cellSize/2, 200, (z - (int)(gridHeight / 2)) * cellSize + cellSize/2);
         Physics.Raycast(transform.TransformPoint(origin), Vector3.down, out hitInfo, Mathf.Infinity, LayerMask.GetMask("Buildings", "ClickableObject"));
         
         return hitInfo.collider == null;
@@ -145,6 +146,6 @@ public class TerrainGrid : MonoBehaviour {
     }
     
     Vector3 MeshVertex(int x, int z) {
-        return new Vector3(x * cellSize, _heights[z * (gridWidth + 1) + x] + yOffset, z * cellSize);
+        return new Vector3(x * cellSize - (int)(gridWidth / 2) * cellSize, _heights[z * (gridWidth + 1) + x] + yOffset, z * cellSize - (int)(gridHeight / 2) * cellSize);
     }
 }

@@ -185,6 +185,9 @@ public class Card : MonoBehaviour
 
     public void Move(Vector3 InPostion)
     {
+        //Vector3 TempPostion = InPostion;
+        //四舍五入取cell对齐；
+        //TempPostion = new Vector3((int)((TempPostion.x + TerrainGrid.Instance.cellSize / 2) / TerrainGrid.Instance.cellSize) * TerrainGrid.Instance.cellSize, TempPostion.y, (int)((TempPostion.z + TerrainGrid.Instance.cellSize / 2) / TerrainGrid.Instance.cellSize) * TerrainGrid.Instance.cellSize);
         this.transform.position = InPostion;
         if (NextCard)
         {
