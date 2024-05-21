@@ -22,4 +22,13 @@ public struct FCardData
     public string spritename;
     [HideInInspector]
     public string prefabname;
+
+    [HideInInspector]
+    public int ActionPreority;
+
+    [HideInInspector]
+    public int AttackPoint;
+
+    [HideInInspector]
+    public int Health;
 }

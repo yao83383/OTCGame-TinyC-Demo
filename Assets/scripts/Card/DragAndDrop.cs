@@ -56,7 +56,7 @@ public class DragAndDrop : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Terrain", "ClickableObject")))
         {
             outTargetPostion = hit.point + new Vector3(0, 1f, 0);
-            Debug.Log("hit postion:" + hit.point);
+            //Debug.Log("hit postion:" + hit.point);
         }
     }
 
@@ -75,8 +75,8 @@ public class DragAndDrop : MonoBehaviour
                     isCardDragging = true;
                     //记录起始位置 用于右键取消操作
                     m_prevPosition = ObjectToMove.transform.position;
-                    Debug.Log("Click card, position:" + ObjectToMove.transform.position);
-                    Debug.Log("Click screenPoint:" + offset);
+                    //Debug.Log("Click card, position:" + ObjectToMove.transform.position);
+                    //Debug.Log("Click screenPoint:" + offset);
                 }
                 else
                 {

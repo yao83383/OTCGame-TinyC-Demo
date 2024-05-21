@@ -8,9 +8,10 @@ public class Card : MonoBehaviour
     //Object to show-------------------------------
     [SerializeField]
     private SpriteRenderer spriteRenderer;
-    [SerializeField]
-    private Animator animator;
+    public Animator animator;
     //-------------------------------
+    [HideInInspector]
+    public Combat combat;
 
     public TextMeshPro CardnameText;
 
@@ -73,7 +74,7 @@ public class Card : MonoBehaviour
 
         if (animator)
         {
-            animator.Play("SpawnCardAnimator");
+            animator.Play("spawncard");
         }
     }
 
@@ -193,7 +194,7 @@ public class Card : MonoBehaviour
         {
             NextCard.Move(InPostion + CardsManager.Instance.NextCardOffset);
         }
-        Debug.Log("moving card " + this.name + this.transform.position);
+        //Debug.Log("moving card " + this.name + this.transform.position);
     }
 
     //Drop位置有上一张Card时
@@ -207,6 +208,16 @@ public class Card : MonoBehaviour
             transform.position = InPreCard.transform.position + CardsManager.Instance.NextCardOffset;
             InPreCard.NextCard = this;
             //AddToListEnd(InPreCard.CardList);
+            GameObject TempGameObject = new GameObject();
+
+            combat = TempGameObject.AddComponent<Combat>();
+
+            List<Card> from = new List<Card>();
+            from.Add(this);
+
+            List<Card> to = new List<Card>();
+            to.Add(InPreCard);
+            combat.InitCombat(from, to);
         }
 
         MatchRecipe();
