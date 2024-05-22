@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using AStar.Utils.DesignPattern.Singleton;
+using UnityEngine.SceneManagement;
 using System.Transactions;
 public class GameManager : SingletonMonoBase<GameManager>
 {
@@ -22,6 +23,8 @@ public class GameManager : SingletonMonoBase<GameManager>
         // 在这里添加初始化代码...  
         GoldNumText.text = "所剩金钱: " + _globaldata.SpriteStone;
     }
+
+    private bool isInCombatScene = false;
 
     private void Update()
     {

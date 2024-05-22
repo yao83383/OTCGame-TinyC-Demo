@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using AStar.Utils.DesignPattern.Singleton;
 
-public class MainMenu : Menu
+public class MainMenu : SingletonMonoBase<MainMenu>
 {
-    [Header("Menu Navigation")]
-    [SerializeField] private SaveSlotsMenu saveSlotsMenu;
+    //[Header("Menu Navigation")]
+    //[SerializeField] private SaveSlotsMenu saveSlotsMenu;
 
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
@@ -30,13 +31,13 @@ public class MainMenu : Menu
 
     public void OnNewGameClicked() 
     {
-        saveSlotsMenu.ActivateMenu(false);
+        //saveSlotsMenu.ActivateMenu(false);
         this.DeactivateMenu();
     }
 
     public void OnLoadGameClicked() 
     {
-        saveSlotsMenu.ActivateMenu(true);
+        //saveSlotsMenu.ActivateMenu(true);
         this.DeactivateMenu();
     }
 
