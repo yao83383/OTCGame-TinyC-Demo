@@ -1584,6 +1584,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a8bba48d3a94440893b83af3d10c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &360675616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360675618}
+  - component: {fileID: 360675617}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &360675617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360675616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650f616c0a6148a4d99aac3fa310404d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  codeInputBox: {fileID: 1215667098}
+  codeText: {fileID: 810437083}
+  _globaldata: {fileID: 11400000, guid: f8363281ed7b754409aaf7d275b4cc16, type: 2}
+  GoldNumText: {fileID: 975875508}
+--- !u!4 &360675618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360675616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,18 +2111,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 667864233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &673285356 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 832417148169737033, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1907591937}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &713296002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,6 +2401,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810437083 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 832417146978651352, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907591937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &811269165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5944,7 +5992,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1609199181}
   - component: {fileID: 1609199180}
-  - component: {fileID: 1609199179}
   m_Layer: 0
   m_Name: CardsContainer
   m_TagString: Untagged
@@ -5952,22 +5999,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1609199179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609199178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650f616c0a6148a4d99aac3fa310404d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  codeInputBox: {fileID: 1215667098}
-  codeText: {fileID: 673285356}
-  _globaldata: {fileID: 11400000, guid: f8363281ed7b754409aaf7d275b4cc16, type: 2}
-  GoldNumText: {fileID: 975875508}
 --- !u!114 &1609199180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7250,6 +7281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 832417146978651352, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
+        type: 3}
+      propertyPath: m_text
+      value: '/give @1010000 1 '
       objectReference: {fileID: 0}
     - target: {fileID: 832417147397820150, guid: cbbbf66f803a0ca4ab92471a8f4bd7c5,
         type: 3}
